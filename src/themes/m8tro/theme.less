@@ -285,16 +285,17 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
   .open>.dropdown-toggle&.focus,
   .open>.dropdown-toggle&:focus,
   .open>.dropdown-toggle&:hover, {
-    color:@link-color;
-    border: 1px @link-color solid;
+    color: @body-bg;
+    background-color: @link-color;
+    border: 1px darken(@link-color, 15%) solid;
     transition: none;
   }
 }
 
 .btn-primary,
-.dropdown-toggle.btn-primary {
-  color: @link-color;
-  border: 1px @link-color solid;
+.dropdown-toggle.btn-primary, {
+  color: @brand-primary;
+  border: 1px @brand-primary solid;
 
   &:hover,
   &:focus,
@@ -303,24 +304,24 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
   .open>.dropdown-toggle&,
   .open>.dropdown-toggle&.focus,
   .open>.dropdown-toggle&:focus,
-  .open>.dropdown-toggle&:hover, {
+  .open>.dropdown-toggle&:hover {
     color: @body-bg;
-    background-color: @link-color;
-    border: 1px @link-color solid;
+    background-color: @brand-primary;
+    border: 1px darken(@brand-primary, 15%) solid;
   }
 
-  .btn-primary + .dropdown-menu {
-    border-color: @link-color;
+  & + .dropdown-menu {
+    border-color: @brand-primary;
   }
 
-  .btn-primary + .dropdown-menu > .divider {
-    background-color: @link-color;
+  & + .dropdown-menu > .divider {
+    background-color: @brand-primary;
   }
 }
 
 .btn-success,
 .dropdown-toggle.btn-success, {
-  color:@brand-success;
+  color: @brand-success;
   border: 1px darken(@brand-success, 15%) solid;
 
   &:hover,
@@ -425,7 +426,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
 .jumbotron {
 
   .btn{
-    background-color:inherit;
+    background-color: inherit;
   }
 
   .btn:hover {
@@ -454,13 +455,13 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
   }
 
   .btn-primary {
-    color: @body-bg;
-    border: 1px @body-bg solid;
+    color: @brand-primary;
+    border: 1px @brand-primary solid;
   }
 
   .btn-primary:hover {
     color: @text-color;
-    background-color:@body-bg;
+    background-color: @brand-primary;
   }
 
   .btn-success {
@@ -470,7 +471,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
 
   .btn-success:hover {
     color: @text-color;
-    background-color:@brand-success;
+    background-color: @brand-success;
   }
 
   .btn-info {
@@ -490,7 +491,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
 
   .btn-warning:hover {
     color: @text-color;
-    background-color:@brand-warning;
+    background-color: @brand-warning;
   }
 
   .btn-danger {
@@ -500,7 +501,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
 
   .btn-danger:hover {
     color: @text-color;
-    background-color:@brand-danger;
+    background-color: @brand-danger;
   }
 }
 
