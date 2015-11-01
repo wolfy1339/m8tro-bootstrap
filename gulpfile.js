@@ -11,24 +11,25 @@
 var meta     = require('./package.json');
 
 // Gulp plugins
-var cache    = require('gulp-cached'),
-    concat   = require('gulp-concat'),
-    console  = require('better-console'),
-    cssmin   = require('gulp-cssmin'),
-    debug    = require('gulp-debug'),
-    del      = require('del'),
-    gulp     = require('gulp'),
-    htmlval  = require('gulp-html-validator'),
-    jshint   = require('gulp-jshint'),
-    jsonlint = require('gulp-json-lint'),
-    less     = require('gulp-less'),
-    path     = require('path'),
-    prompt   = require('gulp-prompt'),
-    sequence = require('run-sequence'),
-    util     = require('gulp-util'),
-    uglify   = require('gulp-uglify'),
-    watch    = require('gulp-watch'),
-    argv     = require('yargs').argv;
+var cache      = require('gulp-cached'),
+    concat     = require('gulp-concat'),
+    console    = require('better-console'),
+    cssmin     = require('gulp-cssmin'),
+    debug      = require('gulp-debug'),
+    del        = require('del'),
+    gulp       = require('gulp'),
+    htmlval    = require('gulp-html-validator'),
+    jshint     = require('gulp-jshint'),
+    jsonlint   = require('gulp-json-lint'),
+    less       = require('gulp-less'),
+    path       = require('path'),
+    prompt     = require('gulp-prompt'),
+    sequence   = require('run-sequence'),
+    sourcemaps = require('gulp-sourcemaps'),
+    util       = require('gulp-util'),
+    uglify     = require('gulp-uglify'),
+    watch      = require('gulp-watch'),
+    argv       = require('yargs').argv;
 
 // Autoprefixer supported browsers
 var autoprefixerBrowsers = [
@@ -121,11 +122,13 @@ gulp.task('less', function () {
   
   gulp.src('src/themes/m8tro/build.less')
     .pipe(debug({title: 'lessc:'}))
+    .pipe(sourcemaps.init())
     .pipe(less({
         plugins: [autoprefix],
         paths: [ path.join(__dirname, 'less', 'includes') ]
       }))
     .pipe(concat('m8tro.css'))
+    .pipe(sourcemaps.write('./'))
     .pipe(debug({title: 'copy:'}))
     .pipe(gulp.dest('dist/css/'))
     .pipe(concat('m8tro.min.css'))
@@ -430,11 +433,13 @@ gulp.task('setup', function(){
             // Concatenate LESS & compile CSS
             gulp.src(_less)
                 .pipe(concat('m8tro.less'))
+                .pipe(sourcemaps.init())
                 .pipe(less({
                       plugins: [autoprefix],
                       paths: [ path.join(__dirname, 'less', 'includes') ]
                     }))
                 .pipe(concat('m8tro.css'))
+                .pipe(sourcemaps.write('./'))
                 .pipe(gulp.dest('dist/css/'))
                 .pipe(concat('m8tro.min.css'))
                 .pipe(cssmin())
