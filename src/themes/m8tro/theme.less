@@ -7,7 +7,7 @@ body {
 }
 
 strong {
-  font-weight: 200;
+  font-weight: 400;
 }
 
 a {
@@ -50,8 +50,8 @@ a, .btn, .close {
 .label-default {color: @link-color;}
 
 .badge{color: @m8tro-theme;}
-.fa {color: @m8tro-theme;}
-.fa-home {color:@body-bg;}
+.fa, .glyphicon {color: @m8tro-theme;}
+.fa-home, .glyphicon-home {color:@body-bg;}
 .panel-footer{font-size:0.8em;}
 
 .dropdown-menu {
@@ -76,7 +76,7 @@ a, .btn, .close {
     }
   }
 
-  & .fa {
+  & .fa, & .glyphicon {
     color: @text-color;
   }
 }
@@ -84,8 +84,8 @@ a, .btn, .close {
 .breadcrumb-inverse {
   background-color: @m8tro-theme;
 
-  & .fa {
-   color: @body-bg;
+  & .fa, & .glyphicon {
+    color: @body-bg;
   }
 
   & a,
@@ -500,7 +500,7 @@ table,
     background-color: @m8tro-theme;
     color: @body-bg;
   }
-  & > td > .fa {
+  & > td > .fa, & > td > .glyphicon {
     color: @body-bg;
   }
 }
