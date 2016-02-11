@@ -59,6 +59,7 @@ gulp.task('clear',   ['clean']);
 gulp.task('empty',   ['clean']);
 gulp.task('flush',   ['clean']);
 gulp.task('trash',   ['clean']);
+gulp.task('dist',    ['make']);
 
 gulp.task('default',  ['help']);
 gulp.task('selftest', ['jshint', 'jsonlint']);
