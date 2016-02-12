@@ -77,11 +77,11 @@ input[type=range]::-ms-thumb {
 }
 .text-primary::-moz-selection,
 .text-primary a::-moz-selection {
-  background: #00b3b5;
+  background: #3c9cd6;
 }
 .text-primary::selection,
 .text-primary a::selection {
-  background: #00b3b5;
+  background: #3c9cd6;
 }
 .text-success::-moz-selection,
 .text-success a::-moz-selection {
@@ -93,11 +93,11 @@ input[type=range]::-ms-thumb {
 }
 .text-info::-moz-selection,
 .text-info a::-moz-selection {
-  background: #3c9cd6;
+  background: #00b3b5;
 }
 .text-info::selection,
 .text-info a::selection {
-  background: #3c9cd6;
+  background: #00b3b5;
 }
 .text-warning::-moz-selection,
 .text-warning a::-moz-selection {
@@ -114,4 +114,12 @@ input[type=range]::-ms-thumb {
 .text-danger::selection,
 .text-danger a::selection {
   background: #ed1c24;
+}
+.jumbotron ::-moz-selection {
+  color: #fff;
+  background: #000;
+}
+.jumbotron ::selection {
+  color: #fff;
+  background: #000;
 }
