@@ -27,8 +27,9 @@
     "node_modules",
     "package.json"
   ],
+
   "devDependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "wolfy1339/bootstrap#c88e00fec9462fe0748ab298ec9e6a8fa287dfcb",
     "fontawesome": "^4.6.3",
     "html5shiv": "^3.7.3",
     "respond": "^1.4.2"
