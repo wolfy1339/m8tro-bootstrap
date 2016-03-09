@@ -1338,6 +1338,10 @@ mark,
 .text-muted {
   color: #727272;
 }
+a.text-muted:hover,
+a.text-muted:focus {
+  color: #595959;
+}
 .text-primary {
   color: #3c9cd6;
 }
@@ -7506,51 +7510,52 @@ a.pager {
   outline: none;
 }
 .progress {
-  height: 10px;
+  height: 20px;
   -webkit-box-shadow: none;
-  box-shadow: none;
+          box-shadow: none;
 }
-.progress .progress-bar {
-  font-size: 10px;
-  line-height: 10px;
+.progress-bar {
+  color: #fff;
+  font-size: 15px;
+  line-height: 20px;
 }
 .progress-striped .progress-bar,
-.progress-bar-striped .progress-bar {
-  background: -webkit-linear-gradient(0deg, #fff 50%, #000 50%);
+.progress-bar-striped {
+  background: -webkit-linear-gradient(0, #fff 50%, #000 50%);
   -webkit-background-size: 4px 100%;
           background-size: 4px 100%;
 }
-.progress-striped .progress-bar-primary,
-.progress-bar-striped .progress-bar-primary {
-  background: -webkit-linear-gradient(0deg, #3c9cd6 50%, #000 50%);
+.progress-bar-striped.progress-bar-primary,
+.progress-striped .progress-bar-primary {
+  background: -webkit-linear-gradient(0, #3c9cd6 50%, #000 50%);
   background-repeat: repeat-x;
   -webkit-background-size: 4px 100%;
           background-size: 4px 100%;
 }
-.progress-striped .progress-bar-success,
-.progress-bar-striped .progress-bar-success {
-  background: -webkit-linear-gradient(0deg, #80c342 50%, #000 50%);
+.progress-bar-striped.progress-bar-success,
+.progress-striped .progress-bar-success {
+  background: -webkit-linear-gradient(0, #80c342 50%, #000 50%);
   background-repeat: repeat-x;
   -webkit-background-size: 4px 100%;
           background-size: 4px 100%;
 }
-.progress-striped .progress-bar-info,
-.progress-bar-striped .progress-bar-info {
-  background: -webkit-linear-gradient(0deg, #00b3b5 50%, #000 50%);
+.progress-bar-striped.progress-bar-info,
+.progress-striped .progress-bar-info {
+  background: -webkit-linear-gradient(0, #00b3b5 50%, #000 50%);
   background-repeat: repeat-x;
   -webkit-background-size: 4px 100%;
           background-size: 4px 100%;
 }
-.progress-striped .progress-bar-warning,
-.progress-bar-striped .progress-bar-warning {
-  background: -webkit-linear-gradient(0deg, #faa61a 50%, #000 50%);
+.progress-bar-striped.progress-bar-warning,
+.progress-striped .progress-bar-warning {
+  background: -webkit-linear-gradient(0, #faa61a 50%, #000 50%);
   background-repeat: repeat-x;
   -webkit-background-size: 4px 100%;
           background-size: 4px 100%;
 }
-.progress-striped .progress-bar-danger,
-.progress-bar-striped .progress-bar-danger {
-  background: -webkit-linear-gradient(0deg, #ed1c24 50%, #000 50%);
+.progress-bar-striped.progress-bar-danger,
+.progress-striped .progress-bar-danger {
+  background: -webkit-linear-gradient(0, #ed1c24 50%, #000 50%);
   background-repeat: repeat-x;
   -webkit-background-size: 4px 100%;
           background-size: 4px 100%;
