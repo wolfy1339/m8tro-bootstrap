@@ -742,38 +742,39 @@ input {
   font-size: 15px;
   line-height: 20px;
 }
-.progress-striped .progress-bar, .progress-bar-striped {
-    background-repeat: repeat-x;
-    background-size: 4px 100%;
-}
 
 .progress-striped .progress-bar, .progress-bar-striped {
-  background: -webkit-linear-gradient(0, @text-color 50%, @body-bg 50%);
+  background: linear-gradient(90deg, @text-color 50%, @body-bg 50%);
 }
 .progress-bar-primary {
   .progress-bar-striped&, .progress-striped & {
-    background: -webkit-linear-gradient(0, @brand-primary 50%, @body-bg 50%);
+    background: linear-gradient(90deg, @brand-primary 50%, @body-bg 50%);
   }
 }
 .progress-bar-success {
   .progress-bar-striped&, .progress-striped & {
-    background: -webkit-linear-gradient(0, @brand-success 50%, @body-bg 50%);
+    background: linear-gradient(90deg, @brand-success 50%, @body-bg 50%);
   }
 }
 .progress-bar-info {
   .progress-bar-striped&, .progress-striped & {
-    background: -webkit-linear-gradient(0, @brand-info 50%, @body-bg 50%);
+    background: linear-gradient(90deg, @brand-info 50%, @body-bg 50%);
   }
 }
 .progress-bar-warning {
   .progress-bar-striped&, .progress-striped & {
-    background: -webkit-linear-gradient(0, @brand-warning 50%, @body-bg 50%);
+    background: linear-gradient(0, @brand-warning 50%, @body-bg 50%);
   }
 }
 .progress-bar-danger {
   .progress-bar-striped&, .progress-striped & {
-    background: -webkit-linear-gradient(0, @brand-danger 50%, @body-bg 50%);
+    background: linear-gradient(0, @brand-danger 50%, @body-bg 50%);
   }
+}
+
+.progress-striped .progress-bar, .progress-bar-striped {
+    background-repeat: repeat-x;
+    background-size: 4px 100%;
 }
 
 // Containers =================================================================
