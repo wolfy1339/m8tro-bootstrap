@@ -12,21 +12,29 @@ strong {
 
 a {
   text-decoration: underline;
+
   &:focus {
     outline: none;
   }
 }
 
-input, textarea, keygen, select, button {
+input,
+textarea,
+keygen,
+select,
+button {
   border-radius: 0
 }
 
 a.list-group-item {
   text-decoration: none;
-  &:hover, &:focus  {
+
+  &:hover,
+  &:focus  {
     text-decoration: none;
     background-color: @gray-dark;
   }
+
   &.active>.badge {
     color: @gray-dark;
     background-color: transparent;
@@ -60,10 +68,12 @@ a,
 
 .dropdown-menu {
   margin: -1px 0;
-  &>li>a {
+
+  > li > a {
     font-weight: inherit;
     text-decoration: none;
   }
+
   .divider {
     background-color: @link-color;
   }
@@ -79,6 +89,7 @@ a,
     color: @link-color;
     font-weight: 400;
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }
@@ -99,8 +110,8 @@ a,
   }
 
   a,
-  &>li+li:before,
-  &>.active {
+  > li + li:before,
+  > .active {
     color: @body-bg;
   }
 }
@@ -108,6 +119,7 @@ a,
 .jumbotron {
   .btn {
     background-color: inherit;
+
     &:hover {
       color: @text-color;
     }
@@ -115,6 +127,7 @@ a,
 
   .btn-link {
     color: @body-bg;
+
     &:hover {
       color: inherit;
       text-decoration: underline;
@@ -125,6 +138,7 @@ a,
     color: @body-bg;
     background-color: @text-color;
     border: 1px @gray-lighter solid;
+
     &:hover {
       color: @link-color;
       background-color: @gray-lighter;
@@ -134,7 +148,8 @@ a,
 
   .btn-primary {
     color: @brand-primary;
-    border: 1px @brand-primary solid;
+    border: 1px @brand-primary solid;¸
+
     &:hover {
       color: @text-color;
       background-color: @brand-primary;
@@ -144,6 +159,7 @@ a,
   .btn-success {
     color: @brand-success;
     border: 1px @brand-success solid;
+
     &:hover {
       color: @text-color;
       background-color: @brand-success;
@@ -153,15 +169,17 @@ a,
   .btn-info {
     color: @brand-info;
     border: 1px @brand-info solid;
+
     &:hover {
       color: @text-color;
-      background-color:@brand-info;
+      background-color: @brand-info;
     }
   }
 
   .btn-warning {
     color: @brand-warning;
-    border: 1px @brand-warning solid;
+    border: 1px @brand-warning solid;¸
+
     &:hover {
       color: @text-color;
       background-color: @brand-warning;
@@ -171,6 +189,7 @@ a,
   .btn-danger {
     color: @brand-danger;
     border: 1px @brand-danger solid;
+
     &:hover {
       color: @text-color;
       background-color: @brand-danger;
@@ -206,16 +225,16 @@ a,
     }
 
     .navbar-nav {
-      &>.open>a,
-      &>.open>a:hover,
-      &>.open>a:focus {
+      > .open > a,
+      > .open > a:hover,
+      > .open > a:focus {
         background-color: @link-color;
         color: @body-bg;
       }
 
-      &>.active>a,
-      &>.active>a:hover,
-      &>.active>a:focus {
+      > .active > a,
+      > .active > a:hover,
+      > .active > a:focus {
         background-color: @body-bg;
       }
     }
@@ -233,21 +252,21 @@ a,
   }
   &-inverse {
     .navbar-nav {
-      &>.open>a,
-      &>.open>a:hover,
-      &>.open>a:focus {
+      > .open > a,
+      > .open > a:hover,
+      > .open > a:focus {
         background-color:darken(@navbar-inverse-bg, 5%);
         color: @body-bg;
       }
-      &>li>a:hover,
-      &>li>a:focus {
+      > li > a:hover,
+      > li > a:focus {
         color: @body-bg;
       }
     }
     .dropdown-menu {
       border: 1px @m8tro-theme solid;
 
-      &>li>a {
+      > li > a {
         color: @gray-light;
 
         &:hover,
@@ -333,10 +352,10 @@ a,
   &.active,
   &:active:hover,
   &.active:hover,
-  .open>.dropdown-toggle&,
-  .open>.dropdown-toggle&.focus,
-  .open>.dropdown-toggle&:focus,
-  .open>.dropdown-toggle&:hover {
+  .open > .dropdown-toggle&,
+  .open > .dropdown-toggle&.focus,
+  .open > .dropdown-toggle&:focus,
+  .open > .dropdown-toggle&:hover {
     color: @body-bg;
     background-color: @link-color;
     border: 1px darken(@link-color, 15%) solid;
@@ -355,20 +374,20 @@ a,
   &.active,
   &:active:hover,
   &.active:hover,
-  .open>.dropdown-toggle&,
-  .open>.dropdown-toggle&.focus,
-  .open>.dropdown-toggle&:focus,
-  .open>.dropdown-toggle&:hover {
+  .open > .dropdown-toggle&,
+  .open > .dropdown-toggle&.focus,
+  .open > .dropdown-toggle&:focus,
+  .open > .dropdown-toggle&:hover {
     color: @body-bg;
     background-color: @brand-primary;
     border: 1px darken(@brand-primary, 15%) solid;
   }
 
-  & + .dropdown-menu {
+  + .dropdown-menu {
     border-color: @brand-primary;
   }
 
-  & + .dropdown-menu > .divider {
+  + .dropdown-menu > .divider {
     background-color: @brand-primary;
   }
 }
@@ -384,19 +403,19 @@ a,
   &.active,
   &:active:hover,
   &.active:hover,
-  .open>.dropdown-toggle&,
-  .open>.dropdown-toggle&.focus,
-  .open>.dropdown-toggle&:focus,
-  .open>.dropdown-toggle&:hover {
+  .open > .dropdown-toggle&,
+  .open > .dropdown-toggle&.focus,
+  .open > .dropdown-toggle&:focus,
+  .open > .dropdown-toggle&:hover {
     color: @brand-success;
     border: 1px @brand-success solid;
   }
 
-  & + .dropdown-menu {
+  + .dropdown-menu {
     border-color: @brand-success;
   }
 
-  & + .dropdown-menu > .divider {
+  + .dropdown-menu > .divider {
     background-color: @brand-success;
   }
 }
@@ -412,19 +431,19 @@ a,
   &.active,
   &:active:hover,
   &.active:hover,
-  .open>.dropdown-toggle&,
-  .open>.dropdown-toggle&.focus,
-  .open>.dropdown-toggle&:focus,
-  .open>.dropdown-toggle&:hover {
+  .open > .dropdown-toggle&,
+  .open > .dropdown-toggle&.focus,
+  .open > .dropdown-toggle&:focus,
+  .open > .dropdown-toggle&:hover {
     color: @brand-info;
     border: 1px @brand-info solid;
   }
 
-  & + .dropdown-menu {
+  + .dropdown-menu {
     border-color: @brand-info;
   }
 
-  & + .dropdown-menu > .divider {
+  + .dropdown-menu > .divider {
     background-color: @brand-info;
   }
 }
@@ -440,19 +459,19 @@ a,
   &.active,
   &:active:hover,
   &.active:hover,
-  .open>.dropdown-toggle&,
-  .open>.dropdown-toggle&.focus,
-  .open>.dropdown-toggle&:focus,
-  .open>.dropdown-toggle&:hover {
+  .open > .dropdown-toggle&,
+  .open > .dropdown-toggle&.focus,
+  .open > .dropdown-toggle&:focus,
+  .open > .dropdown-toggle&:hover {
     color: @brand-warning;
     border: 1px @brand-warning solid;
   }
 
-  & + .dropdown-menu {
+  + .dropdown-menu {
     border-color: @brand-warning;
   }
 
-  & + .dropdown-menu > .divider {
+  + .dropdown-menu > .divider {
     background-color: @brand-warning;
   }
 }
@@ -468,19 +487,19 @@ a,
   &.active,
   &:active:hover,
   &.active:hover,
-  .open>.dropdown-toggle&,
-  .open>.dropdown-toggle&.focus,
-  .open>.dropdown-toggle&:focus,
-  .open>.dropdown-toggle&:hover {
+  .open > .dropdown-toggle&,
+  .open > .dropdown-toggle&.focus,
+  .open > .dropdown-toggle&:focus,
+  .open > .dropdown-toggle&:hover {
     color: @brand-danger;
     border: 1px @brand-danger solid;
   }
 
-  & + .dropdown-menu {
+  + .dropdown-menu {
     border-color: @brand-danger;
   }
 
-  & + .dropdown-menu > .divider {
+  + .dropdown-menu > .divider {
     background-color: @brand-danger;
   }
 }
@@ -534,11 +553,14 @@ table,
   }
 }
 .table-hover > tbody > tr:hover {
-  & > td, & > th {
+  > td,
+  > th {
     background-color: @m8tro-theme;
     color: @body-bg;
   }
-  & > td > .fa, & > td > .glyphicon {
+
+  > td > .fa,
+  > td > .glyphicon {
     color: @body-bg;
   }
 }
@@ -657,7 +679,7 @@ input {
   .open > a:focus {
     border-color: transparent;
   }
-  & a {
+  a {
     text-decoration: none;
 
     &:hover, &:focus {
@@ -676,28 +698,31 @@ input {
   }
 
   .disabled {
-    &>a,
-    &>a:hover,
-    &>a:focus,
-    &>span {
+    > a,
+    > a:hover,
+    > a:focus,
+    > span {
       background-color: @pagination-disabled-bg;
     }
   }
-  & li>a:hover, & li>a:focus {
+  li > a:hover,
+  li > a:focus {
     border: 1px @text-color solid;
   }
 }
 
 .nav-tabs {
-  &>li.active>a {
+  > li.active > a {
 
-    &, &:focus, &:hover {
+    &,
+    &:focus,
+    &:hover {
       border-bottom-color: @body-bg;
       color: @link-color;
     }
   }
 
-  &>li>a {
+  > li > a {
     color: @link-color;
     &:hover {
       border-bottom-color: @body-bg;
@@ -706,22 +731,23 @@ input {
 }
 
 .nav-pills {
-  &>li.active>a {
+  > li.active > a {
     color: @link-color;
     background: @m8tro-theme;
 
-    &>.badge {
+    > .badge {
       color: @gray-dark;
       background-color: transparent;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: @link-color;
       background: @m8tro-theme;
     }
   }
 
-  &>li>a {
+  > li > a {
     color: @link-color;
   }
 }
