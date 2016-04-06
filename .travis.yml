@@ -4,4 +4,4 @@ node_js:
   - "stable"
 script:
   - gulp lint
-  - gulp dist
+  - gulp less
