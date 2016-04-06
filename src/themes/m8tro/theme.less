@@ -311,6 +311,7 @@ a,
   a& {
     text-decoration: none;
   }
+
   &,
   &:hover,
   &:focus,
@@ -328,10 +329,17 @@ a,
   }
 
   &.disabled,
-  &[disabled] {
+  &.disabled:hover,
+  &.disabled:focus,
+  &.disabled:active,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus,
+  &[disabled]:active {
     background-color: inherit;
-    border: transparent;
+    border: 0 !important;
   }
+
   &:active {
     .box-shadow(none);
   }
@@ -361,6 +369,17 @@ a,
     border: 1px darken(@link-color, 15%) solid;
     transition: none;
   }
+
+  &.disabled,
+  &.disabled:hover,
+  &.disabled:focus,
+  &.disabled:active,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus,
+  &[disabled]:active {
+    color: @link-color;
+  }
 }
 
 .btn-primary,
@@ -389,6 +408,17 @@ a,
 
   + .dropdown-menu > .divider {
     background-color: @brand-primary;
+  }
+
+  &.disabled,
+  &.disabled:hover,
+  &.disabled:focus,
+  &.disabled:active,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus,
+  &[disabled]:active {
+    color: @brand-primary;
   }
 }
 
