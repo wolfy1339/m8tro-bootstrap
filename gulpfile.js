@@ -14,6 +14,7 @@ var meta     = require('./package.json');
 var cache      = require('gulp-cached'),
     concat     = require('gulp-concat'),
     console    = require('better-console'),
+    csscomb    = require('gulp-csscomb'),
     cssmin     = require('gulp-cssmin'),
     debug      = require('gulp-debug'),
     del        = require('del'),
@@ -128,6 +129,7 @@ gulp.task('less', function() {
         plugins: [autoprefix],
         paths: [ path.join(__dirname, 'less', 'includes') ]
       }))
+    .pipe(csscomb())
     .pipe(concat('m8tro.css'))
     .pipe(sourcemaps.write('./'))
     .pipe(debug({title: 'copy:'}))
@@ -139,11 +141,14 @@ gulp.task('less', function() {
 
   gulp.src('src/themes/m8tro/extras/build.less')
     .pipe(debug({title: 'lessc:'}))
+    .pipe(sourcemaps.init())
     .pipe(less({
         plugins: [autoprefix],
         paths: [ path.join(__dirname, 'less', 'includes') ]
       }))
+    .pipe(csscomb())
     .pipe(concat('m8tro-extras.css'))
+    .pipe(sourcemaps.write('./'))
     .pipe(debug({title: 'copy:'}))
     .pipe(gulp.dest('dist/css/'))
     .pipe(concat('m8tro-extras.min.css'))
@@ -440,6 +445,7 @@ gulp.task('setup', function() {
                       plugins: [autoprefix],
                       paths: [ path.join(__dirname, 'less', 'includes') ]
                     }))
+                .pipe(csscomb())
                 .pipe(concat('m8tro.css'))
                 .pipe(sourcemaps.write('./'))
                 .pipe(gulp.dest('dist/css/'))
