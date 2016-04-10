@@ -35,7 +35,7 @@ a.list-group-item {
     background-color: @gray-dark;
   }
 
-  &.active>.badge {
+  &.active > .badge {
     color: @gray-dark;
     background-color: transparent;
   }
@@ -44,8 +44,6 @@ a.list-group-item {
 a,
 .btn,
 .close {
-  -webkit-transition: all ease-in-out .15s, box-shadow ease-in-out .15s;
-  -o-transition: all ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: all ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
@@ -64,12 +62,13 @@ a,
 .badge { color: @m8tro-theme; }
 .fa, .glyphicon { color: @m8tro-theme; }
 .fa-home, .glyphicon-home { color: @body-bg; }
+
 .panel-footer { font-size: .8em; }
 .panel-success,
 .panel-danger,
 .panel-warning,
 .panel-info {
-  .panel-title { color: #fff; }
+  > .panel-heading { color: #fff; }
 }
 
 .dropdown-menu {
