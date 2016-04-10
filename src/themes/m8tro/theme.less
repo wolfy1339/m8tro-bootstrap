@@ -65,6 +65,12 @@ a,
 .fa, .glyphicon { color: @m8tro-theme; }
 .fa-home, .glyphicon-home { color: @body-bg; }
 .panel-footer { font-size: .8em; }
+.panel-success,
+.panel-danger,
+.panel-warning,
+.panel-info {
+  .panel-title { color: #fff; }
+}
 
 .dropdown-menu {
   margin: -1px 0;
@@ -785,6 +791,8 @@ input {
 // Indicators =================================================================
 
 .alert {
+  color: #fff;
+
   a,
   .alert-link {
     color: @link-color;
