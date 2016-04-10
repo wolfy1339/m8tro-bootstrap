@@ -2,7 +2,7 @@
   * m8tro-bootstrap
   * https://github.com/idleberg/m8tro-bootstrap
   *
-  * Copyright (c) 2014 Jan T. Sott
+  * Copyright (c) 2014-2016 Jan T. Sott
   * Licensed under the MIT license.
   */
 
@@ -109,7 +109,7 @@ gulp.task('jsonlint', function () {
 
 
 // Validate HTML
-gulp.task('htmlval', function () {
+gulp.task('htmlval', function() {
   return htmlval([
         'index.html'
     ]);
@@ -117,7 +117,7 @@ gulp.task('htmlval', function () {
 
 
 // Build LESS
-gulp.task('less', function () {
+gulp.task('less', function() {
   
   console.log('\nCrunching…');
   
@@ -188,7 +188,7 @@ gulp.task('bootstrapjs', function() {
 
 
 // Customize Bootstrap assets
-gulp.task('setup', function(){
+gulp.task('setup', function() {
 
   // Include Bootstrap Listr LESS dependencies
   if (argv.listr) {
@@ -254,7 +254,7 @@ gulp.task('setup', function(){
        name: 'components',
        message: 'Choose Bootstrap components for custom M8tro theme',
        choices: _components,
-     }, function(res){
+     }, function(res) {
 
             console.log('\nBuilding custom M8tro theme:');
 
@@ -466,13 +466,13 @@ gulp.task('setup', function(){
 });
 
 // Cleaning task
-gulp.task('clean', function () {
+gulp.task('clean', function() {
     return del([__dirname+'/dist/']);
 });
 
 
 // Watch task
-gulp.task('watch', function () {
+gulp.task('watch', function() {
    gulp.watch([
             'bower.json',
             'gulpfile.js',
@@ -498,4 +498,4 @@ gulp.task('help', function() {
   console.log('         make - build M8tro Bootstrap theme');
   console.log('        setup - customize & build M8tro Bootstrap theme');
 
-} );
+});
