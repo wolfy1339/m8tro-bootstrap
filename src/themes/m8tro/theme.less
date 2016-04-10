@@ -74,10 +74,17 @@ a,
 .text-muted,
 .text-primary,
 .text-success,
+.text-info,
 .text-danger,
 .text-warning {
   a { color: inherit; }
 }
+.text-muted a:hover { color: darken(darken(@text-muted, 10%); }
+.text-primary a:hover { color: darken(@brand-primary, 10%); }
+.text-success a:hover { color: darken(@brand-success, 10%); }
+.text-info a:hover { color: darken(@brand-success, 10%); }
+.text-warning a:hover { color: darken(@brand-warning, 10%); }
+.text-danger a:hover { color: darken(@brand-warning, 10%); }
 
 .dropdown-menu {
   margin: -1px 0;
