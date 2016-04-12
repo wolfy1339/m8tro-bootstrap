@@ -79,7 +79,7 @@ a,
 .text-warning {
   a { color: inherit; }
 }
-.text-muted a:hover { color: darken(darken(@text-muted, 10%); }
+.text-muted a:hover { color: darken(@text-muted, 10%); }
 .text-primary a:hover { color: darken(@brand-primary, 10%); }
 .text-success a:hover { color: darken(@brand-success, 10%); }
 .text-info a:hover { color: darken(@brand-success, 10%); }
@@ -245,17 +245,21 @@ a,
     }
 
     .navbar-nav {
-      > .open > a,
-      > .open > a:hover,
-      > .open > a:focus {
-        background-color: @link-color;
-        color: @body-bg;
+      > .open {
+        > a,
+        > a:hover,
+        > a:focus {
+          background-color: @link-color;
+          color: @body-bg;
+        }
       }
 
-      > .active > a,
-      > .active > a:hover,
-      > .active > a:focus {
-        background-color: @body-bg;
+      > .active {
+        > a,
+        > a:hover,
+        > a:focus {
+          background-color: @body-bg;
+        }
       }
     }
 
@@ -263,24 +267,31 @@ a,
       background-color: @body-bg;
     }
 
-    .navbar-brand:hover,
-    .navbar-brand:focus {
-      color: @link-color;
-      background-color: @body-bg;
-      text-decoration: underline;
+    .navbar-brand {
+      &:hover,
+      &:focus {
+        color: @link-color;
+        background-color: @body-bg;
+        text-decoration: underline;
+      }
     }
   }
   &-inverse {
     .navbar-nav {
-      > .open > a,
-      > .open > a:hover,
-      > .open > a:focus {
-        background-color:darken(@navbar-inverse-bg, 5%);
-        color: @body-bg;
+      > .open {
+        > a,
+        > a:hover,
+        > a:focus {
+          background-color:darken(@navbar-inverse-bg, 5%);
+          color: @body-bg;
+        }
       }
-      > li > a:hover,
-      > li > a:focus {
-        color: @body-bg;
+
+      > li > a {
+        &:hover,
+        &:focus {
+          color: @body-bg;
+        }
       }
     }
     .dropdown-menu {
@@ -301,11 +312,13 @@ a,
       background-color: @m8tro-theme;
     }
 
-    .navbar-brand:hover, 
-    .navbar-brand:focus {
-      color: @body-bg;
-      background-color: @m8tro-theme;
-      text-decoration: underline;
+    .navbar-brand {
+      &:hover, 
+      &:focus {
+        color: @body-bg;
+        background-color: @m8tro-theme;
+        text-decoration: underline;
+      }
     }
 
     .badge {
@@ -316,6 +329,7 @@ a,
 
   &-brand {
     padding: 18.5px 15px 20.5px;
+
     a& {
       text-decoration: none;
     }
@@ -424,10 +438,10 @@ a,
 
   + .dropdown-menu {
     border-color: @brand-primary;
-  }
 
-  + .dropdown-menu > .divider {
-    background-color: @brand-primary;
+    > .divider {
+      background-color: @brand-primary;
+    }
   }
 
   &.disabled,
@@ -463,10 +477,10 @@ a,
 
   + .dropdown-menu {
     border-color: @brand-success;
-  }
 
-  + .dropdown-menu > .divider {
-    background-color: @brand-success;
+    > .divider {
+      background-color: @brand-success;
+    }
   }
 }
 
@@ -491,10 +505,10 @@ a,
 
   + .dropdown-menu {
     border-color: @brand-info;
-  }
 
-  + .dropdown-menu > .divider {
-    background-color: @brand-info;
+    > .divider {
+      background-color: @brand-info;
+    }
   }
 }
 
@@ -519,10 +533,10 @@ a,
 
   + .dropdown-menu {
     border-color: @brand-warning;
-  }
 
-  + .dropdown-menu > .divider {
-    background-color: @brand-warning;
+    > .divider {
+      background-color: @brand-warning;
+    }
   }
 }
 
@@ -547,10 +561,10 @@ a,
 
   + .dropdown-menu {
     border-color: @brand-danger;
-  }
 
-  + .dropdown-menu > .divider {
-    background-color: @brand-danger;
+    > .divider {
+      background-color: @brand-danger;
+    }
   }
 }
 
@@ -648,11 +662,11 @@ input {
 
   .form-control {
     border: 1px solid darken(@brand-warning, 15%);
-  }
-
-  .form-control:focus {
-    border: 1px solid @brand-warning;
-    .box-shadow(none);
+ 
+    &:focus {
+      border: 1px solid @brand-warning;
+      .box-shadow(none);
+    }
   }
 
   .input-group-addon {
@@ -673,10 +687,11 @@ input {
 
   .form-control {
     border: 1px solid darken(@brand-danger, 15%);
-  }
-  .form-control:focus {
-    border: 1px solid @brand-danger;
-    .box-shadow(none);
+
+    &:focus {
+      border: 1px solid @brand-danger;
+      .box-shadow(none);
+    }
   }
 
   .input-group-addon {
@@ -697,11 +712,11 @@ input {
 
   .form-control {
     border: 1px solid darken(@brand-success, 15%);
-  }
 
-  .form-control:focus {
-    border: 1px solid @brand-success;
-    .box-shadow(none);
+    &:focus {
+      border: 1px solid @brand-success;
+      .box-shadow(none);
+    }
   }
 
   .input-group-addon {
@@ -715,10 +730,35 @@ input {
 
 .input-group-btn {
   font-size:20px;
+
+  > .btn {
+    padding: 13px 15px;
+  }
 }
 
-.input-group-btn>.btn {
-  padding: 13px 15px;
+// Overwrite default WTF Forms styles
+
+.checkbox .control-indicator {
+  border-radius: 0;
+}
+
+.control-indicator {
+  color: @body-bg;
+  text-align: center;
+  background-color: @body-bg;
+  background-size: 50% 50%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 1px @gray-light solid;
+  user-select: none;
+  width: 20px;
+  height: 20px;
+}
+
+.control input:checked ~ .control-indicator {
+  color: @link-color;
+  background-color: @body-bg;
+  border: 1px @link-color solid;
 }
 
 // Navs =======================================================================
@@ -729,10 +769,12 @@ input {
   .open > a:focus {
     border-color: transparent;
   }
+
   a {
     text-decoration: none;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       text-decoration: underline;
     }
   }
@@ -742,6 +784,7 @@ input {
   a& {
     text-decoration: none;
   }
+
   a,
   a:hover {
     color: #fff;
@@ -755,9 +798,12 @@ input {
       background-color: @pagination-disabled-bg;
     }
   }
-  li > a:hover,
-  li > a:focus {
-    border: 1px @text-color solid;
+
+  li > a {
+    &:hover,
+    &:focus {
+      border: 1px @text-color solid;
+    }
   }
 }
 
@@ -934,31 +980,3 @@ input {
 .bg-m8tro-blue { .bg-variant(@m8tro-blue); }
 .bg-m8tro-purple { .bg-variant(@m8tro-purple); }
 .bg-m8tro-brown { .bg-variant(@m8tro-brown); }
-
-// Overwrite default WTF Forms styles
-
-.checkbox .control-indicator {
-  border-radius: 0;
-}
-
-.control-indicator {
-  color: @body-bg;
-  text-align: center;
-  background-color: @body-bg;
-  background-size: 50% 50%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  border: 1px @gray-light solid;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 20px;
-  height: 20px;
-}
-
-.control input:checked ~ .control-indicator {
-  color: @link-color;
-  background-color: @body-bg;
-  border: 1px @link-color solid;
-}
