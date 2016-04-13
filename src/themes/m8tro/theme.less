@@ -57,7 +57,7 @@ a,
   font-weight: inherit;
   border-radius: @border-radius-small;
 }
-.label-default { color: @link-color; }
+.label-default { background-color: @link-color; }
 
 .badge { color: @m8tro-theme; }
 .fa, .glyphicon { color: @m8tro-theme; }
@@ -412,6 +412,7 @@ a,
   &[disabled]:hover,
   &[disabled]:focus,
   &[disabled]:active {
+    background-color: inherit;
     color: @link-color;
   }
 }
@@ -452,6 +453,7 @@ a,
   &[disabled]:hover,
   &[disabled]:focus,
   &[disabled]:active {
+    background-color: inherit;
     color: @brand-primary;
   }
 }
