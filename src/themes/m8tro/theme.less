@@ -98,6 +98,7 @@ a,
     background-color: @link-color;
   }
 }
+
 .dropdown-header {
   font-weight: bold;
   font-size: percentage(2 / 3);
@@ -222,120 +223,120 @@ a,
 }
 
 .modal .close {
-    color: @gray-light;
-    text-decoration: none;
-    opacity: 1;
+  color: @gray-light;
+  text-decoration: none;
+  opacity: 1;
 
-    &:hover,
-    &:focus {
-      color: @link-color;
-      opacity: 1;
-      outline: none;
-    }
+  &:hover,
+  &:focus {
+    color: @link-color;
+    opacity: 1;
+    outline: none;
   }
+}
 
 // Navbar =====================================================================
 .navbar {
   border-width: 0;
+}
 
-  &-default {
-    .badge {
-      background-color: #fff;
-      color: @navbar-default-bg;
-    }
-
-    .navbar-nav {
-      > .open {
-        > a,
-        > a:hover,
-        > a:focus {
-          background-color: @link-color;
-          color: @body-bg;
-        }
-      }
-
-      > .active {
-        > a,
-        > a:hover,
-        > a:focus {
-          background-color: @body-bg;
-        }
-      }
-    }
-
-    .navbar-toggle:hover .icon-bar {
-      background-color: @body-bg;
-    }
-
-    .navbar-brand {
-      &:hover,
-      &:focus {
-        color: @link-color;
-        background-color: @body-bg;
-        text-decoration: underline;
-      }
-    }
+.navbar-default {
+  .badge {
+    background-color: #fff;
+    color: @navbar-default-bg;
   }
-  &-inverse {
-    .navbar-nav {
-      > .open {
-        > a,
-        > a:hover,
-        > a:focus {
-          background-color:darken(@navbar-inverse-bg, 5%);
-          color: @body-bg;
-        }
-      }
 
-      > li > a {
-        &:hover,
-        &:focus {
-          color: @body-bg;
-        }
-      }
-    }
-    .dropdown-menu {
-      border: 1px @m8tro-theme solid;
-
-      > li > a {
-        color: @gray-light;
-
-        &:hover,
-        &:focus {
-          color: @link-color;
-          background-color: @body-bg;
-        }
-      }
-    }
-
-    .divider {
-      background-color: @m8tro-theme;
-    }
-
-    .navbar-brand {
-      &:hover, 
-      &:focus {
+  .navbar-nav {
+    > .open {
+      > a,
+      > a:hover,
+      > a:focus {
+        background-color: @link-color;
         color: @body-bg;
-        background-color: @m8tro-theme;
-        text-decoration: underline;
       }
     }
 
-    .badge {
-      background-color: #fff;
-      color: @navbar-inverse-bg;
+    > .active {
+      > a,
+      > a:hover,
+      > a:focus {
+        background-color: @body-bg;
+      }
     }
   }
 
-  &-brand {
-    padding: 18.5px 15px 20.5px;
+  .navbar-toggle:hover .icon-bar {
+    background-color: @body-bg;
+  }
 
-    a& {
-      text-decoration: none;
+  .navbar-brand {
+    &:hover,
+    &:focus {
+      color: @link-color;
+      background-color: @body-bg;
+      text-decoration: underline;
     }
   }
 }
 
+.navbar-inverse {
+  .navbar-nav {
+    > .open {
+      > a,
+      > a:hover,
+      > a:focus {
+        background-color: darken(@navbar-inverse-bg, 5%);
+        color: @body-bg;
+      }
+    }
+
+    > li > a {
+      &:hover,
+      &:focus {
+        color: @body-bg;
+      }
+    }
+  }
+  .dropdown-menu {
+    border: 1px @m8tro-theme solid;
+
+    > li > a {
+      color: @gray-light;
+
+      &:hover,
+      &:focus {
+        color: @link-color;
+        background-color: @body-bg;
+      }
+    }
+  }
+
+  .divider {
+    background-color: @m8tro-theme;
+  }
+
+  .navbar-brand {
+    &:hover, 
+    &:focus {
+      color: @body-bg;
+      background-color: @m8tro-theme;
+      text-decoration: underline;
+    }
+  }
+
+  .badge {
+    background-color: #fff;
+    color: @navbar-inverse-bg;
+  }
+}
+
+.navbar-brand {
+  padding: 18.5px 15px 20.5px;
+
+  a& {
+    text-decoration: none;
+  }
+}
 
 // Buttons ====================================================================
 
@@ -608,16 +609,19 @@ table,
   > tfoot > tr > td {
     border: none;
   }
+}
 
-  &-bordered > thead > tr > th,
-  &-bordered > tbody > tr > th,
-  &-bordered > tfoot > tr > th,
-  &-bordered > thead > tr > td,
-  &-bordered > tbody > tr > td,
-  &-bordered > tfoot > tr > td {
+.table-bordered {
+  > thead > tr > th,
+  > tbody > tr > th,
+  > tfoot > tr > th,
+  > thead > tr > td,
+  > tbody > tr > td,
+  > tfoot > tr > td {
     border: 1px solid @table-border-color;
   }
 }
+
 .table-hover > tbody > tr:hover {
   > td,
   > th {
@@ -811,7 +815,6 @@ input {
 
 .nav-tabs {
   > li.active > a {
-
     &,
     &:focus,
     &:hover {
@@ -822,6 +825,7 @@ input {
 
   > li > a {
     color: @link-color;
+
     &:hover {
       border-bottom-color: @body-bg;
     }
