@@ -5,6 +5,9 @@ node_js:
 script:
   - gulp lint
   - gulp less
+cache:
+  directories:
+    - node_modules
 env:
   global:
     - NPM_CONFIG_PROGRESS="false"
