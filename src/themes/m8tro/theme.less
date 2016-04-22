@@ -347,13 +347,6 @@ a,
     text-decoration: none;
   }
 
-  &,
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: @body-bg;
-  }
-
   &.active.focus,
   &.active:focus,
   &.focus,
@@ -433,7 +426,7 @@ a,
   .open > .dropdown-toggle&.focus,
   .open > .dropdown-toggle&:focus,
   .open > .dropdown-toggle&:hover {
-    color: @body-bg;
+    color: @link-color;
     background-color: @brand-primary;
     border: 1px darken(@brand-primary, 15%) solid;
   }
