@@ -140,16 +140,14 @@ a,
 .jumbotron {
   .btn {
     background-color: inherit;
-
-    &:hover {
-      color: @text-color;
-    }
   }
 
   .btn-link {
     color: @body-bg;
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:hover:active {
       color: inherit;
       text-decoration: underline;
     }
@@ -160,7 +158,9 @@ a,
     background-color: @text-color;
     border: 1px @gray-lighter solid;
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:hover:active {
       color: @link-color;
       background-color: @gray-lighter;
       border: 1px @gray-lighter solid;
@@ -171,7 +171,9 @@ a,
     color: @brand-primary;
     border: 1px @brand-primary solid;¸
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:hover:active {
       color: @text-color;
       background-color: @brand-primary;
     }
@@ -181,7 +183,9 @@ a,
     color: @brand-success;
     border: 1px @brand-success solid;
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:hover:active {
       color: @text-color;
       background-color: @brand-success;
     }
@@ -191,7 +195,9 @@ a,
     color: @brand-info;
     border: 1px @brand-info solid;
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:hover:active {
       color: @text-color;
       background-color: @brand-info;
     }
@@ -201,7 +207,9 @@ a,
     color: @brand-warning;
     border: 1px @brand-warning solid;¸
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:hover:active {
       color: @text-color;
       background-color: @brand-warning;
     }
@@ -211,7 +219,9 @@ a,
     color: @brand-danger;
     border: 1px @brand-danger solid;
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:hover:active {
       color: @text-color;
       background-color: @brand-danger;
     }
@@ -388,6 +398,8 @@ a,
   &.active,
   &:active:hover,
   &.active:hover,
+  &:active:focus,
+  &.active:focus,
   .open > .dropdown-toggle&,
   .open > .dropdown-toggle&.focus,
   .open > .dropdown-toggle&:focus,
@@ -422,6 +434,8 @@ a,
   &.active,
   &:active:hover,
   &.active:hover,
+  &:active:focus,
+  &.active:focus,
   .open > .dropdown-toggle&,
   .open > .dropdown-toggle&.focus,
   .open > .dropdown-toggle&:focus,
@@ -463,6 +477,8 @@ a,
   &.active,
   &:active:hover,
   &.active:hover,
+  &:active:focus,
+  &.active:focus,
   .open > .dropdown-toggle&,
   .open > .dropdown-toggle&.focus,
   .open > .dropdown-toggle&:focus,
@@ -491,6 +507,8 @@ a,
   &.active,
   &:active:hover,
   &.active:hover,
+  &:active:focus,
+  &.active:focus,
   .open > .dropdown-toggle&,
   .open > .dropdown-toggle&.focus,
   .open > .dropdown-toggle&:focus,
@@ -519,6 +537,8 @@ a,
   &.active,
   &:active:hover,
   &.active:hover,
+  &:active:focus,
+  &.active:focus,
   .open > .dropdown-toggle&,
   .open > .dropdown-toggle&.focus,
   .open > .dropdown-toggle&:focus,
@@ -547,6 +567,8 @@ a,
   &.active,
   &:active:hover,
   &.active:hover,
+  &:active:focus,
+  &.active:focus,
   .open > .dropdown-toggle&,
   .open > .dropdown-toggle&.focus,
   .open > .dropdown-toggle&:focus,
