@@ -6822,7 +6822,7 @@ a,
   border-radius: 0;
 }
 .label-default {
-  color: #fff;
+  background-color: #fff;
 }
 .badge {
   color: #3c9cd6;
@@ -7059,12 +7059,6 @@ a.navbar-brand {
 a.btn {
   text-decoration: none;
 }
-.btn,
-.btn:hover,
-.btn:focus,
-.btn:active {
-  background-color: #000;
-}
 .btn.active.focus,
 .btn.active:focus,
 .btn.focus,
@@ -7140,6 +7134,7 @@ a.btn {
 .dropdown-toggle.btn-default[disabled]:focus,
 .btn-default[disabled]:active,
 .dropdown-toggle.btn-default[disabled]:active {
+  background-color: inherit;
   color: #fff;
 }
 .btn-primary,
@@ -7167,7 +7162,7 @@ a.btn {
 .open > .dropdown-toggle.dropdown-toggle.btn-primary:focus,
 .open > .dropdown-toggle.btn-primary:hover,
 .open > .dropdown-toggle.dropdown-toggle.btn-primary:hover {
-  color: #000;
+  color: #fff;
   background-color: #3c9cd6;
   border: 1px #2273a3 solid;
 }
@@ -7195,6 +7190,7 @@ a.btn {
 .dropdown-toggle.btn-primary[disabled]:focus,
 .btn-primary[disabled]:active,
 .dropdown-toggle.btn-primary[disabled]:active {
+  background-color: inherit;
   color: #3c9cd6;
 }
 .btn-success,
@@ -7389,17 +7385,11 @@ table > tfoot > tr > td,
 .table > tfoot > tr > td {
   border: none;
 }
-table-bordered > thead > tr > th,
 .table-bordered > thead > tr > th,
-table-bordered > tbody > tr > th,
 .table-bordered > tbody > tr > th,
-table-bordered > tfoot > tr > th,
 .table-bordered > tfoot > tr > th,
-table-bordered > thead > tr > td,
 .table-bordered > thead > tr > td,
-table-bordered > tbody > tr > td,
 .table-bordered > tbody > tr > td,
-table-bordered > tfoot > tr > td,
 .table-bordered > tfoot > tr > td {
   border: 1px solid #ccc;
 }
