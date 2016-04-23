@@ -8,6 +8,7 @@ script:
 cache:
   directories:
     - node_modules
+    - bower_components
 env:
   global:
     - NPM_CONFIG_PROGRESS="false"
