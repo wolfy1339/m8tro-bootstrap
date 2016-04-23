@@ -21,7 +21,13 @@
     "gulpfile.js",
     "index.html",
     "package.json",
-    "README.md"
+    "README.md",
+    "LICENSE",
+    ".csscomb.json",
+    ".editorconfig",
+    "_config.yml",
+    "_includes/*.html",
+    "_layouts/*.html"
   ],
   "keywords": [
     "css",
