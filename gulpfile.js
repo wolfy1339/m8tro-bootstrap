@@ -195,7 +195,7 @@ gulp.task('bootstrapjs', function() {
 
 // Customize Bootstrap assets
 gulp.task('setup', function() {
-
+	var listr_state;
   // Include Bootstrap Listr LESS dependencies
   if (argv.listr) {
     listr_state = true;
@@ -496,7 +496,7 @@ gulp.task('help', function() {
 
   var title_length =  meta.name + ' v' + meta.version;
 
-  console.log('\n' + meta.name + ' v' + meta.version);
+  console.log('\n' + title_length);
   console.log('The MIT License (MIT)');
   console.log('\nAvailable tasks:');
   console.log('         help - this dialog');
