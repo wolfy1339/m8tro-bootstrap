@@ -122,7 +122,7 @@ gulp.task('less', function() {
   
   console.log('\nCrunching…');
   
-  gulp.src('src/themes/m8tro/build.less')
+  gulp.src('less/m8tro/build.less')
     .pipe(debug({title: 'lessc:'}))
     .pipe(sourcemaps.init())
     .pipe(less({
@@ -139,7 +139,7 @@ gulp.task('less', function() {
     .pipe(cssmin())
     .pipe(gulp.dest('dist/css/'));
 
-  /*gulp.src('src/themes/m8tro/extras/build.less')
+  /*gulp.src('less/m8tro/extras/build.less')
     .pipe(debug({title: 'lessc:'}))
     .pipe(sourcemaps.init())
     .pipe(less({
@@ -428,9 +428,9 @@ gulp.task('setup', function() {
               _less.push(_dir+'less/responsive-utilities.less');
             }
 
-            _less.push('src/themes/m8tro/palette.less');
-            _less.push('src/themes/m8tro/variables.less');
-            _less.push('src/themes/m8tro/theme.less');
+            _less.push('less/m8tro/palette.less');
+            _less.push('less/m8tro/variables.less');
+            _less.push('less/m8tro/theme.less');
 
             console.log('\n'+_less.length+' styles, '+_js.length+' scripts and '+_fonts.length+' fonts in total');
             console.log('Crunching…');
@@ -483,7 +483,7 @@ gulp.task('watch', function() {
             'bower.json',
             'gulpfile.js',
             'package.json',
-            '/src/**/*.less',
+            '/less/**/*.less',
             'index.html'
          ],
          ['lint']);
