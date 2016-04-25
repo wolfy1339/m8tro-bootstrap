@@ -25,10 +25,8 @@ var cache      = require('gulp-cached'),
     less       = require('gulp-less'),
     path       = require('path'),
     prompt     = require('gulp-prompt'),
-    sequence   = require('run-sequence'),
     sourcemaps = require('gulp-sourcemaps'),
     util       = require('gulp-util'),
-    uglify     = require('gulp-uglify'),
     watch      = require('gulp-watch'),
     argv       = require('yargs').argv;
 
@@ -108,7 +106,7 @@ gulp.task('htmlval', function() {
 gulp.task('less', function() {
   console.log('\nCrunching...');
   
-  gulp.src('less/m8tro/build.less')
+  gulp.src('less/m8tro/m8tro.less')
     .pipe(debug({title: 'lessc:'}))
     .pipe(sourcemaps.init())
     .pipe(less({
@@ -126,7 +124,7 @@ gulp.task('less', function() {
     .pipe(cleancss())
     .pipe(gulp.dest('dist/css/'));
 
-  /*gulp.src('less/m8tro/extras/build.less')
+  /*gulp.src('less/m8tro/extras/m8tro-extras.less')
     .pipe(debug({title: 'lessc:'}))
     .pipe(sourcemaps.init())
     .pipe(less({
@@ -148,20 +146,20 @@ gulp.task('less', function() {
 
 // Copy tasks
 gulp.task('FontAwesome', function() {
-  gulp.src('node_packages/fontawesome/css/font-awesome.min.css')
+  gulp.src('node_modules/fontawesome/css/font-awesome.min.css')
   .pipe(debug({title: 'copy:'}))
   .pipe(gulp.dest(__dirname+'/dist/css/'));
 
-  gulp.src(['node_packages/fontawesome/fonts/*.*'])
+  gulp.src(['node_modules/fontawesome/fonts/*.*'])
   .pipe(gulp.dest(__dirname+'/dist/fonts/'));
 });
 
 gulp.task('js_dependencies', function() {
-  gulp.src(['node_packages/bootstrap/dist/js/bootstrap.min.js'])
+  gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js'])
     .pipe(debug({title: 'copy:'}))
     .pipe(gulp.dest('dist/js/'));
 
-  gulp.src(['node_packages/jquery/dist/jquery.min.js'])
+  gulp.src(['node_modules/jquery/dist/jquery.min.js'])
     .pipe(debug({title: 'copy:'}))
     .pipe(gulp.dest('dist/js/'));
 });
@@ -216,7 +214,7 @@ gulp.task('setup', function() {
    { name: 'Carousel\n', checked: false },
   ],
 
-  _dir   = 'node_packages/bootstrap/',
+  _dir   = 'node_modules/bootstrap/',
   _fonts = [],
   _js    = [], 
   _less  = [
@@ -420,9 +418,10 @@ gulp.task('setup', function() {
                       paths: [ path.join(__dirname, 'less', 'includes') ]
                     }))
                 .pipe(csscomb())
-                .pipe(concat('m8tro.css'))
                 .pipe(sourcemaps.write('./'))
                 .pipe(gulp.dest('dist/css/'))
+
+              gulp.src('m8tro.css')
                 .pipe(concat('m8tro.min.css'))
                 .pipe(cleancss())
                 .pipe(gulp.dest('dist/css/'));
