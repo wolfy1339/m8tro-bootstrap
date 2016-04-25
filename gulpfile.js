@@ -12,10 +12,10 @@ var meta     = require('./package.json');
 
 // Gulp plugins
 var cache      = require('gulp-cached'),
+    cleancss   = require('gulp-cleancss'),
     concat     = require('gulp-concat'),
     console    = require('better-console'),
     csscomb    = require('gulp-csscomb'),
-    cssmin     = require('gulp-cssmin'),
     debug      = require('gulp-debug'),
     del        = require('del'),
     gulp       = require('gulp'),
@@ -122,8 +122,8 @@ gulp.task('less', function() {
 
   gulp.src('dist/css/m8tro.css')
     .pipe(concat('m8tro.min.css'))
-    .pipe(debug({title: 'cssmin:'}))
-    .pipe(cssmin())
+    .pipe(debug({title: 'cleancss:'}))
+    .pipe(cleancss())
     .pipe(gulp.dest('dist/css/'));
 
   /*gulp.src('less/m8tro/extras/build.less')
@@ -140,8 +140,8 @@ gulp.task('less', function() {
 
   gulp.src('dist/css/m8tro-extras.css')
     .pipe(concat('m8tro-extras.min.css'))
-    .pipe(debug({title: 'cssmin:'}))
-    .pipe(cssmin())
+    .pipe(debug({title: 'cleancss:'}))
+    .pipe(cleancss())
     .pipe(gulp.dest('dist/css/'));*/
 });
 
@@ -416,7 +416,7 @@ gulp.task('setup', function() {
                 .pipe(sourcemaps.write('./'))
                 .pipe(gulp.dest('dist/css/'))
                 .pipe(concat('m8tro.min.css'))
-                .pipe(cssmin())
+                .pipe(cleancss())
                 .pipe(gulp.dest('dist/css/'));
 
 
