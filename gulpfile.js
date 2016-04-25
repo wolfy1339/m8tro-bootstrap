@@ -71,37 +71,24 @@ gulp.task('lint',    ['html', 'selftest']);
 /*
  * Sub-tasks
  */
-gulp.task('make', function(callback) {
-
- console.log('\nBuilding M8tro theme:');
- sequence(
-     ['fa_css', 'fa_fonts'],
-     'bootstrapjs',
-     'less',
-     callback
-   );
+gulp.task('make', ['FontAwesome','js_dependencies','less'], function() {
+  console.log('\nBuilding M8tro theme:');
 });
 
 
  // Lint JS files
 gulp.task('jshint', function() {
-
-  gulp.src([
-    'gulpfile.js'
-  ])
-  .pipe(cache('linting_js'))
-  .pipe(debug({title: 'jshint:'}))
-  .pipe(jshint())
-  .pipe(jshint.reporter());
+  gulp.src('gulpfile.js')
+    .pipe(cache('linting_js'))
+    .pipe(debug({title: 'jshint:'}))
+    .pipe(jshint())
+    .pipe(jshint.reporter());
 });
 
 
 // Lint JSON
 gulp.task('jsonlint', function () {
- return gulp.src([
-     'bower.json',
-     'package.json'
-   ])
+ return gulp.src(['bower.json','package.json'])
    .pipe(cache('linting_json'))
    .pipe(debug({title: 'jsonlint:'}))
    .pipe(jsonlint())
@@ -119,8 +106,7 @@ gulp.task('htmlval', function() {
 
 // Build LESS
 gulp.task('less', function() {
-  
-  console.log('\nCrunching…');
+  console.log('\nCrunching...');
   
   gulp.src('less/m8tro/build.less')
     .pipe(debug({title: 'lessc:'}))
@@ -130,10 +116,11 @@ gulp.task('less', function() {
         paths: [ path.join(__dirname, 'less', 'includes') ]
       }))
     .pipe(csscomb())
-    .pipe(concat('m8tro.css'))
     .pipe(sourcemaps.write('./'))
     .pipe(debug({title: 'copy:'}))
-    .pipe(gulp.dest('dist/css/'))
+    .pipe(gulp.dest('dist/css/'));
+
+  gulp.src('dist/css/m8tro.css')
     .pipe(concat('m8tro.min.css'))
     .pipe(debug({title: 'cssmin:'}))
     .pipe(cssmin())
@@ -147,10 +134,11 @@ gulp.task('less', function() {
         paths: [ path.join(__dirname, 'less', 'includes') ]
       }))
     .pipe(csscomb())
-    .pipe(concat('m8tro-extras.css'))
     .pipe(sourcemaps.write('./'))
     .pipe(debug({title: 'copy:'}))
-    .pipe(gulp.dest('dist/css/'))
+    .pipe(gulp.dest('dist/css/'));
+
+  gulp.src('dist/css/m8tro-extras.css')
     .pipe(concat('m8tro-extras.min.css'))
     .pipe(debug({title: 'cssmin:'}))
     .pipe(cssmin())
@@ -159,35 +147,21 @@ gulp.task('less', function() {
 
 
 // Copy tasks
-gulp.task('fa_css', function() {
-  
+gulp.task('FontAwesome', function() {
   gulp.src('node_packages/fontawesome/css/font-awesome.min.css')
   .pipe(debug({title: 'copy:'}))
   .pipe(gulp.dest(__dirname+'/dist/css/'));
-});
 
-
-// Copy tasks
-gulp.task('fa_fonts', function() {
-
-  gulp.src([
-    'node_packages/fontawesome/fonts/fontawesome-webfont.*'
-  ])
-  .pipe(debug({title: 'copy:'}))
+  gulp.src(['node_packages/fontawesome/fonts/*.*'])
   .pipe(gulp.dest(__dirname+'/dist/fonts/'));
 });
 
-
-gulp.task('bootstrapjs', function() {
-  gulp.src([
-      'node_packages/bootstrap/dist/js/bootstrap.min.js'
-    ])
+gulp.task('js_dependencies', function() {
+  gulp.src(['node_packages/bootstrap/dist/js/bootstrap.min.js'])
     .pipe(debug({title: 'copy:'}))
     .pipe(gulp.dest('dist/js/'));
 
-  gulp.src([
-      'node_packages/jquery/dist/jquery.min.js'
-    ])
+  gulp.src(['node_packages/jquery/dist/jquery.min.js'])
     .pipe(debug({title: 'copy:'}))
     .pipe(gulp.dest('dist/js/'));
 });
@@ -195,7 +169,7 @@ gulp.task('bootstrapjs', function() {
 
 // Customize Bootstrap assets
 gulp.task('setup', function() {
-	var listr_state;
+  var listr_state;
   // Include Bootstrap Listr LESS dependencies
   if (argv.listr) {
     listr_state = true;
