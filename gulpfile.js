@@ -104,8 +104,8 @@ gulp.task('htmlval', function() {
 // Build LESS
 gulp.task('less', function() {
   console.log('\nCrunching...');
-
-  gulp.src('src/m8tro.less')
+  src = gulp.src('src/m8tro.less')
+  src
     .pipe(debug({title: 'lessc:'}))
     .pipe(sourcemaps.init())
     .pipe(less({
@@ -117,10 +117,18 @@ gulp.task('less', function() {
     .pipe(debug({title: 'copy:'}))
     .pipe(gulp.dest('dist/css/'));
 
-  gulp.src('dist/css/m8tro.css')
+  src
+    .pipe(debug({ title: 'lessc:' }))
+    .pipe(sourcemaps.init())
+    .pipe(less({
+        paths: [path.join(__dirname, 'less', 'includes')]
+    }))
+    .pipe(autoprefix)
+    .pipe(csscomb())
     .pipe(concat('m8tro.min.css'))
     .pipe(debug({title: 'cleancss:'}))
     .pipe(cleancss())
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('dist/css/'));
 
   /*gulp.src('src/m8tro-extras.less')
