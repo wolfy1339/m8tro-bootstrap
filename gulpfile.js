@@ -43,8 +43,7 @@ var autoprefixerBrowsers = [
 ];
 
 // LESS plugins
-var LessPluginAutoPrefix = require('less-plugin-autoprefix'),
-    autoprefix = new LessPluginAutoPrefix({ browsers: autoprefixerBrowsers });
+var autoprefix = new require('gulp-autoprefixer')({ browsers: autoprefixerBrowsers });
 
 
 /*
@@ -110,9 +109,9 @@ gulp.task('less', function() {
     .pipe(debug({title: 'lessc:'}))
     .pipe(sourcemaps.init())
     .pipe(less({
-        plugins: [autoprefix],
         paths: [path.join(__dirname, 'less', 'includes')]
     }))
+    .pipe(autoprefix)
     .pipe(csscomb())
     .pipe(sourcemaps.write('./'))
     .pipe(debug({title: 'copy:'}))
@@ -128,9 +127,9 @@ gulp.task('less', function() {
     .pipe(debug({title: 'lessc:'}))
     .pipe(sourcemaps.init())
     .pipe(less({
-        plugins: [autoprefix],
         paths: [path.join(__dirname, 'less', 'includes')]
     }))
+    .pipe(autoprefix)
     .pipe(csscomb())
     .pipe(sourcemaps.write('./'))
     .pipe(debug({title: 'copy:'}))
@@ -414,9 +413,9 @@ gulp.task('setup', function() {
                 .pipe(concat('m8tro.less'))
                 .pipe(sourcemaps.init())
                 .pipe(less({
-                      plugins: [autoprefix],
                       paths: [path.join(__dirname, 'less', 'includes')]
-                    }))
+                }))
+                .pipe(autoprefix)
                 .pipe(csscomb())
                 .pipe(sourcemaps.write('./'))
                 .pipe(gulp.dest('dist/css/'));
