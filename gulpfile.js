@@ -105,14 +105,14 @@ gulp.task('htmlval', function() {
 // Build LESS
 gulp.task('less', function() {
   console.log('\nCrunching...');
-  
+
   gulp.src('src/m8tro.less')
     .pipe(debug({title: 'lessc:'}))
     .pipe(sourcemaps.init())
     .pipe(less({
         plugins: [autoprefix],
-        paths: [ path.join(__dirname, 'less', 'includes') ]
-      }))
+        paths: [path.join(__dirname, 'less', 'includes')]
+    }))
     .pipe(csscomb())
     .pipe(sourcemaps.write('./'))
     .pipe(debug({title: 'copy:'}))
@@ -129,8 +129,8 @@ gulp.task('less', function() {
     .pipe(sourcemaps.init())
     .pipe(less({
         plugins: [autoprefix],
-        paths: [ path.join(__dirname, 'less', 'includes') ]
-      }))
+        paths: [path.join(__dirname, 'less', 'includes')]
+    }))
     .pipe(csscomb())
     .pipe(sourcemaps.write('./'))
     .pipe(debug({title: 'copy:'}))
@@ -401,9 +401,9 @@ gulp.task('setup', function() {
               _less.push(_dir+'less/responsive-utilities.less');
             }
 
-            _less.push('less/m8tro/palette.less');
-            _less.push('less/m8tro/variables.less');
-            _less.push('less/m8tro/theme.less');
+            _less.push('src/less/m8tro/palette.less');
+            _less.push('src/less/m8tro/variables.less');
+            _less.push('src/less/m8tro/theme.less');
 
             console.log('\n'+_less.length+' styles, '+_js.length+' scripts and '+_fonts.length+' fonts in total');
             console.log('Crunching…');
@@ -415,11 +415,11 @@ gulp.task('setup', function() {
                 .pipe(sourcemaps.init())
                 .pipe(less({
                       plugins: [autoprefix],
-                      paths: [ path.join(__dirname, 'less', 'includes') ]
+                      paths: [path.join(__dirname, 'less', 'includes')]
                     }))
                 .pipe(csscomb())
                 .pipe(sourcemaps.write('./'))
-                .pipe(gulp.dest('dist/css/'))
+                .pipe(gulp.dest('dist/css/'));
 
               gulp.src('m8tro.css')
                 .pipe(concat('m8tro.min.css'))
