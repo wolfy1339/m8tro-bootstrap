@@ -106,7 +106,7 @@ gulp.task('htmlval', function() {
 gulp.task('less', function() {
   console.log('\nCrunching...');
   
-  gulp.src('less/m8tro/m8tro.less')
+  gulp.src('src/m8tro.less')
     .pipe(debug({title: 'lessc:'}))
     .pipe(sourcemaps.init())
     .pipe(less({
@@ -124,7 +124,7 @@ gulp.task('less', function() {
     .pipe(cleancss())
     .pipe(gulp.dest('dist/css/'));
 
-  /*gulp.src('less/m8tro/extras/m8tro-extras.less')
+  /*gulp.src('src/m8tro-extras.less')
     .pipe(debug({title: 'lessc:'}))
     .pipe(sourcemaps.init())
     .pipe(less({
