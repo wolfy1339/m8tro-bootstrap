@@ -50,6 +50,7 @@
     "bower": "^1.7.9",
     "del": "^2.2.1",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-cached": "^1.1.0",
     "gulp-cleancss": "^0.2.2",
     "gulp-concat": "^2.6.0",
@@ -66,7 +67,6 @@
     "gulp-watch": "^4.3.9",
     "jshint": "^2.9.2",
     "less": "^2.7.1",
-    "less-plugin-autoprefix": "^1.5.1",
     "yargs": "^4.8.1"
   },
   "npmName": "m8tro-bootstrap",
