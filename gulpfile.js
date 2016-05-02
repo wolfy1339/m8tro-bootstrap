@@ -34,9 +34,7 @@ var autoprefixerBrowsers = [
 ];
 
 // LESS plugins
-var autoprefix = new require('gulp-autoprefixer')({
-    browsers: autoprefixerBrowsers
-});
+var autoprefixer = require('gulp-autoprefixer');
 
 
 /*
@@ -107,10 +105,8 @@ gulp.task('less', function() {
             title: 'lessc:'
         }))
         .pipe(sourcemaps.init())
-        .pipe(less({
-            paths: [path.join(__dirname, 'less', 'includes')]
-        }))
-        .pipe(autoprefix)
+        .pipe(less())
+        .pipe(autoprefixer({ browsers: autoprefixerBrowsers }))
         .pipe(csscomb())
         .pipe(sourcemaps.write('./'))
         .pipe(debug({
@@ -123,10 +119,8 @@ gulp.task('less', function() {
             title: 'lessc:'
         }))
         .pipe(sourcemaps.init())
-        .pipe(less({
-            paths: [path.join(__dirname, 'less', 'includes')]
-        }))
-        .pipe(autoprefix)
+        .pipe(less())
+        .pipe(autoprefixer({ browsers: autoprefixerBrowsers }))
         .pipe(csscomb())
         .pipe(concat('m8tro.min.css'))
         .pipe(debug({
@@ -139,10 +133,8 @@ gulp.task('less', function() {
     /*gulp.src('src/m8tro-extras.less')
       .pipe(debug({title: 'lessc:'}))
       .pipe(sourcemaps.init())
-      .pipe(less({
-          paths: [path.join(__dirname, 'less', 'includes')]
-      }))
-      .pipe(autoprefix)
+      .pipe(less())
+      .pipe(autoprefixer({ browsers: autoprefixerBrowsers }))
       .pipe(csscomb())
       .pipe(sourcemaps.write('./'))
       .pipe(debug({title: 'copy:'}))
@@ -429,10 +421,8 @@ gulp.task('setup', function() {
             gulp.src(_less)
                 .pipe(concat('m8tro.less'))
                 .pipe(sourcemaps.init())
-                .pipe(less({
-                    paths: [path.join(__dirname, 'less', 'includes')]
-                }))
-                .pipe(autoprefix)
+                .pipe(less())
+                .pipe(autoprefixer({ browsers: autoprefixerBrowsers }))
                 .pipe(csscomb())
                 .pipe(sourcemaps.write('./'))
                 .pipe(gulp.dest('dist/css/'));
