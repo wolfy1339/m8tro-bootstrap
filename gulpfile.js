@@ -134,7 +134,15 @@ gulp.task('less', function() {
             title: 'cleancss:'
         }))
         .pipe(cleancss())
-        .pipe(sourcemaps.write('./'))
+        .pipe(sourcemaps.write('./', {
+            mapFile: function () {
+                var name = mapFile.split('.css');
+                return name[0] + '.min.css' + name[1];
+            }
+        }))
+        .pipe(debug({
+            title: 'copy:'
+        }))
         .pipe(gulp.dest('dist/css/'));
 
     /*gulp.src('src/m8tro-extras.less')
