@@ -99,8 +99,7 @@ gulp.task('htmlval', function() {
 // Build LESS
 gulp.task('less', function() {
     console.log('\nCrunching...');
-    src = gulp.src('src/m8tro.less')
-    src
+    gulp.src('src/m8tro.less')
         .pipe(debug({
             title: 'lessc:'
         }))
@@ -114,7 +113,7 @@ gulp.task('less', function() {
         }))
         .pipe(gulp.dest('dist/css/'));
 
-    src
+    gulp.src('src/m8tro.less')
         .pipe(debug({
             title: 'lessc:'
         }))
@@ -183,18 +182,18 @@ gulp.task('FontAwesome', function() {
         }))
         .pipe(gulp.dest(__dirname + '/dist/css/'));
 
-    gulp.src(['node_modules/fontawesome/fonts/*.*'])
+    gulp.src('node_modules/fontawesome/fonts/*')
         .pipe(gulp.dest(__dirname + '/dist/fonts/'));
 });
 
 gulp.task('js_dependencies', function() {
-    gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js'])
+    gulp.src('node_modules/bootstrap/dist/js/bootstrap.min.js')
         .pipe(debug({
             title: 'copy:'
         }))
         .pipe(gulp.dest('dist/js/'));
 
-    gulp.src(['node_modules/jquery/dist/jquery.min.js'])
+    gulp.src('node_modules/jquery/dist/jquery.min.js')
         .pipe(debug({
             title: 'copy:'
         }))
@@ -446,7 +445,9 @@ gulp.task('setup', function() {
 
             // Concatenate LESS & compile CSS
             gulp.src(_less)
-                .pipe(concat('m8tro.less'))
+                .pipe(concat('m8tro.less'));
+
+            gulp.src('m8tro.less')
                 .pipe(sourcemaps.init())
                 .pipe(less())
                 .pipe(autoprefixer({ browsers: autoprefixerBrowsers }))
@@ -501,7 +502,7 @@ gulp.task('clean', function() {
 // Watch task
 gulp.task('watch', function() {
     gulp.watch([
-        'bower.json', 'gulpfile.js', 'package.json', '/less/**/*.less', 'index.html'
+        'bower.json', 'gulpfile.js', 'package.json', '/less/m8tro/*.less', 'index.html'
     ], ['lint']);
 });
 
