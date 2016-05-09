@@ -138,7 +138,8 @@ gulp.task('less', function() {
         }))
         .pipe(gulp.dest('dist/css/'));
 
-    /*gulp.src('src/m8tro-extras.less')
+    /*var extras = gulp.src('src/m8tro-extras.less');
+    extras
       .pipe(debug({title: 'lessc:'}))
       .pipe(sourcemaps.init())
       .pipe(less())
@@ -148,10 +149,28 @@ gulp.task('less', function() {
       .pipe(debug({title: 'copy:'}))
       .pipe(gulp.dest('dist/css/'));
 
-    gulp.src('dist/css/m8tro-extras.css')
-      .pipe(concat('m8tro-extras.min.css'))
-      .pipe(debug({title: 'cleancss:'}))
-      .pipe(cleancss())
+    extras
+        .pipe(debug({
+            title: 'lessc:'
+        }))
+        .pipe(sourcemaps.init())
+        .pipe(less())
+        .pipe(autoprefixer({ browsers: autoprefixerBrowsers }))
+        .pipe(csscomb())
+        .pipe(concat('m8tro-extras.min.css'))
+        .pipe(debug({
+            title: 'cleancss:'
+        }))
+        .pipe(cleancss())
+        .pipe(sourcemaps.write('./', {
+            mapFile: function () {
+                var name = mapFile.split('.css');
+                return name[0] + '.min.css' + name[1];
+            }
+        }))
+        .pipe(debug({
+            title: 'copy:'
+        }))
       .pipe(gulp.dest('dist/css/'));*/
 });
 
@@ -435,9 +454,19 @@ gulp.task('setup', function() {
                 .pipe(sourcemaps.write('./'))
                 .pipe(gulp.dest('dist/css/'));
 
-            gulp.src('m8tro.css')
+            gulp.src('m8tro.less')
+                .pipe(sourcemaps.init())
+                .pipe(less())
+                .pipe(autoprefixer({ browsers: autoprefixerBrowsers }))
+                .pipe(csscomb())
                 .pipe(concat('m8tro.min.css'))
                 .pipe(cleancss())
+                .pipe(sourcemaps.write('./', {
+                    mapFile: function () {
+                        var name = mapFile.split('.css');
+                        return name[0] + '.min.css' + name[1];
+                    }
+                }))
                 .pipe(gulp.dest('dist/css/'));
 
 
