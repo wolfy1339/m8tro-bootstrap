@@ -106,8 +106,7 @@ gulp.task('htmlval', function() {
 // Build LESS
 gulp.task('less', function() {
     console.log('\nCrunching...');
-    src = gulp.src('src/m8tro.less')
-    src
+    gulp.src('src/m8tro.less')
         .pipe(debug({
             title: 'lessc:'
         }))
@@ -121,7 +120,7 @@ gulp.task('less', function() {
         }))
         .pipe(gulp.dest('dist/css/'));
 
-    src
+    gulp.src('src/m8tro.less')
         .pipe(debug({
             title: 'lessc:'
         }))
@@ -439,7 +438,9 @@ gulp.task('setup', function() {
 
             // Concatenate LESS & compile CSS
             gulp.src(_less)
-                .pipe(concat('m8tro.less'))
+                .pipe(concat('m8tro.less'));
+
+            gulp.src('m8tro.less')
                 .pipe(sourcemaps.init())
                 .pipe(less())
                 .pipe(autoprefixer({ browsers: autoprefixerBrowsers }))
