@@ -173,27 +173,50 @@ gulp.task('less', function() {
       .pipe(gulp.dest('dist/css/'));*/
 });
 
+function checkFileExistsSync(filepath) {
+    var flag = true;
+    try {
+        fs.accessSync(filepath, fs.F_OK);
+    } catch(e) {
+        flag = false;
+    }
+    return flag;
+}
+
+var isBower = checkFileExistsSync('bower_components/bootstrap/bower.json') && checkFileExistsSync('bower_components/font-awesome/bower.json');
 
 // Copy tasks
 gulp.task('FontAwesome', function() {
-    gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
+    var css, fonts;
+    if (!isBower) {
+        css = gulp.src('node_modules/font-awesome/css/font-awesome.min.css');
+        fonts = gulp.src('node_modules/font-awesome/fonts/*');
+    } else {
+        css = gulp.src('bower_components/font-awesome/css/font-awesome.min.css');
+        fonts = gulp.src('bower_components/font-awesome/fonts/*');
+    }
+
+    css
         .pipe(debug({
             title: 'copy:'
         }))
         .pipe(gulp.dest(__dirname + '/dist/css/'));
 
-    gulp.src('node_modules/font-awesome/fonts/*')
+    fonts
+        .pipe(debug({
+            title: 'copy:'
+        }))
         .pipe(gulp.dest(__dirname + '/dist/fonts/'));
 });
 
 gulp.task('js_dependencies', function() {
-    gulp.src('node_modules/bootstrap/dist/js/bootstrap.min.js')
-        .pipe(debug({
-            title: 'copy:'
-        }))
-        .pipe(gulp.dest('dist/js/'));
-
-    gulp.src('node_modules/jquery/dist/jquery.min.js')
+    var src;
+    if (isBower) {
+        src = gulp.src(['bower_components/bootstrap/dist/js/bootstrap.min.js', 'bower_components/jquery/dist/jquery.min.js']);
+    } else {
+        src = gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js']);
+    }
+    src
         .pipe(debug({
             title: 'copy:'
         }))
