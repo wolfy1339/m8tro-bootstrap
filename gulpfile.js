@@ -176,13 +176,13 @@ gulp.task('less', function() {
 
 // Copy tasks
 gulp.task('FontAwesome', function() {
-    gulp.src('node_modules/fontawesome/css/font-awesome.min.css')
+    gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
         .pipe(debug({
             title: 'copy:'
         }))
         .pipe(gulp.dest(__dirname + '/dist/css/'));
 
-    gulp.src('node_modules/fontawesome/fonts/*')
+    gulp.src('node_modules/font-awesome/fonts/*')
         .pipe(gulp.dest(__dirname + '/dist/fonts/'));
 });
 
