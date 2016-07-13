@@ -132,7 +132,11 @@ gulp.task('less', function() {
         .pipe(debug({
             title: 'cleancss:'
         }))
-        .pipe(cleancss())
+        .pipe(cleancss({
+            compatibility: 'ie8',
+            keepSpecialComments: '*',
+            advanced: false
+        }))
         .pipe(sourcemaps.write('./', {
             mapFile: function () {
                 var name = mapFile.split('.css');
@@ -167,7 +171,11 @@ gulp.task('less', function() {
         .pipe(debug({
             title: 'cleancss:'
         }))
-        .pipe(cleancss())
+        .pipe(cleancss({
+            compatibility: 'ie8',
+            keepSpecialComments: '*',
+            advanced: false
+        }))
         .pipe(sourcemaps.write('./', {
             mapFile: function () {
                 var name = mapFile.split('.css');
@@ -477,7 +485,11 @@ gulp.task('setup', function() {
                 .pipe(autoprefixer({ browsers: autoprefixerBrowsers }))
                 .pipe(csscomb())
                 .pipe(concat('m8tro.min.css'))
-                .pipe(cleancss())
+                .pipe(cleancss({
+                    compatibility: 'ie8',
+                    keepSpecialComments: '*',
+                    advanced: false
+                }))
                 .pipe(sourcemaps.write('./', {
                     mapFile: function () {
                         var name = mapFile.split('.css');
