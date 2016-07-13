@@ -10,7 +10,7 @@ var meta = require('./package.json');
 
 // Gulp plugins
 var cache = require('gulp-cached'),
-    cleancss = require('gulp-cleancss'),
+    cleancss = require('gulp-clean-css'),
     concat = require('gulp-concat'),
     console = require('better-console'),
     csscomb = require('gulp-csscomb'),
