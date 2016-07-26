@@ -141,8 +141,7 @@ gulp.task('less', function() {
         }))
         .pipe(gulp.dest('dist/css/'));
 
-    /*var extras = gulp.src('src/m8tro-extras.less');
-    extras
+    gulp.src('src/m8tro-extras.less')
       .pipe(debug({title: 'lessc:'}))
       .pipe(sourcemaps.init())
       .pipe(less())
@@ -152,7 +151,7 @@ gulp.task('less', function() {
       .pipe(debug({title: 'copy:'}))
       .pipe(gulp.dest('dist/css/'));
 
-    extras
+    gulp.src('src/m8tro-extras.less')
         .pipe(debug({
             title: 'lessc:'
         }))
@@ -178,7 +177,7 @@ gulp.task('less', function() {
         .pipe(debug({
             title: 'copy:'
         }))
-      .pipe(gulp.dest('dist/css/'));*/
+      .pipe(gulp.dest('dist/css/'));
 });
 
 function checkFileExistsSync(filepath) {
