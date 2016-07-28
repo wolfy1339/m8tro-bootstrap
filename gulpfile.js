@@ -97,7 +97,7 @@ gulp.task('htmlval', function() {
 
 
 // Build LESS
-gulp.task('less', function() {
+gulp.task('less', ['less-extras'], function() {
     console.log('\nCrunching...');
     gulp.src('src/m8tro.less')
         .pipe(debug({
@@ -140,7 +140,9 @@ gulp.task('less', function() {
             title: 'copy:'
         }))
         .pipe(gulp.dest('dist/css/'));
+});
 
+gulp.task('less-extras', function() {
     gulp.src('src/m8tro-extras.less')
       .pipe(debug({title: 'lessc:'}))
       .pipe(sourcemaps.init())
