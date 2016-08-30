@@ -1,4 +1,11 @@
-﻿::-webkit-scrollbar {
+// Vertical:
+//  Increment moves page downward to see more content,
+//  Decrement moves page upward to return to the top of the page
+// Horizontal:
+//  Increment moves page to the right
+//  Decrement moves page to the left
+
+::-webkit-scrollbar {
   height: 15px;
   width: 15px;
 }
@@ -6,13 +13,13 @@
 ::-webkit-scrollbar-thumb {
   background-color: #b7b7b9;
 
-    &:hover {
-      background-color: #b7b7b9;
-    }
+  &:hover {
+    background-color: #b7b7b9;
+  }
 
-    &:active {
-      background-color: #5b5a5c;
-    }
+  &:active {
+    background-color: #5b5a5c;
+  }
 }
 
 ::-webkit-scrollbar-track {
@@ -21,4 +28,56 @@
 
 ::-webkit-scrollbar-corner {
   background-color: transparent;
+}
+
+::-webkit-scrollbar-button {
+  background-color: #f1f1f1;
+
+// Embedded icons are from Google Material Icons
+// Licensed under the Apache License, Version 2.0
+// https://design.google.com/icons/
+
+  &:active {
+    background-color: #5b5a5c;
+
+    &:vertical {
+      &:increment {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23fff%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M7.4%207.8L12%2012.4l4.6-4.6L18%209.3l-6%206-6-6z%22%2F%3E%3Cpath%20d%3D%22M0-0.7h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
+      }
+
+      &:decrement {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23fff%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M7.4%2015.4L12%2010.8l4.6%204.6L18%2014l-6-6-6%206z%22%2F%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
+      }
+    }
+
+    &:horizontal {
+      &:increment {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23fff%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M8.6%2016.3l4.6-4.6-4.6-4.6L10%205.8l6%206-6%206z%22%2F%3E%3Cpath%20d%3D%22M0-0.2h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
+      }
+
+      &:decrement {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23fff%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M15.4%2016.1l-4.6-4.6%204.6-4.6L14%205.5l-6%206%206%206z%22%2F%3E%3Cpath%20d%3D%22M0-0.5h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
+      }
+    }
+  }
+
+  &:vertical {
+    &:increment {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23000%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M7.41%207.84L12%2012.42l4.59-4.58L18%209.25l-6%206-6-6z%22%2F%3E%3Cpath%20d%3D%22M0-0.75h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
+    }
+
+    &:decrement {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23000000%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M7.4%2015.4L12%2010.8l4.6%204.6L18%2014l-6-6-6%206z%22%2F%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
+    }
+  }
+
+  &:horizontal {
+    &:increment {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23000%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M8.6%2016.3l4.6-4.6-4.6-4.6L10%205.8l6%206-6%206z%22%2F%3E%3Cpath%20d%3D%22M0-0.2h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
+    }
+
+    &:decrement {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23000%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M15.4%2016.1l-4.6-4.6%204.6-4.6L14%205.5l-6%206%206%206z%22%2F%3E%3Cpath%20d%3D%22M0-0.5h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
+    }
+  }
 }
