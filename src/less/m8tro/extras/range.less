@@ -60,7 +60,11 @@ input[type=range] {
         color: transparent;
     }
 
-    &::-ms-fill-lower,
+    &::-ms-fill-lower {
+        background: @m8tro-theme;
+        border-radius: 0;
+    }
+
     &::-ms-fill-upper {
         background: @gray;
         border-radius: 0;
