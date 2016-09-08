@@ -205,9 +205,9 @@ var isBower = checkFileExistsSync('bower_components/bootstrap/bower.json') && ch
 gulp.task('FontAwesome', function() {
     var files;
     if (!isBower) {
-        files = gulp.src(['node_modules/font-awesome/css/font-awesome.min.css', 'node_modules/font-awesome/fonts/*']);
+        files = gulp.src(['node_modules/font-awesome/css/font-awesome.min.css', 'node_modules/font-awesome/fonts/*'], { base: 'node_modules/font-awesome/' });
     } else {
-        files = gulp.src(['bower_components/font-awesome/css/font-awesome.min.css', 'bower_components/font-awesome/fonts/*']);
+        files = gulp.src(['bower_components/font-awesome/css/font-awesome.min.css', 'bower_components/font-awesome/fonts/*'], { base: 'bower_components/font-awesome/' });
     }
     return files
         .pipe(debug({title: 'copy:'}))
