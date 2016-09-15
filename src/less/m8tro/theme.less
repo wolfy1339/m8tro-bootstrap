@@ -254,6 +254,37 @@ a,
   }
 }
 
+.modal-input-dialog {
+  .modal-content {
+    border-color: transparent;
+    background-color: @modal-content-bg;
+    .box-shadow(none)
+    margin: auto;
+    
+    @media (min-width: @screen-sm-min) {
+      width: @modal-md;
+    }
+    
+    @media (min-width: @screen-md-min) {
+      width: @modal-lg;
+    }
+  }
+
+  // Remove padding-right added to the modal by javascript
+  &.fade.in {
+    padding-right: 0 !important;
+  }
+  
+  .modal-dialog {
+    width: auto !important;
+  }
+  
+  &.modal-sm,
+  &.modal-lg {
+    width: inherit;
+  }
+}
+
 .modal-center-vertical {
     text-align: center;
 
