@@ -6209,6 +6209,51 @@ a,
   outline: none;
   opacity: 1;
 }
+.modal-input-dialog .modal-content {
+  margin: auto;
+  background-color: #212121;
+  border-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+@media (min-width: 768px) {
+  .modal-input-dialog .modal-content {
+    width: 600px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-input-dialog .modal-content {
+    width: 900px;
+  }
+}
+.modal-input-dialog.fade.in {
+  padding-right: 0 !important;
+}
+.modal-input-dialog .modal-dialog {
+  width: auto !important;
+}
+.modal-input-dialog.modal-sm,
+.modal-input-dialog.modal-lg {
+  width: inherit;
+}
+.modal-center-vertical {
+  text-align: center;
+}
+.modal-center-vertical:before {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+@media (min-width: 768px) {
+  .modal-center-vertical:before {
+    content: "";
+  }
+}
+.modal-center-vertical .modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
 .navbar {
   border-width: 0;
 }
