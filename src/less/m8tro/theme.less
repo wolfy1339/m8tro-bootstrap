@@ -254,6 +254,27 @@ a,
   }
 }
 
+.modal-center-vertical {
+    text-align: center;
+
+    &:before {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+
+        // The modal is vertically centered on medium devices and up
+        @media (min-width: @screen-sm-min) {
+            content: "";
+        }
+    }
+
+    .modal-dialog {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+}
+
 // Navbar =====================================================================
 .navbar {
   border-width: 0;
