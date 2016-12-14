@@ -138,7 +138,7 @@ gulp.task('less', ['less-extras'], function() {
             advanced: false
         }))
         .pipe(sourcemaps.write('./', {
-            mapFile: function () {
+            mapFile: function(mapFilePath) {
                 return mapFilePath.replace('.css', '.min.css');
             }
         }))
