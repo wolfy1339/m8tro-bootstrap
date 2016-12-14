@@ -139,8 +139,7 @@ gulp.task('less', ['less-extras'], function() {
         }))
         .pipe(sourcemaps.write('./', {
             mapFile: function () {
-                var name = mapFile.split('.css');
-                return name[0] + '.min.css' + name[1];
+                return mapFilePath.replace('.css', '.min.css');
             }
         }))
         .pipe(debug({
