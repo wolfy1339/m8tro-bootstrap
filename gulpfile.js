@@ -178,9 +178,8 @@ gulp.task('less-extras', function() {
             advanced: false
         }))
         .pipe(sourcemaps.write('./', {
-            mapFile: function () {
-                var name = mapFile.split('.css');
-                return name[0] + '.min.css' + name[1];
+            mapFile: function(mapFilePath) {
+                return mapFilePath.replace('.css', '.min.css');
             }
         }))
         .pipe(debug({
@@ -492,9 +491,8 @@ gulp.task('setup', function() {
                     advanced: false
                 }))
                 .pipe(sourcemaps.write('./', {
-                    mapFile: function () {
-                        var name = mapFile.split('.css');
-                        return name[0] + '.min.css' + name[1];
+                    mapFile: function(mapFilePath) {
+                        return mapFilePath.replace('.css', '.min.css');
                     }
                 }))
                 .pipe(gulp.dest('dist/css/'));
