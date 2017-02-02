@@ -5114,7 +5114,7 @@ button.close {
 }
 .modal-content {
   position: relative;
-  background-color: #212121;
+  background-color: #000;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
   border: 1px solid #999;
@@ -5143,7 +5143,7 @@ button.close {
 }
 .modal-header {
   padding: 15px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid transparent;
 }
 .modal-header .close {
   margin-top: -2px;
@@ -5159,7 +5159,7 @@ button.close {
 .modal-footer {
   padding: 20px;
   text-align: right;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid transparent;
 }
 .modal-footer .btn + .btn {
   margin-bottom: 0;
@@ -5973,6 +5973,7 @@ button.close {
  */
 body {
   font-weight: 200;
+  background-color: #111;
 
   text-rendering: optimizeLegibility;
 }
@@ -6211,7 +6212,7 @@ a,
 }
 .modal-input-dialog .modal-content {
   margin: auto;
-  background-color: #212121;
+  background-color: #000;
   border-color: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -6946,265 +6947,6 @@ a.pager {
 .well {
   -webkit-box-shadow: none;
           box-shadow: none;
-}
-.bg-gray-darker {
-  background-color: #222;
-}
-a.bg-gray-darker:hover,
-a.bg-gray-darker:focus {
-  background-color: #090909;
-}
-.bg-gray-dark {
-  background-color: #212121;
-}
-a.bg-gray-dark:hover,
-a.bg-gray-dark:focus {
-  background-color: #080808;
-}
-.bg-gray-light {
-  background-color: #727272;
-}
-a.bg-gray-light:hover,
-a.bg-gray-light:focus {
-  background-color: #595959;
-}
-.bg-gray-lighter {
-  background-color: #ccc;
-}
-a.bg-gray-lighter:hover,
-a.bg-gray-lighter:focus {
-  background-color: #b3b3b3;
-}
-.bg-gray {
-  background-color: #4a4a4a;
-}
-a.bg-gray:hover,
-a.bg-gray:focus {
-  background-color: #303030;
-}
-.bg-wp-amber {
-  background-color: #f0a30a;
-}
-a.bg-wp-amber:hover,
-a.bg-wp-amber:focus {
-  background-color: #bf8208;
-}
-.bg-wp-beige {
-  background-color: #87794e;
-}
-a.bg-wp-beige:hover,
-a.bg-wp-beige:focus {
-  background-color: #675c3b;
-}
-.bg-wp-brown {
-  background-color: #825a2c;
-}
-a.bg-wp-brown:hover,
-a.bg-wp-brown:focus {
-  background-color: #5c401f;
-}
-.bg-wp-cobalt {
-  background-color: #0050ef;
-}
-a.bg-wp-cobalt:hover,
-a.bg-wp-cobalt:focus {
-  background-color: #003fbc;
-}
-.bg-wp-crimson {
-  background-color: #a20025;
-}
-a.bg-wp-crimson:hover,
-a.bg-wp-crimson:focus {
-  background-color: #6f0019;
-}
-.bg-wp-cyan {
-  background-color: #1ba1e2;
-}
-a.bg-wp-cyan:hover,
-a.bg-wp-cyan:focus {
-  background-color: #1681b4;
-}
-.bg-wp-emerald {
-  background-color: #008a00;
-}
-a.bg-wp-emerald:hover,
-a.bg-wp-emerald:focus {
-  background-color: #005700;
-}
-.bg-wp-gray {
-  background-color: #434542;
-}
-a.bg-wp-gray:hover,
-a.bg-wp-gray:focus {
-  background-color: #2a2b29;
-}
-.bg-wp-gray-dark {
-  background-color: #1f1f1f;
-}
-a.bg-wp-gray-dark:hover,
-a.bg-wp-gray-dark:focus {
-  background-color: #050505;
-}
-.bg-wp-gray-light {
-  background-color: #bebebe;
-}
-a.bg-wp-gray-light:hover,
-a.bg-wp-gray-light:focus {
-  background-color: #a5a5a5;
-}
-.bg-wp-green {
-  background-color: #60a917;
-}
-a.bg-wp-green:hover,
-a.bg-wp-green:focus {
-  background-color: #477c11;
-}
-.bg-wp-indigo {
-  background-color: #6a00ff;
-}
-a.bg-wp-indigo:hover,
-a.bg-wp-indigo:focus {
-  background-color: #50c;
-}
-.bg-wp-lime {
-  background-color: #a4c400;
-}
-a.bg-wp-lime:hover,
-a.bg-wp-lime:focus {
-  background-color: #799100;
-}
-.bg-wp-magenta {
-  background-color: #d80073;
-}
-a.bg-wp-magenta:hover,
-a.bg-wp-magenta:focus {
-  background-color: #a50058;
-}
-.bg-wp-mauve {
-  background-color: #76608a;
-}
-a.bg-wp-mauve:hover,
-a.bg-wp-mauve:focus {
-  background-color: #5c4b6c;
-}
-.bg-wp-olive {
-  background-color: #6d8764;
-}
-a.bg-wp-olive:hover,
-a.bg-wp-olive:focus {
-  background-color: #556a4e;
-}
-.bg-wp-orange {
-  background-color: #fa6800;
-}
-a.bg-wp-orange:hover,
-a.bg-wp-orange:focus {
-  background-color: #c75300;
-}
-.bg-wp-pink {
-  background-color: #f472d0;
-}
-a.bg-wp-pink:hover,
-a.bg-wp-pink:focus {
-  background-color: #f043c0;
-}
-.bg-wp-red {
-  background-color: #e51400;
-}
-a.bg-wp-red:hover,
-a.bg-wp-red:focus {
-  background-color: #b21000;
-}
-.bg-wp-sienna {
-  background-color: #7a3b3f;
-}
-a.bg-wp-sienna:hover,
-a.bg-wp-sienna:focus {
-  background-color: #582a2d;
-}
-.bg-wp-steel {
-  background-color: #647687;
-}
-a.bg-wp-steel:hover,
-a.bg-wp-steel:focus {
-  background-color: #4e5c6a;
-}
-.bg-wp-teal {
-  background-color: #00aba9;
-}
-a.bg-wp-teal:hover,
-a.bg-wp-teal:focus {
-  background-color: #007877;
-}
-.bg-wp-violet {
-  background-color: #a0f;
-}
-a.bg-wp-violet:hover,
-a.bg-wp-violet:focus {
-  background-color: #80c;
-}
-.bg-wp-yellow {
-  background-color: #d8c100;
-}
-a.bg-wp-yellow:hover,
-a.bg-wp-yellow:focus {
-  background-color: #a59300;
-}
-.bg-m8tro-red {
-  background-color: #ed1c24;
-}
-a.bg-m8tro-red:hover,
-a.bg-m8tro-red:focus {
-  background-color: #c61017;
-}
-.bg-m8tro-orange {
-  background-color: #f36f21;
-}
-a.bg-m8tro-orange:hover,
-a.bg-m8tro-orange:focus {
-  background-color: #d5570c;
-}
-.bg-m8tro-yellow {
-  background-color: #faa61a;
-}
-a.bg-m8tro-yellow:hover,
-a.bg-m8tro-yellow:focus {
-  background-color: #dc8b05;
-}
-.bg-m8tro-green {
-  background-color: #80c342;
-}
-a.bg-m8tro-green:hover,
-a.bg-m8tro-green:focus {
-  background-color: #679f33;
-}
-.bg-m8tro-aqua {
-  background-color: #00b3b5;
-}
-a.bg-m8tro-aqua:hover,
-a.bg-m8tro-aqua:focus {
-  background-color: #008182;
-}
-.bg-m8tro-blue {
-  background-color: #3c9cd6;
-}
-a.bg-m8tro-blue:hover,
-a.bg-m8tro-blue:focus {
-  background-color: #2781b8;
-}
-.bg-m8tro-purple {
-  background-color: #5c2d91;
-}
-a.bg-m8tro-purple:hover,
-a.bg-m8tro-purple:focus {
-  background-color: #43216a;
-}
-.bg-m8tro-brown {
-  background-color: #8c693a;
-}
-a.bg-m8tro-brown:hover,
-a.bg-m8tro-brown:focus {
-  background-color: #684e2b;
 }
 input[type=range] {
   -webkit-appearance: none;
