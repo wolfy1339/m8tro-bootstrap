@@ -1,5 +1,7 @@
 # M8tro Bootstrap Theme
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/wolfy1339/m8tro-bootstrap.svg)](https://greenkeeper.io/)
+
 [![Bower](https://img.shields.io/bower/v/m8tro-bootstrap.svg?style=flat-square)](https://github.com/idleberg/m8tro-bootstrap/releases)
 [![npm](https://img.shields.io/npm/v/m8tro-bootstrap.svg?style=flat-square)](https://www.npmjs.com/package/m8tro-bootstrap)
 [![Travis](https://img.shields.io/travis/wolfy1339/m8tro-bootstrap.svg?style=flat-square)](https://travis-ci.org/wolfy1339/m8tro-bootstrap)
