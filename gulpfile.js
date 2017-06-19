@@ -6,30 +6,31 @@
  * Licensed under the MIT license.
  */
 // Read package.json metadata
-var meta = require('./package.json');
+import meta from './package.json';
+
 
 // Gulp plugins
-var cache = require('gulp-cached'),
-    cleancss = require('gulp-clean-css'),
-    concat = require('gulp-concat'),
-    console = require('better-console'),
-    csscomb = require('gulp-csscomb'),
-    debug = require('gulp-debug'),
-    del = require('del'),
-    gulp = require('gulp'),
-    htmlval = require('gulp-html-validator'),
-    jshint = require('gulp-jshint'),
-    jsonlint = require('gulp-json-lint'),
-    less = require('gulp-less'),
-    path = require('path'),
-    prompt = require('gulp-prompt'),
-    sourcemaps = require('gulp-sourcemaps'),
-    util = require('gulp-util'),
-    watch = require('gulp-watch'),
-    argv = require('yargs').argv;
+import cache from 'gulp-cached';
+import cleancss from 'gulp-clean-css';
+import concat from 'gulp-concat';
+import console from 'better-console';
+import csscomb from 'gulp-csscomb';
+import debug from 'gulp-debug';
+import del from 'del';
+import gulp from 'gulp';
+import htmlval from 'gulp-html-validator';
+import jshint from 'gulp-jshint';
+import jsonlint from 'gulp-json-lint';
+import less from 'gulp-less';
+import path from 'path';
+import prompt from 'gulp-prompt';
+import sourcemaps from 'gulp-sourcemaps';
+import util from 'gulp-util';
+import watch from 'gulp-watch';
+let argv = require('yargs').argv;
 
 // Autoprefixer supported browsers
-var autoprefixerBrowsers = [
+let autoprefixerBrowsers = [
     "Android 2.3",
     "Android >= 4",
     "Chrome >= 20",
@@ -41,7 +42,8 @@ var autoprefixerBrowsers = [
 ];
 
 // LESS plugins
-var autoprefixer = require('gulp-autoprefixer');
+import autoprefixer from 'gulp-autoprefixer';
+
 
 
 /*
@@ -66,13 +68,13 @@ gulp.task('lint', ['html', 'selftest']);
 /*
  * Sub-tasks
  */
-gulp.task('make', ['FontAwesome', 'js_dependencies', 'less'], function() {
+gulp.task('make', ['FontAwesome', 'js_dependencies', 'less'], () => {
     console.log('\nBuilding M8tro theme:');
 });
 
 
 // Lint JS files
-gulp.task('jshint', function() {
+gulp.task('jshint', () => {
     gulp.src('gulpfile.js')
         .pipe(cache('linting_js'))
         .pipe(debug({
@@ -84,7 +86,7 @@ gulp.task('jshint', function() {
 
 
 // Lint JSON
-gulp.task('jsonlint', function() {
+gulp.task('jsonlint', () => {
     return gulp.src(['bower.json', 'package.json'])
         .pipe(cache('linting_json'))
         .pipe(debug({
@@ -96,7 +98,7 @@ gulp.task('jsonlint', function() {
 
 
 // Validate HTML
-gulp.task('htmlval', function() {
+gulp.task('htmlval', () => {
     return htmlval([
         'index.html'
     ]);
@@ -104,7 +106,7 @@ gulp.task('htmlval', function() {
 
 
 // Build LESS
-gulp.task('less', ['less-extras'], function() {
+gulp.task('less', ['less-extras'], () => {
     console.log('\nCrunching...');
     gulp.src('src/m8tro.less')
         .pipe(debug({
@@ -139,7 +141,7 @@ gulp.task('less', ['less-extras'], function() {
         }))
         .pipe(sourcemaps.write('./', {
             mapFile: function () {
-                var name = mapFile.split('.css');
+                let name = mapFile.split('.css');
                 return name[0] + '.min.css' + name[1];
             }
         }))
@@ -149,7 +151,7 @@ gulp.task('less', ['less-extras'], function() {
         .pipe(gulp.dest('dist/css/'));
 });
 
-gulp.task('less-extras', function() {
+gulp.task('less-extras', () => {
     gulp.src('src/m8tro-extras.less')
       .pipe(debug({title: 'lessc:'}))
       .pipe(sourcemaps.init())
@@ -179,7 +181,7 @@ gulp.task('less-extras', function() {
         }))
         .pipe(sourcemaps.write('./', {
             mapFile: function () {
-                var name = mapFile.split('.css');
+                let name = mapFile.split('.css');
                 return name[0] + '.min.css' + name[1];
             }
         }))
@@ -190,7 +192,7 @@ gulp.task('less-extras', function() {
 });
 
 function checkFileExistsSync(filepath) {
-    var flag = true;
+    let flag = true;
     try {
         fs.accessSync(filepath, fs.F_OK);
     } catch(e) {
@@ -199,11 +201,11 @@ function checkFileExistsSync(filepath) {
     return flag;
 }
 
-var isBower = checkFileExistsSync('bower_components/bootstrap/bower.json') && checkFileExistsSync('bower_components/font-awesome/bower.json');
+let isBower = checkFileExistsSync('bower_components/bootstrap/bower.json') && checkFileExistsSync('bower_components/font-awesome/bower.json');
 
 // Copy tasks
-gulp.task('FontAwesome', function() {
-    var files;
+gulp.task('FontAwesome', () => {
+    let files;
     if (!isBower) {
         files = gulp.src(['node_modules/font-awesome/css/font-awesome.min.css', 'node_modules/font-awesome/fonts/*'], { base: 'node_modules/font-awesome/' });
     } else {
@@ -214,8 +216,8 @@ gulp.task('FontAwesome', function() {
         .pipe(gulp.dest(__dirname+'/dist/'));
 });
 
-gulp.task('js_dependencies', function() {
-    var src;
+gulp.task('js_dependencies', () => {
+    let src;
     if (isBower) {
         src = gulp.src(['bower_components/bootstrap/dist/js/bootstrap.min.js', 'bower_components/jquery/dist/jquery.min.js']);
     } else {
@@ -227,8 +229,8 @@ gulp.task('js_dependencies', function() {
 });
 
 // Customize Bootstrap assets
-gulp.task('setup', function() {
-    var listr_state;
+gulp.task('setup', () => {
+    let listr_state;
     // Include Bootstrap Listr LESS dependencies
     if (argv.listr) {
         listr_state = true;
@@ -236,7 +238,7 @@ gulp.task('setup', function() {
         listr_state = false;
     }
 
-    var _components = [
+    let _components = [
         { name: 'Print media styles', checked: false },
         { name: 'Typography', checked: listr_state },
         { name: 'Code', checked: listr_state },
@@ -275,11 +277,11 @@ gulp.task('setup', function() {
         { name: 'Carousel\n', checked: false },
     ];
 
-    var _dir = 'node_modules/bootstrap/',
+    let _dir = 'node_modules/bootstrap/',
         _fonts = [],
         _js = [],
         _less = [
-            _dir + 'less/variables.less', _dir + 'less/mixins/*.less', _dir + 'less/normalize.less'
+            _dir + 'less/letiables.less', _dir + 'less/mixins/*.less', _dir + 'less/normalize.less'
         ];
 
     console.clear();
@@ -295,7 +297,7 @@ gulp.task('setup', function() {
 
             console.log('\nBuilding custom M8tro theme:');
 
-            console.log('+variables.less');
+            console.log('+letiables.less');
             console.log('+mixins/*.less');
             console.log('+normalize.less');
 
@@ -461,7 +463,7 @@ gulp.task('setup', function() {
             }
 
             _less.push('src/less/m8tro/palette.less');
-            _less.push('src/less/m8tro/variables.less');
+            _less.push('src/less/m8tro/letiables.less');
             _less.push('src/less/m8tro/theme.less');
 
             console.log('\n' + _less.length + ' styles, ' + _js.length + ' scripts and ' + _fonts.length + ' fonts in total');
@@ -493,7 +495,7 @@ gulp.task('setup', function() {
                 }))
                 .pipe(sourcemaps.write('./', {
                     mapFile: function () {
-                        var name = mapFile.split('.css');
+                        let name = mapFile.split('.css');
                         return name[0] + '.min.css' + name[1];
                     }
                 }))
@@ -523,13 +525,13 @@ gulp.task('setup', function() {
 });
 
 // Cleaning task
-gulp.task('clean', function() {
+gulp.task('clean', () => {
     return del([__dirname + '/dist/']);
 });
 
 
 // Watch task
-gulp.task('watch', function() {
+gulp.task('watch', () => {
     gulp.watch([
         'bower.json',
         'gulpfile.js',
@@ -541,9 +543,9 @@ gulp.task('watch', function() {
 
 
 // Help dialog
-gulp.task('help', function() {
+gulp.task('help', () => {
 
-    var title_length = meta.name + ' v' + meta.version;
+    let title_length = meta.name + ' v' + meta.version;
 
     console.log('\n' + title_length);
     console.log('The MIT License (MIT)');
