@@ -140,9 +140,14 @@ gulp.task('less', ['less-extras'], () => {
             advanced: false
         }))
         .pipe(sourcemaps.write('./', {
+<<<<<<< HEAD
             mapFile: function () {
                 let name = mapFile.split('.css');
                 return name[0] + '.min.css' + name[1];
+=======
+            mapFile: function(mapFilePath) {
+                return mapFilePath.replace('.css', '.min.css');
+>>>>>>> 0ed24cc0bb06c8e95b52accdbb92f38852f3f3fd
             }
         }))
         .pipe(debug({
@@ -180,9 +185,14 @@ gulp.task('less-extras', () => {
             advanced: false
         }))
         .pipe(sourcemaps.write('./', {
+<<<<<<< HEAD
             mapFile: function () {
                 let name = mapFile.split('.css');
                 return name[0] + '.min.css' + name[1];
+=======
+            mapFile: function(mapFilePath) {
+                return mapFilePath.replace('.css', '.min.css');
+>>>>>>> 0ed24cc0bb06c8e95b52accdbb92f38852f3f3fd
             }
         }))
         .pipe(debug({
@@ -494,9 +504,14 @@ gulp.task('setup', () => {
                     advanced: false
                 }))
                 .pipe(sourcemaps.write('./', {
+<<<<<<< HEAD
                     mapFile: function () {
                         let name = mapFile.split('.css');
                         return name[0] + '.min.css' + name[1];
+=======
+                    mapFile: function(mapFilePath) {
+                        return mapFilePath.replace('.css', '.min.css');
+>>>>>>> 0ed24cc0bb06c8e95b52accdbb92f38852f3f3fd
                     }
                 }))
                 .pipe(gulp.dest('dist/css/'));
