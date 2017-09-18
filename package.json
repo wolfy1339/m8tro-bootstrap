@@ -72,7 +72,7 @@
     "less-plugin-autoprefix": "wolfy1339/less-plugin-autoprefix#5715206b79d69a1842fb065325adfc11de621075",
     "less-plugin-clean-css": "wolfy1339/less-plugin-clean-css#a56be8454f0d9c0cf98c8e4391a051354a0a021c",
     "less-plugin-csscomb": "wolfy1339/less-plugin-csscomb#caa735002adb347d511e0802a8beef4df62a463c",
-    "yargs": "^8.0.1"
+    "yargs": "^9.0.1"
   },
   "npmName": "m8tro-bootstrap",
   "npmFileMap": [
