@@ -63,7 +63,7 @@
     "gulp-jshint": "^2.0.4",
     "gulp-json-lint": "^0.1.0",
     "gulp-less": "^3.3.0",
-    "gulp-prompt": "^0.2.0",
+    "gulp-prompt": "^0.4.1",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
