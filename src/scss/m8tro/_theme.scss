@@ -33,11 +33,11 @@ a.list-group-item {
   &:hover,
   &:focus  {
     text-decoration: none;
-    background-color: @gray-dark;
+    background-color: $gray-dark;
   }
 
-  &.active > .badge {
-    color: @gray-dark;
+  &.active > .badge-pill {
+    color: $gray-dark;
     background-color: transparent;
   }
 }
@@ -52,19 +52,19 @@ a,
 .popover > .arrow { display: none; }
 .popover-content,
 .popover-title {
-  color: @body-bg;
+  color: $body-bg;
   font-weight: 200;
 }
 
-.label {
+.badge {
   font-weight: inherit;
-  border-radius: @border-radius-small;
+  border-radius: $border-radius-small;
 }
-.label-default { background-color: @link-color; }
+.badge-default { background-color: $link-color; }
 
-.badge { color: @m8tro-theme; }
-.fa, .glyphicon { color: @m8tro-theme; }
-.fa-home, .glyphicon-home { color: @body-bg; }
+.badge-pill { color: $m8tro-theme; }
+.fa, .glyphicon { color: $m8tro-theme; }
+.fa-home, .glyphicon-home { color: $body-bg; }
 
 .panel-footer { font-size: .8em; }
 .panel-success,
@@ -82,12 +82,12 @@ a,
 .text-warning {
   a { color: inherit; }
 }
-.text-muted a:hover { color: darken(@text-muted, 10%); }
-.text-primary a:hover { color: darken(@brand-primary, 10%); }
-.text-success a:hover { color: darken(@brand-success, 10%); }
-.text-info a:hover { color: darken(@brand-success, 10%); }
-.text-warning a:hover { color: darken(@brand-warning, 10%); }
-.text-danger a:hover { color: darken(@brand-danger, 10%); }
+.text-muted a:hover { color: darken($text-muted, 10%); }
+.text-primary a:hover { color: darken($brand-primary, 10%); }
+.text-success a:hover { color: darken($brand-success, 10%); }
+.text-info a:hover { color: darken($brand-success, 10%); }
+.text-warning a:hover { color: darken($brand-warning, 10%); }
+.text-danger a:hover { color: darken($brand-danger, 10%); }
 
 .dropdown-menu {
   margin: -1px 0;
@@ -98,7 +98,7 @@ a,
   }
 
   .divider {
-    background-color: @link-color;
+    background-color: $link-color;
   }
 }
 
@@ -110,7 +110,7 @@ a,
 
 .breadcrumb {
   a {
-    color: @link-color;
+    color: $link-color;
     font-weight: 400;
     text-decoration: none;
 
@@ -121,22 +121,22 @@ a,
 
   .fa,
   .glyphicon {
-    color: @text-color;
+    color: $text-color;
   }
 }
 
 .breadcrumb-inverse {
-  background-color: @m8tro-theme;
+  background-color: $m8tro-theme;
 
   .fa,
   .glyphicon {
-    color: @body-bg;
+    color: $body-bg;
   }
 
   a,
   > li + li:before,
   > .active {
-    color: @body-bg;
+    color: $body-bg;
   }
 }
 
@@ -146,7 +146,7 @@ a,
   }
 
   .btn-link {
-    color: @body-bg;
+    color: $body-bg;
 
     &:hover,
     &:active,
@@ -158,98 +158,98 @@ a,
   }
 
   .btn-default {
-    color: @body-bg;
-    background-color: @text-color;
-    border: 1px @gray-lighter solid;
+    color: $body-bg;
+    background-color: $text-color;
+    border: 1px $gray-lighter solid;
 
     &:hover,
     &:active,
     &:active:focus,
     &:hover:active {
-      color: @link-color;
-      background-color: @gray-lighter;
-      border: 1px @gray-lighter solid;
+      color: $link-color;
+      background-color: $gray-lighter;
+      border: 1px $gray-lighter solid;
     }
   }
 
   .btn-primary {
-    color: @brand-primary;
-    border: 1px @brand-primary solid;
+    color: $brand-primary;
+    border: 1px $brand-primary solid;
 
     &:hover,
     &:active,
     &:active:focus,
     &:hover:active {
-      color: @text-color;
-      background-color: @brand-primary;
+      color: $text-color;
+      background-color: $brand-primary;
     }
   }
 
   .btn-success {
-    color: @brand-success;
-    border: 1px @brand-success solid;
+    color: $brand-success;
+    border: 1px $brand-success solid;
 
     &:hover,
     &:active,
     &:active:focus,
     &:hover:active {
-      color: @text-color;
-      background-color: @brand-success;
+      color: $text-color;
+      background-color: $brand-success;
     }
   }
 
   .btn-info {
-    color: @brand-info;
-    border: 1px @brand-info solid;
+    color: $brand-info;
+    border: 1px $brand-info solid;
 
     &:hover,
     &:active,
     &:active:focus,
     &:hover:active {
-      color: @text-color;
-      background-color: @brand-info;
+      color: $text-color;
+      background-color: $brand-info;
     }
   }
 
   .btn-warning {
-    color: @brand-warning;
-    border: 1px @brand-warning solid;
+    color: $brand-warning;
+    border: 1px $brand-warning solid;
 
     &:hover,
     &:active,
     &:active:focus,
     &:hover:active {
-      color: @text-color;
-      background-color: @brand-warning;
+      color: $text-color;
+      background-color: $brand-warning;
     }
   }
 
   .btn-danger {
-    color: @brand-danger;
-    border: 1px @brand-danger solid;
+    color: $brand-danger;
+    border: 1px $brand-danger solid;
 
     &:hover,
     &:active,
     &:active:focus,
     &:hover:active {
-      color: @text-color;
-      background-color: @brand-danger;
+      color: $text-color;
+      background-color: $brand-danger;
     }
   }
 
   a {
-    color: @jumbotron-color;
+    color: $jumbotron-color;
   }
 }
 
 .modal .close {
-  color: @gray-light;
+  color: $gray-light;
   text-decoration: none;
   opacity: 1;
 
   &:hover,
   &:focus {
-    color: @link-color;
+    color: $link-color;
     opacity: 1;
     outline: none;
   }
@@ -258,16 +258,16 @@ a,
 .modal-input-dialog {
   .modal-content {
     border-color: transparent;
-    background-color: @modal-content-bg;
+    background-color: $modal-content-bg;
     .box-shadow(none);
     margin: auto;
-    
-    @media (min-width: @screen-sm-min) {
-      width: @modal-md;
+
+    $media (min-width: $screen-sm-min) {
+      width: $modal-md;
     }
-    
-    @media (min-width: @screen-md-min) {
-      width: @modal-lg;
+
+    $media (min-width: $screen-md-min) {
+      width: $modal-lg;
     }
   }
 
@@ -275,11 +275,11 @@ a,
   &.fade.in {
     padding-right: 0 !important;
   }
-  
+
   .modal-dialog {
     width: auto !important;
   }
-  
+
   &.modal-sm,
   &.modal-lg {
     width: inherit;
@@ -295,7 +295,7 @@ a,
         vertical-align: middle;
 
         // The modal is vertically centered on medium devices and up
-        @media (min-width: @screen-sm-min) {
+        $media (min-width: $screen-sm-min) {
             content: "";
         }
     }
@@ -313,9 +313,9 @@ a,
 }
 
 .navbar-default {
-  .badge {
+  .badge-pill {
     background-color: #fff;
-    color: @navbar-default-bg;
+    color: $navbar-default-bg;
   }
 
   .navbar-nav {
@@ -323,8 +323,8 @@ a,
       > a,
       > a:hover,
       > a:focus {
-        background-color: @link-color;
-        color: @body-bg;
+        background-color: $link-color;
+        color: $body-bg;
       }
     }
 
@@ -332,20 +332,20 @@ a,
       > a,
       > a:hover,
       > a:focus {
-        background-color: @body-bg;
+        background-color: $body-bg;
       }
     }
   }
 
   .navbar-toggle:hover .icon-bar {
-    background-color: @body-bg;
+    background-color: $body-bg;
   }
 
   .navbar-brand {
     &:hover,
     &:focus {
-      color: @link-color;
-      background-color: @body-bg;
+      color: $link-color;
+      background-color: $body-bg;
       text-decoration: underline;
     }
   }
@@ -357,48 +357,48 @@ a,
       > a,
       > a:hover,
       > a:focus {
-        background-color: darken(@navbar-inverse-bg, 5%);
-        color: @body-bg;
+        background-color: darken($navbar-inverse-bg, 5%);
+        color: $body-bg;
       }
     }
 
     > li > a {
       &:hover,
       &:focus {
-        color: @body-bg;
+        color: $body-bg;
       }
     }
   }
   .dropdown-menu {
-    border: 1px @m8tro-theme solid;
+    border: 1px $m8tro-theme solid;
 
     > li > a {
-      color: @gray-light;
+      color: $gray-light;
 
       &:hover,
       &:focus {
-        color: @link-color;
-        background-color: @body-bg;
+        color: $link-color;
+        background-color: $body-bg;
       }
     }
   }
 
   .divider {
-    background-color: @m8tro-theme;
+    background-color: $m8tro-theme;
   }
 
   .navbar-brand {
-    &:hover, 
+    &:hover,
     &:focus {
-      color: @body-bg;
-      background-color: @m8tro-theme;
+      color: $body-bg;
+      background-color: $m8tro-theme;
       text-decoration: underline;
     }
   }
 
-  .badge {
+  .badge-pill {
     background-color: #fff;
-    color: @navbar-inverse-bg;
+    color: $navbar-inverse-bg;
   }
 }
 
@@ -407,244 +407,6 @@ a,
 
   a& {
     text-decoration: none;
-  }
-}
-
-// Buttons ====================================================================
-
-.btn {
-  font-size: .8em;
-
-  a& {
-    text-decoration: none;
-  }
-
-  &.active.focus,
-  &.active:focus,
-  &.focus,
-  &:active.focus,
-  &:active:focus,
-  &:focus {
-    outline: none;
-  }
-
-  &.disabled,
-  &.disabled:hover,
-  &.disabled:focus,
-  &.disabled:active,
-  &[disabled],
-  &[disabled]:hover,
-  &[disabled]:focus,
-  &[disabled]:active {
-    background-color: inherit;
-    border: 0 !important;
-  }
-
-  &:active {
-    .box-shadow(none);
-  }
-}
-
-.btn-group.open .dropdown-toggle {
-  .box-shadow(none);
-}
-
-.btn-default,
-.dropdown-toggle.btn-default {
-  color: @link-color;
-  border: 1px @gray-light solid;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.active,
-  &:active:hover,
-  &.active:hover,
-  &:active:focus,
-  &.active:focus,
-  .open > .dropdown-toggle&,
-  .open > .dropdown-toggle&.focus,
-  .open > .dropdown-toggle&:focus,
-  .open > .dropdown-toggle&:hover {
-    color: @body-bg;
-    background-color: @link-color;
-    border: 1px darken(@link-color, 15%) solid;
-    transition: none;
-  }
-
-  &.disabled,
-  &.disabled:hover,
-  &.disabled:focus,
-  &.disabled:active,
-  &[disabled],
-  &[disabled]:hover,
-  &[disabled]:focus,
-  &[disabled]:active {
-    background-color: inherit;
-    color: @link-color;
-  }
-}
-
-.btn-primary,
-.dropdown-toggle.btn-primary {
-  color: @brand-primary;
-  border: 1px @brand-primary solid;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.active,
-  &:active:hover,
-  &.active:hover,
-  &:active:focus,
-  &.active:focus,
-  .open > .dropdown-toggle&,
-  .open > .dropdown-toggle&.focus,
-  .open > .dropdown-toggle&:focus,
-  .open > .dropdown-toggle&:hover {
-    color: @link-color;
-    background-color: @brand-primary;
-    border: 1px darken(@brand-primary, 15%) solid;
-  }
-
-  + .dropdown-menu {
-    border-color: @brand-primary;
-
-    > .divider {
-      background-color: @brand-primary;
-    }
-  }
-
-  &.disabled,
-  &.disabled:hover,
-  &.disabled:focus,
-  &.disabled:active,
-  &[disabled],
-  &[disabled]:hover,
-  &[disabled]:focus,
-  &[disabled]:active {
-    background-color: inherit;
-    color: @brand-primary;
-  }
-}
-
-.btn-success,
-.dropdown-toggle.btn-success {
-  color: @brand-success;
-  border: 1px darken(@brand-success, 15%) solid;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.active,
-  &:active:hover,
-  &.active:hover,
-  &:active:focus,
-  &.active:focus,
-  .open > .dropdown-toggle&,
-  .open > .dropdown-toggle&.focus,
-  .open > .dropdown-toggle&:focus,
-  .open > .dropdown-toggle&:hover {
-    color: @brand-success;
-    border: 1px @brand-success solid;
-  }
-
-  + .dropdown-menu {
-    border-color: @brand-success;
-
-    > .divider {
-      background-color: @brand-success;
-    }
-  }
-}
-
-.btn-info,
-.dropdown-toggle.btn-info {
-  color: @brand-info;
-  border: 1px darken(@brand-info, 15%) solid;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.active,
-  &:active:hover,
-  &.active:hover,
-  &:active:focus,
-  &.active:focus,
-  .open > .dropdown-toggle&,
-  .open > .dropdown-toggle&.focus,
-  .open > .dropdown-toggle&:focus,
-  .open > .dropdown-toggle&:hover {
-    color: @brand-info;
-    border: 1px @brand-info solid;
-  }
-
-  + .dropdown-menu {
-    border-color: @brand-info;
-
-    > .divider {
-      background-color: @brand-info;
-    }
-  }
-}
-
-.btn-warning,
-.dropdown-toggle.btn-warning {
-  color: @brand-warning;
-  border: 1px darken(@brand-warning, 15%) solid;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.active,
-  &:active:hover,
-  &.active:hover,
-  &:active:focus,
-  &.active:focus,
-  .open > .dropdown-toggle&,
-  .open > .dropdown-toggle&.focus,
-  .open > .dropdown-toggle&:focus,
-  .open > .dropdown-toggle&:hover {
-    color: @brand-warning;
-    border: 1px @brand-warning solid;
-  }
-
-  + .dropdown-menu {
-    border-color: @brand-warning;
-
-    > .divider {
-      background-color: @brand-warning;
-    }
-  }
-}
-
-.btn-danger,
-.dropdown-toggle.btn-danger {
-  color: @brand-danger;
-  border: 1px darken(@brand-danger, 15%) solid;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.active,
-  &:active:hover,
-  &.active:hover,
-  &:active:focus,
-  &.active:focus,
-  .open > .dropdown-toggle&,
-  .open > .dropdown-toggle&.focus,
-  .open > .dropdown-toggle&:focus,
-  .open > .dropdown-toggle&:hover {
-    color: @brand-danger;
-    border: 1px @brand-danger solid;
-  }
-
-  + .dropdown-menu {
-    border-color: @brand-danger;
-
-    > .divider {
-      background-color: @brand-danger;
-    }
   }
 }
 
@@ -658,7 +420,7 @@ table,
 
     &:hover {
       text-decoration: underline;
-      color: @link-color;
+      color: $link-color;
     }
   }
 
@@ -677,15 +439,6 @@ table,
     text-transform: uppercase;
     font-size: .6em;
   }
-
-  > thead > tr > th,
-  > tbody > tr > th,
-  > tfoot > tr > th,
-  > thead > tr > td,
-  > tbody > tr > td,
-  > tfoot > tr > td {
-    border: none;
-  }
 }
 
 .table-bordered {
@@ -695,20 +448,20 @@ table,
   > thead > tr > td,
   > tbody > tr > td,
   > tfoot > tr > td {
-    border: 1px solid @table-border-color;
+    border: 1px solid $table-border-color;
   }
 }
 
 .table-hover > tbody > tr:hover {
   > td,
   > th {
-    background-color: @m8tro-theme;
-    color: @body-bg;
+    background-color: $m8tro-theme;
+    color: $body-bg;
   }
 
   > td > .fa,
   > td > .glyphicon {
-    color: @body-bg;
+    color: $body-bg;
   }
 }
 
@@ -740,20 +493,20 @@ input {
   .radio-inline,
   .checkbox-inline,
   .form-control-feedback {
-    color: @brand-warning;
+    color: $brand-warning;
   }
 
   .form-control {
-    border: 1px solid darken(@brand-warning, 15%);
- 
+    border: 1px solid darken($brand-warning, 15%);
+
     &:focus {
-      border: 1px solid @brand-warning;
+      border: 1px solid $brand-warning;
       .box-shadow(none);
     }
   }
 
   .input-group-addon {
-    border-color: @brand-warning;
+    border-color: $brand-warning;
   }
 }
 
@@ -765,20 +518,20 @@ input {
   .radio-inline,
   .checkbox-inline,
   .form-control-feedback {
-    color: @brand-danger;
+    color: $brand-danger;
   }
 
   .form-control {
-    border: 1px solid darken(@brand-danger, 15%);
+    border: 1px solid darken($brand-danger, 15%);
 
     &:focus {
-      border: 1px solid @brand-danger;
+      border: 1px solid $brand-danger;
       .box-shadow(none);
     }
   }
 
   .input-group-addon {
-    border-color: @brand-danger;
+    border-color: $brand-danger;
   }
 }
 
@@ -790,20 +543,20 @@ input {
   .radio-inline,
   .checkbox-inline,
   .form-control-feedback {
-    color: @brand-success;
+    color: $brand-success;
   }
 
   .form-control {
-    border: 1px solid darken(@brand-success, 15%);
+    border: 1px solid darken($brand-success, 15%);
 
     &:focus {
-      border: 1px solid @brand-success;
+      border: 1px solid $brand-success;
       .box-shadow(none);
     }
   }
 
   .input-group-addon {
-    border-color: @brand-success;
+    border-color: $brand-success;
   }
 }
 
@@ -822,22 +575,22 @@ input {
 }
 
 .control-indicator {
-  color: @body-bg;
+  color: $body-bg;
   text-align: center;
-  background-color: @body-bg;
+  background-color: $body-bg;
   background-size: 50% 50%;
   background-position: center center;
   background-repeat: no-repeat;
-  border: 1px @gray-light solid;
+  border: 1px $gray-light solid;
   user-select: none;
   width: 20px;
   height: 20px;
 }
 
 .control input:checked ~ .control-indicator {
-  color: @link-color;
-  background-color: @body-bg;
-  border: 1px @link-color solid;
+  color: $link-color;
+  background-color: $body-bg;
+  border: 1px $link-color solid;
 }
 
 // Navs =======================================================================
@@ -874,14 +627,14 @@ input {
     > a:hover,
     > a:focus,
     > span {
-      background-color: @pagination-disabled-bg;
+      background-color: $pagination-disabled-bg;
     }
   }
 
   li > a {
     &:hover,
     &:focus {
-      border: 1px @text-color solid;
+      border: 1px $text-color solid;
     }
   }
 }
@@ -891,39 +644,39 @@ input {
     &,
     &:focus,
     &:hover {
-      border-bottom-color: @body-bg;
-      color: @link-color;
+      border-bottom-color: $body-bg;
+      color: $link-color;
     }
   }
 
   > li > a {
-    color: @link-color;
+    color: $link-color;
 
     &:hover {
-      border-bottom-color: @body-bg;
+      border-bottom-color: $body-bg;
     }
   }
 }
 
 .nav-pills {
   > li.active > a {
-    color: @link-color;
-    background: @m8tro-theme;
+    color: $link-color;
+    background: $m8tro-theme;
 
-    > .badge {
-      color: @gray-dark;
+    > .badge-pill {
+      color: $gray-dark;
       background-color: transparent;
     }
 
     &:hover,
     &:focus {
-      color: @link-color;
-      background: @m8tro-theme;
+      color: $link-color;
+      background: $m8tro-theme;
     }
   }
 
   > li > a {
-    color: @link-color;
+    color: $link-color;
   }
 }
 
@@ -934,82 +687,28 @@ input {
 
   a,
   .alert-link {
-    color: @link-color;
+    color: $link-color;
     text-decoration: underline;
 
     &:hover,
     &:focus {
-      color: @body-bg;
+      color: $body-bg;
       opacity: 1;
     }
   }
 
   .close {
-    color: @gray-dark;
+    color: $gray-dark;
     text-decoration: none;
     opacity: 1;
 
     &:hover,
     &:focus {
-      color: @link-color;
+      color: $link-color;
       opacity: 1;
       outline: none;
     }
   }
-}
-
-// Progress bars ==============================================================
-
-.progress {
-  height: 20px;
-  margin-bottom: 20px;
-  box-shadow: none;
-}
-.progress-bar {
-  color: @text-color;
-  font-size: 15px;
-  line-height: 20px;
-}
-
-.progress-striped .progress-bar,
-.progress-bar-striped {
-  background: linear-gradient(90deg, @text-color 50%, @body-bg 50%);
-}
-.progress-bar-primary {
-  .progress-bar-striped&,
-  .progress-striped & {
-    background: linear-gradient(90deg, @brand-primary 50%, @body-bg 50%);
-  }
-}
-.progress-bar-success {
-  .progress-bar-striped&,
-  .progress-striped & {
-    background: linear-gradient(90deg, @brand-success 50%, @body-bg 50%);
-  }
-}
-.progress-bar-info {
-  .progress-bar-striped&,
-  .progress-striped & {
-    background: linear-gradient(90deg, @brand-info 50%, @body-bg 50%);
-  }
-}
-.progress-bar-warning {
-  .progress-bar-striped&,
-  .progress-striped & {
-    background: linear-gradient(90deg, @brand-warning 50%, @body-bg 50%);
-  }
-}
-.progress-bar-danger {
-  .progress-bar-striped&,
-  .progress-striped & {
-    background: linear-gradient(90deg, @brand-danger 50%, @body-bg 50%);
-  }
-}
-
-.progress-striped .progress-bar,
-.progress-bar-striped {
-    background-repeat: repeat-x;
-    background-size: 4px 100%;
 }
 
 // Containers =================================================================
@@ -1020,42 +719,42 @@ input {
 
 // Accents =================================================================
 
-//.bg-gray-darker { .bg-variant(@gray-darker); }
-//.bg-gray-dark { .bg-variant(@gray-dark); }
-//.bg-gray-light { .bg-variant(@gray-light); }
-//.bg-gray-lighter { .bg-variant(@gray-lighter); }
-//.bg-gray { .bg-variant(@gray); }
+//.bg-gray-darker { .bg-variant($gray-darker); }
+//.bg-gray-dark { .bg-variant($gray-dark); }
+//.bg-gray-light { .bg-variant($gray-light); }
+//.bg-gray-lighter { .bg-variant($gray-lighter); }
+//.bg-gray { .bg-variant($gray); }
 
-//.bg-wp-amber { .bg-variant(@wp-amber); }
-//.bg-wp-beige { .bg-variant(@wp-beige); }
-//.bg-wp-brown { .bg-variant(@wp-brown); }
-//.bg-wp-cobalt { .bg-variant(@wp-cobalt); }
-//.bg-wp-crimson { .bg-variant(@wp-crimson); }
-//.bg-wp-cyan { .bg-variant(@wp-cyan); }
-//.bg-wp-emerald { .bg-variant(@wp-emerald); }
-//.bg-wp-gray { .bg-variant(@wp-gray); }
-//.bg-wp-gray-dark { .bg-variant(@wp-gray-dark); }
-//.bg-wp-gray-light { .bg-variant(@wp-gray-light); }
-//.bg-wp-green { .bg-variant(@wp-green); }
-//.bg-wp-indigo { .bg-variant(@wp-indigo); }
-//.bg-wp-lime { .bg-variant(@wp-lime); }
-//.bg-wp-magenta { .bg-variant(@wp-magenta); }
-//.bg-wp-mauve { .bg-variant(@wp-mauve); }
-//.bg-wp-olive { .bg-variant(@wp-olive); }
-//.bg-wp-orange { .bg-variant(@wp-orange); }
-//.bg-wp-pink { .bg-variant(@wp-pink); }
-//.bg-wp-red { .bg-variant(@wp-red); }
-//.bg-wp-sienna { .bg-variant(@wp-sienna); }
-//.bg-wp-steel { .bg-variant(@wp-steel); }
-//.bg-wp-teal { .bg-variant(@wp-teal); }
-//.bg-wp-violet { .bg-variant(@wp-violet); }
-//.bg-wp-yellow { .bg-variant(@wp-yellow); }
+//.bg-wp-amber { .bg-variant($wp-amber); }
+//.bg-wp-beige { .bg-variant($wp-beige); }
+//.bg-wp-brown { .bg-variant($wp-brown); }
+//.bg-wp-cobalt { .bg-variant($wp-cobalt); }
+//.bg-wp-crimson { .bg-variant($wp-crimson); }
+//.bg-wp-cyan { .bg-variant($wp-cyan); }
+//.bg-wp-emerald { .bg-variant($wp-emerald); }
+//.bg-wp-gray { .bg-variant($wp-gray); }
+//.bg-wp-gray-dark { .bg-variant($wp-gray-dark); }
+//.bg-wp-gray-light { .bg-variant($wp-gray-light); }
+//.bg-wp-green { .bg-variant($wp-green); }
+//.bg-wp-indigo { .bg-variant($wp-indigo); }
+//.bg-wp-lime { .bg-variant($wp-lime); }
+//.bg-wp-magenta { .bg-variant($wp-magenta); }
+//.bg-wp-mauve { .bg-variant($wp-mauve); }
+//.bg-wp-olive { .bg-variant($wp-olive); }
+//.bg-wp-orange { .bg-variant($wp-orange); }
+//.bg-wp-pink { .bg-variant($wp-pink); }
+//.bg-wp-red { .bg-variant($wp-red); }
+//.bg-wp-sienna { .bg-variant($wp-sienna); }
+//.bg-wp-steel { .bg-variant($wp-steel); }
+//.bg-wp-teal { .bg-variant($wp-teal); }
+//.bg-wp-violet { .bg-variant($wp-violet); }
+//.bg-wp-yellow { .bg-variant($wp-yellow); }
 
-//.bg-m8tro-red { .bg-variant(@m8tro-red); }
-//.bg-m8tro-orange { .bg-variant(@m8tro-orange); }
-//.bg-m8tro-yellow { .bg-variant(@m8tro-yellow); }
-//.bg-m8tro-green { .bg-variant(@m8tro-green); }
-//.bg-m8tro-aqua { .bg-variant(@m8tro-aqua); }
-//.bg-m8tro-blue { .bg-variant(@m8tro-blue); }
-//.bg-m8tro-purple { .bg-variant(@m8tro-purple); }
-//.bg-m8tro-brown { .bg-variant(@m8tro-brown); }
+//.bg-m8tro-red { .bg-variant($m8tro-red); }
+//.bg-m8tro-orange { .bg-variant($m8tro-orange); }
+//.bg-m8tro-yellow { .bg-variant($m8tro-yellow); }
+//.bg-m8tro-green { .bg-variant($m8tro-green); }
+//.bg-m8tro-aqua { .bg-variant($m8tro-aqua); }
+//.bg-m8tro-blue { .bg-variant($m8tro-blue); }
+//.bg-m8tro-purple { .bg-variant($m8tro-purple); }
+//.bg-m8tro-brown { .bg-variant($m8tro-brown); }
