@@ -8,97 +8,126 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-6">
-      <div class="bs-component">
-        <form>
-          <fieldset>
-            <legend>Legend</legend>
-            <div class="form-group row">
-              <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-              <div class="col-sm-10">
-                <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="email@example.com">
+    <div class="col-lg-7">
+      <div class="card bs-component">
+        <div class="card-body">
+          <form>
+            <fieldset>
+              <legend>Legend</legend>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <label for="exampleSelect1">Example select</label>
-              <select class="form-control" id="exampleSelect1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="exampleSelect2">Example multiple select</label>
-              <select multiple="" class="form-control" id="exampleSelect2">
+              <div class="form-group row">
+                <label for="exampleInputEmail1" class="col-sm-2 col-form-label">Email address</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="exampleInputPassword1" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="exampleSelect1" class="col-sm-2 col-form-label">Select</label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="exampleSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group f-brown row">
+                <label for="exampleSelect2" class="col-sm-2 col-form-label">multiple select</label>
+                <div class="col-sm-10">
+                  <select multiple="" class="form-control" id="exampleSelect2">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
                       <option>4</option>
                       <option>5</option>
                     </select>
-            </div>
-            <div class="form-group">
-              <label for="exampleTextarea">Example textarea</label>
-              <textarea class="form-control" id="exampleTextarea" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 160px;"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputFile">File input</label>
-              <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-              <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-            </div>
-            <fieldset class="form-group">
-              <legend>Radio buttons</legend>
-              <div class="form-check">
-                <label class="form-check-label">
+                </div>
+              </div>
+              <div class="form-group row">
+                <legend class="col-sm-2 col-form-label d-inline-block">Radios</legend>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
                         Option one is this and that—be sure to include why it's great
                       </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                        Option two can be something else and selecting it will deselect option one
+                      </label>
+                  </div>
+                  <div class="form-check disabled">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled="">
+                        Option three is disabled
+                      </label>
+                  </div>
+                </div>
               </div>
-              <div class="form-check">
-                <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                Option two can be something else and selecting it will deselect option one
-                </label>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Slider</label>
+                <div class="col-sm-10">
+                  <input type="range" class="form-control-range" name="range" min="0" max="100" value="33">
+                  <input type="range" class="form-control-range" name="range" min="0" max="100" value="66">
+                </div>
               </div>
-              <div class="form-check disabled">
-                <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled="">
-                Option three is disabled
-                </label>
+              <div class="form-group row">
+                <label for="exampleTextarea" class="col-sm-2 col-form-label">Example textarea</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" id="exampleTextarea" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 160px;"></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="exampleInputFile" class="col-sm-2 col-form-label">File input</label>
+                <div class="col-sm-10">
+                  <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                  <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                </div>
+              </div>
+              <fieldset class="form-group">
+                <legend>Checkboxes</legend>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value="" checked="">
+                    Option one is this and that—be sure to include why it's great
+                    </label>
+                </div>
+                <div class="form-check disabled">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value="" disabled="">
+                    Option two is disabled
+                    </label>
+                </div>
+              </fieldset>
+              <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                  <button type="reset" class="btn btn-secondary">Cancel</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
               </div>
             </fieldset>
-            <fieldset class="form-group">
-              <legend>Checkboxes</legend>
-              <div class="form-check">
-                <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="" checked="">
-                Option one is this and that—be sure to include why it's great
-                </label>
-              </div>
-              <div class="form-check disabled">
-                <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" value="" disabled="">
-                Option two is disabled
-                </label>
-              </div>
-            </fieldset>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </fieldset>
-        </form>
-        <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+          </form>
+          <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+        </div>
       </div>
     </div>
+
     <div class="col-lg-4 offset-lg-1">
       <form class="bs-component">
         <div class="form-group">
@@ -182,13 +211,13 @@
               <span class="custom-control-description">Check this custom checkbox</span>
             </label>
             <label class="custom-control custom-checkbox">
-            <  input type="checkbox" class="custom-control-input" disabled="">
+              <input type="checkbox" class="custom-control-input" disabled="">
               <span class="custom-control-indicator"></span>
               <span class="custom-control-description">Disabled custom checkbox</span>
             </label>
           </div>
           <div class="form-group">
-              <select class="custom-select">
+            <select class="custom-select">
               <option selected="">Open this select menu</option>
               <option value="1">One</option>
               <option value="2">Two</option>
