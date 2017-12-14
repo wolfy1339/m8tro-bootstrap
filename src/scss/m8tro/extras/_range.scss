@@ -1,10 +1,11 @@
 $slider-height: 11px;
 $slider-width: ($slider-height + 2px);
 
-input[type=range] {
+.form-control-range {
+    width: 100%;
     -webkit-appearance: none;
     margin-bottom: $slider-height;
-    
+
     // fix for FF unable to apply focus style bug
     border: 0;
 
@@ -54,10 +55,10 @@ input[type=range] {
     // IE 10-11 and Edge 12+
     &::-ms-track {
         height: $slider-height;
-        
+
         // remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead
         background: transparent;
-        
+
         // leave room for the larger thumb to overflow with a transparent border
         border-color: transparent;
         border-width: 6px 0;
