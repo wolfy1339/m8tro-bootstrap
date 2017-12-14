@@ -115,7 +115,7 @@ gulp.task('css-compile', () => {
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
         .pipe(postcss(processors))
-        .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write('./'))
         .pipe(debug({
             title: 'copy:'
         }))
@@ -141,7 +141,7 @@ gulp.task('css-min', () => {
             keepSpecialComments: '*',
             advanced: false
         }))
-        .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write('./'))
         .pipe(debug({
             title: 'copy:'
         }))
