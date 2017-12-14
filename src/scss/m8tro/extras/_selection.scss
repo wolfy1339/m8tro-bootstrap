@@ -1,39 +1,39 @@
 ::selection {
-    color: @body-bg;
-    background: @text-color;
+    color: $body-bg;
+    background: $body-color;
 }
 
 .jumbotron ::selection {
-    color: @text-color;
-    background: @jumbotron-color;
+    color: $body-color;
+    background: $jumbotron-color;
 }
 
 .text-primary, .text-primary a {
     &::selection {
-        background: @brand-primary;
+        background: $primary;
     }
 }
 
 .text-success, .text-success a {
     &::selection {
-        background: @brand-success;
+        background: $success;
     }
 }
 
 .text-info, .text-info a{
     &::selection {
-        background: @brand-info;
+        background: $info;
     }
 }
 
 .text-warning, .text-warning a {
     &::selection {
-        background: @brand-warning;
+        background: $warning;
     }
 }
 
 .text-danger, .text-danger a {
     &::selection {
-        background: @brand-danger;
+        background: $danger;
     }
 }
