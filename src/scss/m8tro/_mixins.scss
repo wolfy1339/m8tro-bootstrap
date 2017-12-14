@@ -16,7 +16,7 @@
 
   &:focus,
   &.focus {
-    box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
+    box-shadow: 0 0 0 $input-btn-focus-width rgba($color, .5);
   }
 
   &.disabled,
@@ -32,6 +32,6 @@
     background-color: $active-background;
     border-color: $active-border;
     // Avoid using mixin so we can pass custom focus shadow properly
-    box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
+    box-shadow: 0 0 0 $input-btn-focus-width rgba($color, .5);
   }
 }
