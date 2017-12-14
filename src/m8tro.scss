@@ -17,7 +17,7 @@
 @import "scss/images";
 @import "scss/code";
 @import "scss/grid";
-@import "scss/tables";
+@import "scss/m8tro/tables";
 @import "scss/forms";
 @import "scss/m8tro/buttons"; // We needed to override Bootstrap's default buttons
 @import "scss/transitions";
@@ -32,7 +32,7 @@
 @import "scss/pagination";
 @import "scss/badge";
 @import "scss/jumbotron";
-@import "scss/alert";
+@import "scss/m8tro/alert";
 @import "scss/progress";
 @import "scss/media";
 @import "scss/list-group";
@@ -43,6 +43,7 @@
 @import "scss/carousel";
 @import "scss/utilities";
 // Our custom SCSS
+@import "scss/m8tro/theme";
 @import "scss/m8tro/extras/range";
 @import "scss/m8tro/extras/scrollbar";
 @import "scss/m8tro/extras/selection";

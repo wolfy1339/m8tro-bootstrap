@@ -39,6 +39,7 @@
   }
 }
 
+a.btn { text-decoration: none; }
 // Future-proof disabling of clicks on `<a>` elements
 a.btn.disabled,
 fieldset[disabled] a.btn {
@@ -65,7 +66,7 @@ fieldset[disabled] a.btn {
 }
 
 @each $color, $value in $theme-colors {
-  .jumbotron .btn-#{$color} {
+  .btn-outline-#{$color} {
       @include button-variant($value, $white);
   }
 }
