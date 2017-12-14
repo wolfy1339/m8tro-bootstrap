@@ -4,14 +4,12 @@ node_js:
   - "stable"
 install:
   - npm install
-  - bower install
 script:
   - gulp lint
-  - gulp less
+  - gulp css
 cache:
   directories:
     - node_modules
-    - bower_components
 env:
   global:
     - NPM_CONFIG_PROGRESS="false"
