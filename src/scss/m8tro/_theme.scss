@@ -1,10 +1,31 @@
 // M8tro 3.3.7
 // -----------------------------------------------------
 
-body {
-  background-color: #111;
-  font-weight: 200;
-  text-rendering: optimizeLegibility;
+pre {
+    background-color: $pre-bg;
+}
+.breadcrumb {
+    border: 1px solid color("gray");
+
+    .fa {
+      color: $body-color;
+    }
+}
+.breadcrumb-inverse {
+  background-color: $m8tro-theme;
+  border-color: $m8tro-theme;
+
+  .breadcrumb-item {
+      .active {
+        color: lighten($breadcrumb-active-color, 20%)
+      }
+      + .breadcrumb-item::before {
+          color: $gray-400;
+      }
+  }
+}
+.card, .card-link {
+    color: invert($body-color);
 }
 
 strong {
@@ -108,42 +129,8 @@ a,
   text-transform: uppercase;
 }
 
-.breadcrumb {
-  a {
-    color: $link-color;
-    font-weight: 400;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .fa,
-  .glyphicon {
-    color: $text-color;
-  }
-}
-
-.breadcrumb-inverse {
-  background-color: $m8tro-theme;
-
-  .fa,
-  .glyphicon {
-    color: $body-bg;
-  }
-
-  a,
-  > li + li:before,
-  > .active {
-    color: $body-bg;
-  }
-}
-
 .jumbotron {
-  .btn {
-    background-color: inherit;
-  }
+   color: $black;
 
   .btn-link {
     color: $body-bg;
@@ -242,19 +229,6 @@ a,
   }
 }
 
-.modal .close {
-  color: $gray-light;
-  text-decoration: none;
-  opacity: 1;
-
-  &:hover,
-  &:focus {
-    color: $link-color;
-    opacity: 1;
-    outline: none;
-  }
-}
-
 .modal-input-dialog {
   .modal-content {
     border-color: transparent;
@@ -308,10 +282,6 @@ a,
 }
 
 // Navbar =====================================================================
-.navbar {
-  border-width: 0;
-}
-
 .navbar-default {
   .badge-pill {
     background-color: #fff;
@@ -709,12 +679,6 @@ input {
       outline: none;
     }
   }
-}
-
-// Containers =================================================================
-
-.well {
-  .box-shadow(none);
 }
 
 // Accents =================================================================

@@ -14,6 +14,8 @@ $orange:  $m8tro-orange;
 $yellow:  $m8tro-yellow;
 $green:   $m8tro-green;
 $cyan:    $m8tro-aqua;
+$secondary: #fff;
+$m8tro-theme: $blue;
 
 // Body
 $body-bg: $black;
@@ -47,8 +49,10 @@ $pre-bg: $white;
 
 $badge-font-weight: $font-weight-normal;
 $alert-link-font-weight: $font-weight-normal;
-$breadcrumb-bg: #343a40;
 $pagination-bg: transparent;
+$pagination-hover-color: $black;
+$pagination-hover-bg: $white;
+$pagination-active-border-color: $white;
 $jumbotron-bg: #fff;
 $modal-header-border-color: #fff;
 $modal-footer-border-color: #fff;
@@ -61,3 +65,13 @@ $popover-border-width: 0;
 $popover-header-bg: $white;
 $popover-arrow-color: transparent;
 $popover-arrow-outer-color: transparent;
+$breadcrumb-bg: transparent;
+$dropdown-bg: $body-bg;
+$dropdown-border-color: $white;
+$dropdown-link-color: $white;
+$input-group-addon-bg: transparent;
+$input-group-addon-color: $white;
+$input-border-color: $white;
+$modal-content-bg: $black;
+$modal-content-border-color: $white;
+$close-color: inherit;
