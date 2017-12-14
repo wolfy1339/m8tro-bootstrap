@@ -9,10 +9,7 @@
 @import "scss/m8tro/palette";
 @import "scss/m8tro/variables";
 @import "scss/mixins";
-// Override the gradient-striped mixin, so we hve 90deg stripes by default
-@mixin gradient-striped($color: rgba(255,255,255,.15), $angle: 90deg) {
-  background-image: linear-gradient($angle, $color 50%, transparent 50%);
-}
+@import "scss/m8tro/mixins";
 @import "scss/root";
 @import "scss/print";
 @import "scss/reboot";
