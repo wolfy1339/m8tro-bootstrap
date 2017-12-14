@@ -1,5 +1,8 @@
 // Options
 $enable-rounded: false;
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
 
 // Color system
 $blue:    $m8tro-blue;
@@ -50,3 +53,11 @@ $jumbotron-bg: #fff;
 $modal-header-border-color: #fff;
 $modal-footer-border-color: #fff;
 $progress-bg: #212121;
+$tooltip-color: $black;
+$tooltip-bg: $white;
+$tooltip-arrow-color: transparent;
+$popover-header-color: $black;
+$popover-border-width: 0;
+$popover-header-bg: $white;
+$popover-arrow-color: transparent;
+$popover-arrow-outer-color: transparent;
