@@ -29,7 +29,7 @@
   ],
 
   "devDependencies": {
-    "bootstrap": "wolfy1339/bootstrap#26acc9a13234f3043500353d4ab614fb25e80e0b",
+    "bootstrap": "wolfy1339/bootstrap#584b692e04932c2fc79421b90964569f1bc1dfb8",
     "fontawesome": "^4.6.3",
     "html5shiv": "^3.7.3",
     "respond": "^1.4.2"
