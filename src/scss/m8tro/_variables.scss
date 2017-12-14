@@ -31,6 +31,7 @@ $font-family-monospace: SFMono-Regular, "Fira Mono OT", Menlo, Monaco, Consolas,
 $font-weight-light: 200;
 $font-weight-normal: 300;
 $font-weight-bold: 700;
+$headings-font-weight: 300;
 
 $table-border-width: 0;
 $table-hover-bg: $blue !important;
@@ -76,3 +77,5 @@ $input-border-color: $white;
 $modal-content-bg: $black;
 $modal-content-border-color: $white;
 $close-color: inherit;
+$nav-tabs-link-active-bg: transparent;
+$nav-tabs-link-active-color: $white;
