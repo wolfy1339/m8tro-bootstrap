@@ -55,7 +55,7 @@ fieldset[disabled] a.btn {
     @if $color == "light" {
       @include button-outline-variant($value, $gray-900);
     } @else if $color == "primary" {
-      @include button-outline-variant($value, #fff);
+      @include button-outline-variant($value, #fff, $value);
     } @else if $color == "secondary" {
       @include button-outline-variant($value, #000, $value);
     } @else {
