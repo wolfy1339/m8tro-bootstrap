@@ -2312,7 +2312,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-primary:hover {
-  color: #111;
+  color: #fff;
   background-color: #007bff;
   border-color: #0056b3;
 }
@@ -2342,7 +2342,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-secondary:hover {
-  color: #fff;
+  color: #000;
   background-color: #868e96;
   border-color: #60686f;
 }
@@ -2372,7 +2372,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-success:hover {
-  color: #fff;
+  color: #28a745;
   background-color: transparent;
   border-color: #19692c;
 }
@@ -2402,7 +2402,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-info:hover {
-  color: #fff;
+  color: #17a2b8;
   background-color: transparent;
   border-color: #0f6674;
 }
@@ -2432,7 +2432,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-warning:hover {
-  color: #111;
+  color: #ffc107;
   background-color: transparent;
   border-color: #ba8b00;
 }
@@ -2462,7 +2462,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-danger:hover {
-  color: #fff;
+  color: #dc3545;
   background-color: transparent;
   border-color: #a71d2a;
 }
@@ -2492,7 +2492,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-light:hover {
-  color: #fff;
+  color: #212529;
   background-color: transparent;
   border-color: #cbd3da;
 }
@@ -2522,7 +2522,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-dark:hover {
-  color: #fff;
+  color: #343a40;
   background-color: transparent;
   border-color: #121416;
 }
@@ -8203,20 +8203,6 @@ pre {
 .page-header {
   padding-bottom: 13px;
   margin: 3.5rem 0 1.75rem;
-}
-
-.col-form-label {
-  font-weight: bolder;
-  font-size: 66.66666667%;
-  text-transform: uppercase;
-}
-
-.form-control-plaintext {
-  color: #fff;
-}
-
-strong {
-  font-weight: 400;
 }
 
 a {
