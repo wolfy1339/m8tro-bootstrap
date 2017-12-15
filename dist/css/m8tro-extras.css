@@ -1,179 +1,210 @@
 /*!
- * M8tro Extras 3.3.7
+ * M8tro Extras 4.0.0-beta.2
  * Homepage: http://github.com/idleberg/m8tro-bootstrap
- * Copyright 2014-2015 Jan T. Sott
+ * Copyright 2014-2017 Jan T. Sott
  * Licensed under MIT
 */
-/*
- *   Title: M8tro
- *  Author: Jan T. Sott
- *     URL: http://github.com/idleberg/m8tro-bootstrap
- */
-input[type=range] {
+.form-control-range {
+  width: 100%;
   -webkit-appearance: none;
   margin-bottom: 11px;
   border: 0;
 }
-input[type=range]::-webkit-slider-runnable-track {
+
+.form-control-range::-webkit-slider-runnable-track {
   height: 11px;
   background: #4a4a4a;
 }
-input[type=range]::-webkit-slider-thumb {
-  width: 13px;
-  height: 11px;
+
+.form-control-range::-webkit-slider-thumb {
   -webkit-appearance: none;
-  background: #fff;
   border: 1px solid #fff;
+  height: 11px;
+  width: 13px;
+  background: #fff;
 }
-input[type=range]:focus {
+
+.form-control-range:focus {
   outline: none;
 }
-input[type=range]::-moz-range-track {
+
+.form-control-range::-moz-range-track {
   height: 11px;
   background: #4a4a4a;
   border: none;
   border-radius: 0;
 }
-input[type=range]::-moz-range-progress {
+
+.form-control-range::-moz-range-progress {
   height: 11px;
   background: #3c9cd6;
 }
-input[type=range]::-moz-range-thumb {
-  width: 13px;
-  height: 11px;
-  background: #fff;
+
+.form-control-range::-moz-range-thumb {
   border: none;
+  height: 11px;
+  width: 13px;
+  background: #fff;
   border-radius: 0;
 }
-input[type=range]::-moz-focus-inner {
+
+.form-control-range::-moz-focus-inner {
   border: 0;
 }
-input[type=range]::-ms-track {
+
+.form-control-range::-ms-track {
   height: 11px;
-  color: transparent;
   background: transparent;
   border-color: transparent;
   border-width: 6px 0;
+  color: transparent;
 }
-input[type=range]::-ms-fill-lower {
+
+.form-control-range::-ms-fill-lower {
   background: #3c9cd6;
   border-radius: 0;
 }
-input[type=range]::-ms-fill-upper {
+
+.form-control-range::-ms-fill-upper {
   background: #4a4a4a;
   border-radius: 0;
 }
-input[type=range]::-ms-thumb {
-  width: 13px;
-  height: 11px;
-  background: #fff;
+
+.form-control-range::-ms-thumb {
   border: none;
+  height: 11px;
+  width: 13px;
+  background: #fff;
   border-radius: 0;
 }
-::-moz-selection {
-  color: #212121;
-  background: #fff;
-}
-::selection {
-  color: #212121;
-  background: #fff;
-}
-.jumbotron ::-moz-selection {
-  color: #fff;
-  background: #212121;
-}
-.jumbotron ::selection {
-  color: #fff;
-  background: #212121;
-}
-.text-primary::-moz-selection,
-.text-primary a::-moz-selection {
-  background: #3c9cd6;
-}
-.text-primary::selection,
-.text-primary a::selection {
-  background: #3c9cd6;
-}
-.text-success::-moz-selection,
-.text-success a::-moz-selection {
-  background: #80c342;
-}
-.text-success::selection,
-.text-success a::selection {
-  background: #80c342;
-}
-.text-info::-moz-selection,
-.text-info a::-moz-selection {
-  background: #00b3b5;
-}
-.text-info::selection,
-.text-info a::selection {
-  background: #00b3b5;
-}
-.text-warning::-moz-selection,
-.text-warning a::-moz-selection {
-  background: #faa61a;
-}
-.text-warning::selection,
-.text-warning a::selection {
-  background: #faa61a;
-}
-.text-danger::-moz-selection,
-.text-danger a::-moz-selection {
-  background: #ed1c24;
-}
-.text-danger::selection,
-.text-danger a::selection {
-  background: #ed1c24;
-}
+
 ::-webkit-scrollbar {
-  width: 15px;
   height: 15px;
+  width: 15px;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: #b7b7b9;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background-color: #b7b7b9;
 }
+
 ::-webkit-scrollbar-thumb:active {
   background-color: #5b5a5c;
 }
+
 ::-webkit-scrollbar-track {
   background-color: #f1f1f1;
 }
+
 ::-webkit-scrollbar-corner {
   background-color: transparent;
 }
+
 ::-webkit-scrollbar-button {
   background-color: #f1f1f1;
 }
+
+::-webkit-scrollbar-button:hover {
+  background-color: #91a09b;
+}
+
 ::-webkit-scrollbar-button:active {
   background-color: #5b5a5c;
 }
+
 ::-webkit-scrollbar-button:active:vertical:increment {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23fff%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M7.4%207.8L12%2012.4l4.6-4.6L18%209.3l-6%206-6-6z%22%2F%3E%3Cpath%20d%3D%22M0-0.7h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
 }
+
 ::-webkit-scrollbar-button:active:vertical:decrement {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23fff%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M7.4%2015.4L12%2010.8l4.6%204.6L18%2014l-6-6-6%206z%22%2F%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
 }
+
 ::-webkit-scrollbar-button:active:horizontal:increment {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23fff%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M8.6%2016.3l4.6-4.6-4.6-4.6L10%205.8l6%206-6%206z%22%2F%3E%3Cpath%20d%3D%22M0-0.2h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
 }
+
 ::-webkit-scrollbar-button:active:horizontal:decrement {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23fff%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M15.4%2016.1l-4.6-4.6%204.6-4.6L14%205.5l-6%206%206%206z%22%2F%3E%3Cpath%20d%3D%22M0-0.5h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
 }
+
 ::-webkit-scrollbar-button:vertical:increment {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23000%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M7.41%207.84L12%2012.42l4.59-4.58L18%209.25l-6%206-6-6z%22%2F%3E%3Cpath%20d%3D%22M0-0.75h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
 }
+
 ::-webkit-scrollbar-button:vertical:decrement {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23000000%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M7.4%2015.4L12%2010.8l4.6%204.6L18%2014l-6-6-6%206z%22%2F%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
 }
+
 ::-webkit-scrollbar-button:horizontal:increment {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23000%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M8.6%2016.3l4.6-4.6-4.6-4.6L10%205.8l6%206-6%206z%22%2F%3E%3Cpath%20d%3D%22M0-0.2h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
 }
+
 ::-webkit-scrollbar-button:horizontal:decrement {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23000%22%20height%3D%2215%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2215%22%3E%3Cpath%20d%3D%22M15.4%2016.1l-4.6-4.6%204.6-4.6L14%205.5l-6%206%206%206z%22%2F%3E%3Cpath%20d%3D%22M0-0.5h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E");
+}
+
+::-moz-selection {
+  color: #000;
+  background: #fff;
+}
+
+::selection {
+  color: #000;
+  background: #fff;
+}
+
+.jumbotron ::-moz-selection {
+  color: #fff;
+  background: #000;
+}
+
+.jumbotron ::selection {
+  color: #fff;
+  background: #000;
+}
+
+.text-primary::-moz-selection, .text-primary a::-moz-selection {
+  background: #007bff;
+}
+
+.text-primary::selection, .text-primary a::selection {
+  background: #007bff;
+}
+
+.text-success::-moz-selection, .text-success a::-moz-selection {
+  background: #28a745;
+}
+
+.text-success::selection, .text-success a::selection {
+  background: #28a745;
+}
+
+.text-info::-moz-selection, .text-info a::-moz-selection {
+  background: #17a2b8;
+}
+
+.text-info::selection, .text-info a::selection {
+  background: #17a2b8;
+}
+
+.text-warning::-moz-selection, .text-warning a::-moz-selection {
+  background: #ffc107;
+}
+
+.text-warning::selection, .text-warning a::selection {
+  background: #ffc107;
+}
+
+.text-danger::-moz-selection, .text-danger a::-moz-selection {
+  background: #dc3545;
+}
+
+.text-danger::selection, .text-danger a::selection {
+  background: #dc3545;
 }
 
 /*# sourceMappingURL=m8tro-extras.css.map */
