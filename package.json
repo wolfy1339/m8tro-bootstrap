@@ -65,7 +65,7 @@
     "jshint": "^2.9.4",
     "mq4-hover-shim": "^0.3.0",
     "node-sass": "^4.7.2",
-    "yargs": "^9.0.1"
+    "yargs": "^10.0.3"
   },
   "engines": {
     "node": ">=6"
