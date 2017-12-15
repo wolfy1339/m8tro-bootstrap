@@ -15,9 +15,7 @@ let autoprefixer = require('autoprefixer');
 let cache = require('gulp-cached');
 let cleancss = require('gulp-clean-css');
 let concat = require('gulp-concat');
-let console = require('better-console');
 let debug = require('gulp-debug');
-let del = require('del');
 let gulp = require('gulp');
 let htmlval = require('gulp-html-validator');
 let jshint = require('gulp-jshint');
@@ -129,7 +127,6 @@ gulp.task('css-min', () => {
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
         .pipe(postcss(processors))
-        .pipe(concat('m8tro.min.css'))
         .pipe(debug({
             title: 'cleancss:'
         }))
@@ -148,78 +145,51 @@ gulp.task('css-min', () => {
         .pipe(gulp.dest('dist/css/'));
 });
 
-gulp.task('sass-extras', () => {
+gulp.task('css-extras', () => {
     gulp.src('src/m8tro-extras.scss')
       .pipe(debug({title: 'sassc:'}))
       .pipe(sourcemaps.init())
-      .pipe(sass())
-      .pipe(autoprefixer({ browsers: autoprefixerBrowsers }))
-      .pipe(csscomb())
+      .pipe(sass(sassOpts).on('error', sass.logError))
+      .pipe(postcss(processors))
       .pipe(sourcemaps.write('./'))
       .pipe(debug({title: 'copy:'}))
       .pipe(gulp.dest('dist/css/'));
-
+});
+gulp.task('css-extras:min', () => {
     gulp.src('src/m8tro-extras.scss')
         .pipe(debug({
             title: 'sassc:'
         }))
         .pipe(sourcemaps.init())
-        .pipe(sass())
-        .pipe(autoprefixer({ browsers: autoprefixerBrowsers }))
-        .pipe(csscomb())
-        .pipe(concat('m8tro-extras.min.css'))
+        .pipe(sass(sassOpts).on('error', sass.logError))
+        .pipe(postcss(processors))
         .pipe(debug({
             title: 'cleancss:'
         }))
         .pipe(cleancss({
-            compatibility: 'ie8',
+            sourceMap: true,
+            sourceMapInlineSources: true,
+            level: 1,
+            compatibility: '*',
             keepSpecialComments: '*',
             advanced: false
         }))
-        .pipe(sourcemaps.write('./', {
-            mapFile: function(mapFilePath) {
-                return mapFilePath.replace('.css', '.min.css');
-            }
-        }))
+        .pipe(sourcemaps.write('./'))
         .pipe(debug({
             title: 'copy:'
         }))
       .pipe(gulp.dest('dist/css/'));
 });
 
-function checkFileExistsSync(filepath) {
-    let flag = true;
-    try {
-        fs.accessSync(filepath, fs.F_OK);
-    } catch(e) {
-        flag = false;
-    }
-    return flag;
-}
-
-let isBower = checkFileExistsSync('bower_components/bootstrap/bower.json') && checkFileExistsSync('bower_components/font-awesome/bower.json');
-
 // Copy tasks
 gulp.task('FontAwesome', () => {
-    let files;
-    if (!isBower) {
-        files = gulp.src(['node_modules/font-awesome/css/font-awesome.min.css', 'node_modules/font-awesome/fonts/*'], { base: 'node_modules/font-awesome/' });
-    } else {
-        files = gulp.src(['bower_components/font-awesome/css/font-awesome.min.css', 'bower_components/font-awesome/fonts/*'], { base: 'bower_components/font-awesome/' });
-    }
-    return files
+    return gulp.src(['node_modules/font-awesome/css/font-awesome.min.css', 'node_modules/font-awesome/fonts/*'], { base: 'node_modules/font-awesome/' })
         .pipe(debug({title: 'copy:'}))
-        .pipe(gulp.dest(__dirname+'/dist/'));
+        .pipe(gulp.dest(`${__dirname}/dist/`));
 });
 
 gulp.task('js_dependencies', () => {
-    let src;
-    if (isBower) {
-        src = gulp.src(['bower_components/bootstrap/dist/js/bootstrap.min.js', 'bower_components/jquery/dist/jquery.min.js']);
-    } else {
-        src = gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js']);
-    }
-    return src
+    return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js'])
         .pipe(debug({ title: 'copy:' }))
         .pipe(gulp.dest('dist/js/'));
 });
@@ -277,7 +247,7 @@ gulp.task('setup', () => {
         _fonts = [],
         _js = [],
         _sass = [
-            _dir + 'sass/letiables.scss', _dir + 'sass/mixins/*.scss', _dir + 'sass/normalize.scss'
+            `${_dir}sass/letiables.scss`, `${_dir}sass/mixins/*.scss`, `${_dir}sass/normalize.scss`
         ];
 
     console.clear();
@@ -299,163 +269,163 @@ gulp.task('setup', () => {
 
             if (res.components.indexOf('Print media styles') > -1) {
                 console.log('+print.scss');
-                _sass.push(_dir + 'sass/print.scss');
+                _sass.push(`${_dir}sass/print.scss`);
             }
             if (res.components.indexOf('Glyphicons') > -1) {
                 console.log('+glyphicons.scss');
-                _sass.push(_dir + 'sass/glyphicons.scss');
+                _sass.push(`${_dir}sass/glyphicons.scss`);
                 console.log('+glyphicons-halflings-regular.*');
-                _fonts.push(_dir + 'fonts/glyphicons-halflings-regular.eot');
-                _fonts.push(_dir + 'fonts/glyphicons-halflings-regular.svg');
-                _fonts.push(_dir + 'fonts/glyphicons-halflings-regular.ttf');
-                _fonts.push(_dir + 'fonts/glyphicons-halflings-regular.woff');
+                _fonts.push(`${_dir}fonts/glyphicons-halflings-regular.eot`);
+                _fonts.push(`${_dir}fonts/glyphicons-halflings-regular.svg`);
+                _fonts.push(`${_dir}fonts/glyphicons-halflings-regular.ttf`);
+                _fonts.push(`${_dir}fonts/glyphicons-halflings-regular.woff`);
             }
-            _sass.push(_dir + 'sass/scaffolding.scss');
+            _sass.push(`${_dir}sass/scaffolding.scss`);
             if (res.components.indexOf('Typography') > -1) {
                 console.log('+type.scss');
-                _sass.push(_dir + 'sass/type.scss');
+                _sass.push(`${_dir}sass/type.scss`);
             }
             if (res.components.indexOf('Code') > -1) {
                 console.log('+code.scss');
-                _sass.push(_dir + 'sass/code.scss');
+                _sass.push(`${_dir}sass/code.scss`);
             }
             if (res.components.indexOf('Grid system') > -1) {
                 console.log('+grid.scss');
-                _sass.push(_dir + 'sass/grid.scss');
+                _sass.push(`${_dir}sass/grid.scss`);
             }
             if (res.components.indexOf('Tables') > -1) {
                 console.log('+tables.scss');
-                _sass.push(_dir + 'sass/tables.scss');
+                _sass.push(`${_dir}sass/tables.scss`);
             }
             if (res.components.indexOf('Forms') > -1) {
                 console.log('+forms.scss');
-                _sass.push(_dir + 'sass/forms.scss');
+                _sass.push(`${_dir}sass/forms.scss`);
             }
             if (res.components.indexOf('Buttons') > -1) {
                 console.log('+buttons.scss');
-                _sass.push(_dir + 'sass/buttons.scss');
+                _sass.push(`${_dir}sass/buttons.scss`);
             }
             if (res.components.indexOf('Component animations (for JS)\n') > -1) {
                 console.log('+component-animations.scss');
-                _sass.push(_dir + 'sass/component-animations.scss');
+                _sass.push(`${_dir}sass/component-animations.scss`);
             }
             if (res.components.indexOf('Dropdowns') > -1) {
                 console.log('+dropdowns.scss');
-                _sass.push(_dir + 'sass/dropdowns.scss');
+                _sass.push(`${_dir}sass/dropdowns.scss`);
                 console.log('+dropdown.js');
-                _js.push(_dir + 'js/dropdown.js');
+                _js.push(`${_dir}js/dropdown.js`);
             }
             if (res.components.indexOf('Button groups') > -1) {
                 console.log('+button-groups.scss');
-                _sass.push(_dir + 'sass/button-groups.scss');
+                _sass.push(`${_dir}sass/button-groups.scss`);
                 console.log('+button.js');
-                _js.push(_dir + 'js/button.js');
+                _js.push(`${_dir}js/button.js`);
             }
             if (res.components.indexOf('Input groups') > -1) {
                 console.log('+input-groups.scss');
-                _sass.push(_dir + 'sass/input-groups.scss');
+                _sass.push(`${_dir}sass/input-groups.scss`);
             }
             if (res.components.indexOf('Navs') > -1) {
                 console.log('+navs.scss');
-                _sass.push(_dir + 'sass/navs.scss');
+                _sass.push(`${_dir}sass/navs.scss`);
                 console.log('+tab.js');
-                _js.push(_dir + 'js/tab.js');
+                _js.push(`${_dir}js/tab.js`);
             }
             if (res.components.indexOf('Navbar') > -1) {
                 console.log('+navbar.scss');
-                _sass.push(_dir + 'sass/navbar.scss');
+                _sass.push(`${_dir}sass/navbar.scss`);
             }
             if (res.components.indexOf('Breadcrumbs') > -1) {
                 console.log('+breadcrumbs.scss');
-                _sass.push(_dir + 'sass/breadcrumbs.scss');
+                _sass.push(`${_dir}sass/breadcrumbs.scss`);
             }
             if (res.components.indexOf('Pagination') > -1) {
                 console.log('+pagination.scss');
-                _sass.push(_dir + 'sass/pagination.scss');
+                _sass.push(`${_dir}sass/pagination.scss`);
             }
             if (res.components.indexOf('Pager') > -1) {
                 console.log('+pager.scss');
-                _sass.push(_dir + 'sass/pager.scss');
+                _sass.push(`${_dir}sass/pager.scss`);
             }
             if (res.components.indexOf('Labels') > -1) {
                 console.log('+labels.scss');
-                _sass.push(_dir + 'sass/labels.scss');
+                _sass.push(`${_dir}sass/labels.scss`);
             }
             if (res.components.indexOf('Badges') > -1) {
                 console.log('+badges.scss');
-                _sass.push(_dir + 'sass/badges.scss');
+                _sass.push(`${_dir}sass/badges.scss`);
             }
             if (res.components.indexOf('Jumbotron') > -1) {
                 console.log('+jumbotron.scss');
-                _sass.push(_dir + 'sass/jumbotron.scss');
+                _sass.push(`${_dir}sass/jumbotron.scss`);
             }
             if (res.components.indexOf('Thumbnails') > -1) {
                 console.log('+thumbnails.scss');
-                _sass.push(_dir + 'sass/thumbnails.scss');
+                _sass.push(`${_dir}sass/thumbnails.scss`);
             }
             if (res.components.indexOf('Alerts') > -1) {
                 console.log('+alerts.scss');
-                _sass.push(_dir + 'sass/alerts.scss');
+                _sass.push(`${_dir}sass/alerts.scss`);
                 console.log('+alert.js');
-                _js.push(_dir + 'js/alert.js');
+                _js.push(`${_dir}js/alert.js`);
             }
             if (res.components.indexOf('Progress bars') > -1) {
                 console.log('+progress-bars.scss');
-                _sass.push(_dir + 'sass/progress-bars.scss');
+                _sass.push(`${_dir}sass/progress-bars.scss`);
             }
             if (res.components.indexOf('Media bars') > -1) {
                 console.log('+media-items.scss');
-                _sass.push(_dir + 'sass/media-items.scss');
+                _sass.push(`${_dir}sass/media-items.scss`);
             }
             if (res.components.indexOf('List groups') > -1) {
                 console.log('+list-group.scss');
-                _sass.push(_dir + 'sass/list-group.scss');
+                _sass.push(`${_dir}sass/list-group.scss`);
             }
             if (res.components.indexOf('Panels') > -1) {
                 console.log('+panels.scss');
-                _sass.push(_dir + 'sass/panels.scss');
+                _sass.push(`${_dir}sass/panels.scss`);
             }
             if (res.components.indexOf('Responsive embed') > -1) {
                 console.log('+responsive-embed.scss');
-                _sass.push(_dir + 'sass/responsive-embed.scss');
+                _sass.push(`${_dir}sass/responsive-embed.scss`);
             }
             if (res.components.indexOf('Wells') > -1) {
                 console.log('+wells.scss');
-                _sass.push(_dir + 'sass/wells.scss');
+                _sass.push(`${_dir}sass/wells.scss`);
             }
             if (res.components.indexOf('Close icon\n') > -1) {
                 console.log('+close.scss');
-                _sass.push(_dir + 'sass/close.scss');
+                _sass.push(`${_dir}sass/close.scss`);
             }
             if (res.components.indexOf('Modals') > -1) {
                 console.log('+modals.scss');
-                _sass.push(_dir + 'sass/modals.scss');
+                _sass.push(`${_dir}sass/modals.scss`);
                 console.log('+modal.js');
-                _js.push(_dir + 'js/modal.js');
+                _js.push(`${_dir}js/modal.js`);
             }
             if (res.components.indexOf('Tooltips') > -1) {
                 console.log('+tooltips.scss');
-                _sass.push(_dir + 'sass/tooltips.scss');
+                _sass.push(`${_dir}sass/tooltips.scss`);
                 console.log('+tooltip.js');
-                _js.push(_dir + 'js/tooltip.js');
+                _js.push(`${_dir}js/tooltip.js`);
             }
             if (res.components.indexOf('Popovers') > -1) {
                 console.log('+popovers.scss');
-                _sass.push(_dir + 'sass/popovers.scss');
+                _sass.push(`${_dir}sass/popovers.scss`);
                 console.log('+popover.js');
-                _js.push(_dir + 'js/popover.js');
+                _js.push(`${_dir}js/popover.js`);
             }
             if (res.components.indexOf('Carousel\n') > -1) {
                 console.log('+carousel.scss');
-                _sass.push(_dir + 'sass/carousel.scss');
+                _sass.push(`${_dir}sass/carousel.scss`);
                 console.log('+carousel.js');
-                _js.push(_dir + 'js/carousel.js');
+                _js.push(`${_dir}js/carousel.js`);
             }
             console.log('+utilities.scss');
-            _sass.push(_dir + 'sass/utilities.scss');
+            _sass.push(`${_dir}sass/utilities.scss`);
             if (res.components.indexOf('Responsive utilities') > -1) {
                 console.log('+responsive-utilities.scss');
-                _sass.push(_dir + 'sass/responsive-utilities.scss');
+                _sass.push(`${_dir}sass/responsive-utilities.scss`);
             }
 
             _sass.push('src/sass/m8tro/palette.scss');
@@ -521,7 +491,7 @@ gulp.task('setup', () => {
 
 // Cleaning task
 gulp.task('clean', () => {
-    return del([__dirname + '/dist/']);
+    return del([`${__dirname}/dist/`]);
 });
 
 
@@ -540,9 +510,9 @@ gulp.task('watch', () => {
 // Help dialog
 gulp.task('help', () => {
 
-    let title_length = meta.name + ' v' + meta.version;
+    let title_length = `${meta.name}v${meta.version}`;
 
-    console.log('\n' + title_length);
+    console.log(`\n${title_length}`);
     console.log('The MIT License (MIT)');
     console.log('\nAvailable tasks:');
     console.log('         help - this dialog');
