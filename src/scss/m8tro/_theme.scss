@@ -1,0 +1,364 @@
+// M8tro 3.3.7
+// -----------------------------------------------------
+
+pre {
+    background-color: $pre-bg;
+}
+.breadcrumb {
+    border: 1px solid color("gray");
+
+    .fa {
+      color: $body-color;
+    }
+}
+.breadcrumb-inverse {
+  background-color: $m8tro-theme;
+  border-color: $m8tro-theme;
+
+  .breadcrumb-item {
+      .active {
+        color: lighten($breadcrumb-active-color, 20%)
+      }
+      + .breadcrumb-item::before {
+          color: $gray-400;
+      }
+  }
+}
+.card, .card-link {
+    color: invert($body-color);
+}
+
+.page-header {
+    padding-bottom: 13px;
+    margin: 3.5rem 0 1.75rem;
+}
+
+a {
+  text-decoration: underline;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+a.list-group-item {
+  text-decoration: none;
+
+  &.active > .badge-pill {
+    color: $gray-dark;
+    background-color: transparent;
+  }
+}
+.list-group-item { color: $black; }
+.fa, .glyphicon { color: $m8tro-theme; }
+.fa-home, .glyphicon-home { color: $body-bg; }
+
+.page-link {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover { text-decoration: underline; }
+}
+.jumbotron {
+    color: $body-bg;
+}
+.nav-link, .navbar-brand { text-decoration: none; }
+// M8tro v3 styles
+a,
+.btn,
+.close {
+  transition: all ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.text-muted,
+.text-primary,
+.text-success,
+.text-info,
+.text-danger,
+.text-warning {
+  a { color: inherit; }
+}
+.text-muted a:hover { color: darken($text-muted, 10%); }
+.text-primary a:hover { color: darken($primary, 10%); }
+.text-success a:hover { color: darken($success, 10%); }
+.text-info a:hover { color: darken($success, 10%); }
+.text-warning a:hover { color: darken($warning, 10%); }
+.text-danger a:hover { color: darken($danger, 10%); }
+
+.dropdown-menu {
+  margin: -1px 0;
+
+  > li > a {
+    font-weight: inherit;
+    text-decoration: none;
+  }
+
+  .divider {
+    background-color: $link-color;
+  }
+}
+
+.dropdown-header {
+  font-weight: bold;
+  font-size: percentage(2 / 3);
+  text-transform: uppercase;
+}
+
+.modal-input-dialog {
+  .modal-content {
+    border-color: transparent;
+    background-color: $modal-content-bg;
+    margin: auto;
+
+    @media (min-width: map-get($grid-breakpoints, "sm")) {
+      width: $modal-md;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+      width: $modal-lg;
+    }
+  }
+
+  // Remove padding-right added to the modal by javascript
+  &.fade.in {
+    padding-right: 0 !important;
+  }
+
+  .modal-dialog {
+    width: auto !important;
+  }
+
+  &.modal-sm,
+  &.modal-lg {
+    width: inherit;
+  }
+}
+
+.modal-center-vertical {
+    text-align: center;
+
+    &::before {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+
+        // The modal is vertically centered on medium devices and up
+        @media (min-width: map-get($grid-breakpoints, "sm")) {
+            content: "";
+        }
+    }
+
+    .modal-dialog {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+    }
+}
+
+// Tables =====================================================================
+
+.table-hover > tbody > tr:hover {
+  > td,
+  > th {
+    background-color: $m8tro-theme;
+    color: $body-bg;
+  }
+
+  > td > .fa,
+  > td > .glyphicon {
+    color: $body-bg;
+  }
+}
+
+
+// Forms ======================================================================
+
+.has-warning {
+  .help-block,
+  .control-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline,
+  .form-control-feedback {
+    color: $warning;
+  }
+
+  .form-control {
+    border: 1px solid darken($warning, 15%);
+
+    &:focus {
+      border: 1px solid $warning;
+
+    }
+  }
+
+  .input-group-addon {
+    border-color: $warning;
+  }
+}
+
+.has-error {
+  .help-block,
+  .control-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline,
+  .form-control-feedback {
+    color: $danger;
+  }
+
+  .form-control {
+    border: 1px solid darken($danger, 15%);
+
+    &:focus {
+      border: 1px solid $danger;
+
+    }
+  }
+
+  .input-group-addon {
+    border-color: $danger;
+  }
+}
+
+.has-success {
+  .form-control {
+    border: 1px solid darken($success, 15%);
+
+    &:focus {
+      border: 1px solid $success;
+
+    }
+  }
+
+  .input-group-addon {
+    border-color: $success;
+  }
+}
+
+.navbar-form .form-control {
+  margin-top: 4px;
+}
+
+.input-group-btn > .btn {
+  font-size: 1.25rem;
+}
+
+// Navs =======================================================================
+
+.nav {
+  .open > a,
+  .open > a:hover,
+  .open > a:focus {
+    border-color: transparent;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.nav-tabs {
+  > li.active > a {
+    &,
+    &:focus,
+    &:hover {
+      border-bottom-color: $body-bg;
+      color: $link-color;
+    }
+  }
+
+  > li > a {
+    color: $link-color;
+
+    &:hover {
+      border-bottom-color: $body-bg;
+    }
+  }
+}
+
+.nav-pills {
+  > li.active > a {
+    color: $link-color;
+    background: $m8tro-theme;
+
+    > .badge-pill {
+      color: $gray-dark;
+      background-color: transparent;
+    }
+
+    &:hover,
+    &:focus {
+      color: $link-color;
+      background: $m8tro-theme;
+    }
+  }
+
+  > li > a {
+    color: $link-color;
+  }
+}
+
+// Indicators =================================================================
+
+.alert {
+  .alert-link {
+    color: $link-color;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      color: $body-bg;
+      opacity: 1;
+    }
+  }
+}
+
+// Accents =================================================================
+
+//.bg-gray-darker { @include bg-variant($gray-darker); }
+//.bg-gray-dark { @include bg-variant($gray-dark); }
+//.bg-gray-light { @include bg-variant($gray-light); }
+//.bg-gray-lighter { @include bg-variant($gray-lighter); }
+//.bg-gray { @include bg-variant($gray); }
+
+//.bg-wp-amber { @include bg-variant($wp-amber); }
+//.bg-wp-beige { @include bg-variant($wp-beige); }
+//.bg-wp-brown { @include bg-variant($wp-brown); }
+//.bg-wp-cobalt { @include bg-variant($wp-cobalt); }
+//.bg-wp-crimson { @include bg-variant($wp-crimson); }
+//.bg-wp-cyan { @include bg-variant($wp-cyan); }
+//.bg-wp-emerald { @include bg-variant($wp-emerald); }
+//.bg-wp-gray { @include bg-variant($wp-gray); }
+//.bg-wp-gray-dark { @include bg-variant($wp-gray-dark); }
+//.bg-wp-gray-light { @include bg-variant($wp-gray-light); }
+//.bg-wp-green { @include bg-variant($wp-green); }
+//.bg-wp-indigo { @include bg-variant($wp-indigo); }
+//.bg-wp-lime { @include bg-variant($wp-lime); }
+//.bg-wp-magenta { @include bg-variant($wp-magenta); }
+//.bg-wp-mauve { @include bg-variant($wp-mauve); }
+//.bg-wp-olive { @include bg-variant($wp-olive); }
+//.bg-wp-orange { @include bg-variant($wp-orange); }
+//.bg-wp-pink { @include bg-variant($wp-pink); }
+//.bg-wp-red { @include bg-variant($wp-red); }
+//.bg-wp-sienna { @include bg-variant($wp-sienna); }
+//.bg-wp-steel { @include bg-variant($wp-steel); }
+//.bg-wp-teal { @include bg-variant($wp-teal); }
+//.bg-wp-violet { @include bg-variant($wp-violet); }
+//.bg-wp-yellow { @include bg-variant($wp-yellow); }
+
+//.bg-m8tro-red { @include bg-variant($m8tro-red); }
+//.bg-m8tro-orange { @include bg-variant($m8tro-orange); }
+//.bg-m8tro-yellow { @include bg-variant($m8tro-yellow); }
+//.bg-m8tro-green { @include bg-variant($m8tro-green); }
+//.bg-m8tro-aqua { @include bg-variant($m8tro-aqua); }
+//.bg-m8tro-blue { @include bg-variant($m8tro-blue); }
+//.bg-m8tro-purple { @include bg-variant($m8tro-purple); }
+//.bg-m8tro-brown { @include bg-variant($m8tro-brown); }

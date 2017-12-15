@@ -1,0 +1,85 @@
+// Options
+$enable-rounded: false;
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
+
+// Color system
+$blue:    $m8tro-blue;
+$indigo:  $wp-indigo;
+$purple:  $m8tro-purple;
+$pink:    $wp-pink;
+$red:     $m8tro-red;
+$orange:  $m8tro-orange;
+$yellow:  $m8tro-yellow;
+$green:   $m8tro-green;
+$cyan:    $m8tro-aqua;
+$secondary: #fff;
+$m8tro-theme: $blue;
+$jumbotron-color: $black;
+
+// Body
+$body-bg: $black;
+$body-color: $white;
+
+// Fonts
+$font-size-base: 1.25rem; // 20px assuming browser default is 16px
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto Condensed", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-monospace: SFMono-Regular, "Fira Mono OT", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+$font-weight-light: 200;
+$font-weight-normal: 300;
+$font-weight-bold: 700;
+$headings-font-weight: 300;
+
+$table-border-width: 0;
+$table-hover-bg: $blue !important;
+// Links
+$link-color: $white;
+$link-hover-color: darken($link-color, 15%);
+
+// Code
+$code-color: #bd4147;
+$code-bg:  $gray-100;
+
+$kbd-color: $gray-900;
+$kbd-bg: $white;
+
+$pre-color: $gray-900;
+$pre-bg: $white;
+
+$badge-font-weight: $font-weight-normal;
+$alert-link-font-weight: $font-weight-normal;
+$pagination-bg: transparent;
+$pagination-hover-color: $black;
+$pagination-hover-bg: $white;
+$pagination-active-border-color: $white;
+$jumbotron-bg: #fff;
+$modal-header-border-color: #fff;
+$modal-footer-border-color: #fff;
+$progress-bg: #212121;
+$tooltip-color: $black;
+$tooltip-bg: $white;
+$tooltip-arrow-color: transparent;
+$popover-header-color: $black;
+$popover-border-width: 0;
+$popover-header-bg: $white;
+$popover-arrow-color: transparent;
+$popover-arrow-outer-color: transparent;
+$breadcrumb-bg: transparent;
+$dropdown-bg: $body-bg;
+$dropdown-border-color: $white;
+$dropdown-link-color: $white;
+$input-group-addon-bg: transparent;
+$input-group-addon-color: $white;
+$input-border-color: $white;
+$input-bg: $body-bg;
+$input-color: $white;
+$modal-content-bg: $black;
+$modal-content-border-color: $white;
+$close-color: inherit;
+$nav-tabs-link-active-bg: transparent;
+$nav-tabs-link-active-color: $white;
+$close-text-shadow: none;
+$link-color: $white;
