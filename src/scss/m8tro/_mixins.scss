@@ -9,7 +9,7 @@
   border-color: $color;
 
   &:hover {
-    color: color-yiq($color-hover);
+    color: $color-hover;
     background-color: $active-background;
     border-color: $active-border;
   }
