@@ -70,17 +70,6 @@ a,
   transition: all ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
-.badge-pill { color: $m8tro-theme; }
-
-
-.panel-footer { font-size: .8em; }
-.panel-success,
-.panel-danger,
-.panel-warning,
-.panel-info {
-  > .panel-heading { color: #fff; }
-}
-
 .text-muted,
 .text-primary,
 .text-success,
@@ -148,7 +137,7 @@ a,
 .modal-center-vertical {
     text-align: center;
 
-    &:before {
+    &::before {
         display: inline-block;
         height: 100%;
         vertical-align: middle;
@@ -328,19 +317,6 @@ a,
     &:focus {
       color: $body-bg;
       opacity: 1;
-    }
-  }
-
-  .close {
-    color: $gray-dark;
-    text-decoration: none;
-    opacity: 1;
-
-    &:hover,
-    &:focus {
-      color: $link-color;
-      opacity: 1;
-      outline: none;
     }
   }
 }
