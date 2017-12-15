@@ -7,29 +7,29 @@
  * Licensed under the MIT license.
  */
 // Read package.json metadata
-let meta = require('./package.json');
+const meta = require('./package.json');
 
 
 // Gulp plugins
-let autoprefixer = require('autoprefixer');
-let cache = require('gulp-cached');
-let cleancss = require('gulp-clean-css');
-let concat = require('gulp-concat');
-let debug = require('gulp-debug');
-let gulp = require('gulp');
-let htmlval = require('gulp-html-validator');
-let jshint = require('gulp-jshint');
-let jsonlint = require('gulp-json-lint');
-let mq4HoverShim = require('mq4-hover-shim');
-let path = require('path');
-let postcss = require('gulp-postcss');
-let prompt = require('gulp-prompt');
-let sass = require('gulp-sass');
+const autoprefixer = require('autoprefixer');
+const cache = require('gulp-cached');
+const cleancss = require('gulp-clean-css');
+const concat = require('gulp-concat');
+const debug = require('gulp-debug');
+const del = require('del');
+const gulp = require('gulp');
+const htmlval = require('gulp-html-validator');
+const jshint = require('gulp-jshint');
+const jsonlint = require('gulp-json-lint');
+const mq4HoverShim = require('mq4-hover-shim');
+const path = require('path');
+const postcss = require('gulp-postcss');
+const prompt = require('gulp-prompt');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
-let sourcemaps = require('gulp-sourcemaps');
-let util = require('gulp-util');
-let watch = require('gulp-watch');
-let argv = require('yargs').argv;
+const sourcemaps = require('gulp-sourcemaps');
+const argv = require('yargs').argv;
 // Autoprefixer supported browsers
 let autoprefixerBrowsers = require('./node_modules/bootstrap/package.json').browserslist;
 
@@ -41,6 +41,12 @@ let sassOpts = {
     outputStyle: 'expanded',
     precision: 6,
     includePaths: ['node_modules/bootstrap/']
+};
+let cleancssOpts = {
+    sourceMap: true,
+    sourceMapInlineSources: true,
+    level: 1,
+    advanced: false
 };
 
 /*
@@ -61,6 +67,7 @@ gulp.task('selftest', ['jshint', 'jsonlint']);
 
 gulp.task('lint', ['html', 'selftest']);
 
+gulp.task('css', ['css-compile', 'css-min', 'css-extras', 'css-extras:min']);
 
 /*
  * Sub-tasks
@@ -68,7 +75,6 @@ gulp.task('lint', ['html', 'selftest']);
 gulp.task('make', ['FontAwesome', 'js_dependencies', 'css'], () => {
     console.log('\nBuilding M8tro theme:');
 });
-
 
 // Lint JS files
 gulp.task('jshint', () => {
@@ -81,73 +87,49 @@ gulp.task('jshint', () => {
         .pipe(jshint.reporter());
 });
 
-
 // Lint JSON
 gulp.task('jsonlint', () => {
-    return gulp.src(['bower.json', 'package.json'])
+    return gulp.src('package.json')
         .pipe(cache('linting_json'))
-        .pipe(debug({
-            title: 'jsonlint:'
-        }))
+        .pipe(debug({ title: 'jsonlint:' }))
         .pipe(jsonlint())
         .pipe(jsonlint.report('verbose'));
 });
 
-
 // Validate HTML
 gulp.task('htmlval', () => {
-    return htmlval([
-        'index.html'
-    ]);
+    return htmlval(['index.html']);
 });
 
-
-// Build sass
-gulp.task('css', ['css-compile', 'css-min']);
+// Build SASS
 gulp.task('css-compile', () => {
     console.log('\nCrunching...');
     gulp.src('src/m8tro.scss')
-        .pipe(debug({
-            title: 'sassc:'
-        }))
+        .pipe(debug({ title: 'sass:' }))
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
         .pipe(postcss(processors))
         .pipe(sourcemaps.write('./'))
-        .pipe(debug({
-            title: 'copy:'
-        }))
+        .pipe(debug({ title: 'copy:' }))
         .pipe(gulp.dest('dist/css/'));
 });
 gulp.task('css-min', () => {
    gulp.src('src/m8tro.scss')
-        .pipe(debug({
-            title: 'sassc:'
-        }))
+        .pipe(debug({ title: 'sass:' }))
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
         .pipe(postcss(processors))
-        .pipe(debug({
-            title: 'cleancss:'
-        }))
-        .pipe(cleancss({
-            sourceMap: true,
-            sourceMapInlineSources: true,
-            level: 1,
-            compatibility: '*',
-            keepSpecialComments: '*',
-            advanced: false
-        }))
+        .pipe(debug({ title: 'cleancss:' }))
+        .pipe(cleancss(cleancssOpts))
+        .pipe(rename("m8tro.min.css"))
         .pipe(sourcemaps.write('./'))
-        .pipe(debug({
-            title: 'copy:'
-        }))
+        .pipe(debug({ title: 'copy:' }))
         .pipe(gulp.dest('dist/css/'));
 });
 
 gulp.task('css-extras', () => {
     gulp.src('src/m8tro-extras.scss')
-      .pipe(debug({title: 'sassc:'}))
+      .pipe(debug({title: 'sass:'}))
       .pipe(sourcemaps.init())
       .pipe(sass(sassOpts).on('error', sass.logError))
       .pipe(postcss(processors))
@@ -157,28 +139,16 @@ gulp.task('css-extras', () => {
 });
 gulp.task('css-extras:min', () => {
     gulp.src('src/m8tro-extras.scss')
-        .pipe(debug({
-            title: 'sassc:'
-        }))
+        .pipe(debug({ title: 'sass:' }))
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
         .pipe(postcss(processors))
-        .pipe(debug({
-            title: 'cleancss:'
-        }))
-        .pipe(cleancss({
-            sourceMap: true,
-            sourceMapInlineSources: true,
-            level: 1,
-            compatibility: '*',
-            keepSpecialComments: '*',
-            advanced: false
-        }))
+        .pipe(debug({ title: 'cleancss:' }))
+        .pipe(cleancss(cleancssOpts))
+        .pipe(rename("m8tro-extras.min.css"))
         .pipe(sourcemaps.write('./'))
-        .pipe(debug({
-            title: 'copy:'
-        }))
-      .pipe(gulp.dest('dist/css/'));
+        .pipe(debug({ title: 'copy:' }))
+        .pipe(gulp.dest('dist/css/'));
 });
 
 // Copy tasks
@@ -197,7 +167,7 @@ gulp.task('js_dependencies', () => {
 // Customize Bootstrap assets
 gulp.task('setup', () => {
     let listr_state;
-    // Include Bootstrap Listr sass dependencies
+    // Include Bootstrap Listr scss dependencies
     if (argv.listr) {
         listr_state = true;
     } else {
@@ -214,7 +184,6 @@ gulp.task('setup', () => {
         { name: 'Buttons', checked: listr_state },
         { name: 'Responsive utilities\n', checked: listr_state },
 
-        { name: 'Glyphicons', checked: listr_state },
         { name: 'Button groups', checked: listr_state },
         { name: 'Input groups', checked: false },
         { name: 'Navs', checked: false },
@@ -244,10 +213,9 @@ gulp.task('setup', () => {
     ];
 
     let _dir = 'node_modules/bootstrap/',
-        _fonts = [],
         _js = [],
-        _sass = [
-            `${_dir}sass/letiables.scss`, `${_dir}sass/mixins/*.scss`, `${_dir}sass/normalize.scss`
+        _scss = [
+            `${_dir}scss/_variables.scss`, `${_dir}scss/_mixins.scss`, `${_dir}scss/_reboot.scss`
         ];
 
     console.clear();
@@ -263,214 +231,207 @@ gulp.task('setup', () => {
 
             console.log('\nBuilding custom M8tro theme:');
 
-            console.log('+letiables.scss');
-            console.log('+mixins/*.scss');
-            console.log('+normalize.scss');
+            console.log('+variables.scss');
+            console.log('+_mixins.scss');
+            console.log('+_reboot.scss');
 
             if (res.components.indexOf('Print media styles') > -1) {
                 console.log('+print.scss');
-                _sass.push(`${_dir}sass/print.scss`);
+                _scss.push(`${_dir}scss/print.scss`);
             }
-            if (res.components.indexOf('Glyphicons') > -1) {
-                console.log('+glyphicons.scss');
-                _sass.push(`${_dir}sass/glyphicons.scss`);
-                console.log('+glyphicons-halflings-regular.*');
-                _fonts.push(`${_dir}fonts/glyphicons-halflings-regular.eot`);
-                _fonts.push(`${_dir}fonts/glyphicons-halflings-regular.svg`);
-                _fonts.push(`${_dir}fonts/glyphicons-halflings-regular.ttf`);
-                _fonts.push(`${_dir}fonts/glyphicons-halflings-regular.woff`);
-            }
-            _sass.push(`${_dir}sass/scaffolding.scss`);
+            _scss.push(`${_dir}scss/scaffolding.scss`);
             if (res.components.indexOf('Typography') > -1) {
                 console.log('+type.scss');
-                _sass.push(`${_dir}sass/type.scss`);
+                _scss.push(`${_dir}scss/type.scss`);
             }
             if (res.components.indexOf('Code') > -1) {
                 console.log('+code.scss');
-                _sass.push(`${_dir}sass/code.scss`);
+                _scss.push(`${_dir}scss/code.scss`);
             }
             if (res.components.indexOf('Grid system') > -1) {
                 console.log('+grid.scss');
-                _sass.push(`${_dir}sass/grid.scss`);
+                _scss.push(`${_dir}scss/grid.scss`);
             }
             if (res.components.indexOf('Tables') > -1) {
                 console.log('+tables.scss');
-                _sass.push(`${_dir}sass/tables.scss`);
+                _scss.push(`${_dir}scss/tables.scss`);
             }
             if (res.components.indexOf('Forms') > -1) {
                 console.log('+forms.scss');
-                _sass.push(`${_dir}sass/forms.scss`);
+                _scss.push(`${_dir}scss/forms.scss`);
             }
             if (res.components.indexOf('Buttons') > -1) {
                 console.log('+buttons.scss');
-                _sass.push(`${_dir}sass/buttons.scss`);
+                _scss.push(`${_dir}scss/buttons.scss`);
             }
             if (res.components.indexOf('Component animations (for JS)\n') > -1) {
                 console.log('+component-animations.scss');
-                _sass.push(`${_dir}sass/component-animations.scss`);
+                _scss.push(`${_dir}scss/component-animations.scss`);
             }
             if (res.components.indexOf('Dropdowns') > -1) {
                 console.log('+dropdowns.scss');
-                _sass.push(`${_dir}sass/dropdowns.scss`);
+                _scss.push(`${_dir}scss/dropdowns.scss`);
                 console.log('+dropdown.js');
                 _js.push(`${_dir}js/dropdown.js`);
             }
             if (res.components.indexOf('Button groups') > -1) {
                 console.log('+button-groups.scss');
-                _sass.push(`${_dir}sass/button-groups.scss`);
+                _scss.push(`${_dir}scss/button-groups.scss`);
                 console.log('+button.js');
                 _js.push(`${_dir}js/button.js`);
             }
             if (res.components.indexOf('Input groups') > -1) {
                 console.log('+input-groups.scss');
-                _sass.push(`${_dir}sass/input-groups.scss`);
+                _scss.push(`${_dir}scss/input-groups.scss`);
             }
             if (res.components.indexOf('Navs') > -1) {
                 console.log('+navs.scss');
-                _sass.push(`${_dir}sass/navs.scss`);
+                _scss.push(`${_dir}scss/navs.scss`);
                 console.log('+tab.js');
                 _js.push(`${_dir}js/tab.js`);
             }
             if (res.components.indexOf('Navbar') > -1) {
                 console.log('+navbar.scss');
-                _sass.push(`${_dir}sass/navbar.scss`);
+                _scss.push(`${_dir}scss/navbar.scss`);
             }
             if (res.components.indexOf('Breadcrumbs') > -1) {
                 console.log('+breadcrumbs.scss');
-                _sass.push(`${_dir}sass/breadcrumbs.scss`);
+                _scss.push(`${_dir}scss/breadcrumbs.scss`);
             }
             if (res.components.indexOf('Pagination') > -1) {
                 console.log('+pagination.scss');
-                _sass.push(`${_dir}sass/pagination.scss`);
+                _scss.push(`${_dir}scss/pagination.scss`);
             }
             if (res.components.indexOf('Pager') > -1) {
                 console.log('+pager.scss');
-                _sass.push(`${_dir}sass/pager.scss`);
+                _scss.push(`${_dir}scss/pager.scss`);
             }
             if (res.components.indexOf('Labels') > -1) {
                 console.log('+labels.scss');
-                _sass.push(`${_dir}sass/labels.scss`);
+                _scss.push(`${_dir}scss/labels.scss`);
             }
             if (res.components.indexOf('Badges') > -1) {
                 console.log('+badges.scss');
-                _sass.push(`${_dir}sass/badges.scss`);
+                _scss.push(`${_dir}scss/badges.scss`);
             }
             if (res.components.indexOf('Jumbotron') > -1) {
                 console.log('+jumbotron.scss');
-                _sass.push(`${_dir}sass/jumbotron.scss`);
+                _scss.push(`${_dir}scss/jumbotron.scss`);
             }
             if (res.components.indexOf('Thumbnails') > -1) {
                 console.log('+thumbnails.scss');
-                _sass.push(`${_dir}sass/thumbnails.scss`);
+                _scss.push(`${_dir}scss/thumbnails.scss`);
             }
             if (res.components.indexOf('Alerts') > -1) {
                 console.log('+alerts.scss');
-                _sass.push(`${_dir}sass/alerts.scss`);
+                _scss.push(`${_dir}scss/alerts.scss`);
                 console.log('+alert.js');
                 _js.push(`${_dir}js/alert.js`);
             }
             if (res.components.indexOf('Progress bars') > -1) {
                 console.log('+progress-bars.scss');
-                _sass.push(`${_dir}sass/progress-bars.scss`);
+                _scss.push(`${_dir}scss/progress-bars.scss`);
             }
             if (res.components.indexOf('Media bars') > -1) {
                 console.log('+media-items.scss');
-                _sass.push(`${_dir}sass/media-items.scss`);
+                _scss.push(`${_dir}scss/media-items.scss`);
             }
             if (res.components.indexOf('List groups') > -1) {
                 console.log('+list-group.scss');
-                _sass.push(`${_dir}sass/list-group.scss`);
+                _scss.push(`${_dir}scss/list-group.scss`);
             }
             if (res.components.indexOf('Panels') > -1) {
                 console.log('+panels.scss');
-                _sass.push(`${_dir}sass/panels.scss`);
+                _scss.push(`${_dir}scss/panels.scss`);
             }
             if (res.components.indexOf('Responsive embed') > -1) {
                 console.log('+responsive-embed.scss');
-                _sass.push(`${_dir}sass/responsive-embed.scss`);
+                _scss.push(`${_dir}scss/responsive-embed.scss`);
             }
             if (res.components.indexOf('Wells') > -1) {
                 console.log('+wells.scss');
-                _sass.push(`${_dir}sass/wells.scss`);
+                _scss.push(`${_dir}scss/wells.scss`);
             }
             if (res.components.indexOf('Close icon\n') > -1) {
                 console.log('+close.scss');
-                _sass.push(`${_dir}sass/close.scss`);
+                _scss.push(`${_dir}scss/close.scss`);
             }
             if (res.components.indexOf('Modals') > -1) {
                 console.log('+modals.scss');
-                _sass.push(`${_dir}sass/modals.scss`);
+                _scss.push(`${_dir}scss/modals.scss`);
                 console.log('+modal.js');
                 _js.push(`${_dir}js/modal.js`);
             }
             if (res.components.indexOf('Tooltips') > -1) {
                 console.log('+tooltips.scss');
-                _sass.push(`${_dir}sass/tooltips.scss`);
+                _scss.push(`${_dir}scss/tooltips.scss`);
                 console.log('+tooltip.js');
                 _js.push(`${_dir}js/tooltip.js`);
             }
             if (res.components.indexOf('Popovers') > -1) {
                 console.log('+popovers.scss');
-                _sass.push(`${_dir}sass/popovers.scss`);
+                _scss.push(`${_dir}scss/popovers.scss`);
                 console.log('+popover.js');
                 _js.push(`${_dir}js/popover.js`);
             }
             if (res.components.indexOf('Carousel\n') > -1) {
                 console.log('+carousel.scss');
-                _sass.push(`${_dir}sass/carousel.scss`);
+                _scss.push(`${_dir}scss/carousel.scss`);
                 console.log('+carousel.js');
                 _js.push(`${_dir}js/carousel.js`);
             }
             console.log('+utilities.scss');
-            _sass.push(`${_dir}sass/utilities.scss`);
+            _scss.push(`${_dir}scss/utilities.scss`);
             if (res.components.indexOf('Responsive utilities') > -1) {
                 console.log('+responsive-utilities.scss');
-                _sass.push(`${_dir}sass/responsive-utilities.scss`);
+                _scss.push(`${_dir}scss/responsive-utilities.scss`);
             }
 
-            _sass.push('src/sass/m8tro/palette.scss');
-            _sass.push('src/sass/m8tro/letiables.scss');
-            _sass.push('src/sass/m8tro/theme.scss');
+            _scss.push('src/scss/m8tro/_palette.scss');
+            _scss.push('src/scss/m8tro/_variables.scss');
+            _scss.push('src/scss/m8tro/_theme.scss');
 
-            console.log('\n' + _sass.length + ' styles, ' + _js.length + ' scripts and ' + _fonts.length + ' fonts in total');
+            console.log(`\n${_scss.length} styles, ${_js.length} scripts in total`);
             console.log('Crunching…');
 
 
-            // Concatenate sass & compile CSS
-            gulp.src(_sass)
+            // Concatenate scss & compile CSS
+            gulp.src(_scss)
                 .pipe(concat('m8tro.scss'));
 
             gulp.src('m8tro.scss')
+                .pipe(debug({
+                    title: 'sass:'
+                }))
                 .pipe(sourcemaps.init())
-                .pipe(sass())
-                .pipe(autoprefixer({ browsers: autoprefixerBrowsers }))
-                .pipe(csscomb())
+                .pipe(sass(sassOpts).on('error', sass.logError))
+                .pipe(postcss(processors))
+                .pipe(debug({
+                    title: 'cleancss:'
+                }))
+                .pipe(cleancss())
                 .pipe(sourcemaps.write('./'))
-                .pipe(gulp.dest('dist/css/'));
+                .pipe(debug({
+                    title: 'copy:'
+                }))
+              .pipe(gulp.dest('dist/css/'));
 
             gulp.src('m8tro.scss')
+                .pipe(debug({
+                    title: 'sass:'
+                }))
                 .pipe(sourcemaps.init())
-                .pipe(sass())
-                .pipe(autoprefixer({ browsers: autoprefixerBrowsers }))
-                .pipe(csscomb())
-                .pipe(concat('m8tro.min.css'))
-                .pipe(cleancss({
-                    compatibility: 'ie8',
-                    keepSpecialComments: '*',
-                    advanced: false
+                .pipe(sass(sassOpts).on('error', sass.logError))
+                .pipe(postcss(processors))
+                .pipe(debug({
+                    title: 'cleancss:'
                 }))
-                .pipe(sourcemaps.write('./', {
-                    mapFile: function(mapFilePath) {
-                        return mapFilePath.replace('.css', '.min.css');
-                    }
+                .pipe(cleancss(cleancssOpts))
+                .pipe(sourcemaps.write('./'))
+                .pipe(debug({
+                    title: 'copy:'
                 }))
-                .pipe(gulp.dest('dist/css/'));
-
-
-            // Copy Fonts
-            gulp.src(_fonts)
-                .pipe(gulp.dest('dist/fonts/'));
-
+              .pipe(gulp.dest('dist/css/'));
 
             // Compile JavaScript
             gulp.src(_js)
@@ -485,7 +446,6 @@ gulp.task('setup', () => {
                     title: 'uglify:'
                 }))
                 .pipe(gulp.dest('dist/js/'));
-
         }));
 });
 
@@ -498,10 +458,9 @@ gulp.task('clean', () => {
 // Watch task
 gulp.task('watch', () => {
     gulp.watch([
-        'bower.json',
-        'gulpfile.js',
+        'gulpfile.babel.js',
         'package.json',
-        '/sass/**/*.scss',
+        '/scss/**/*.scss',
         'index.html'
     ], ['lint']);
 });
@@ -509,7 +468,6 @@ gulp.task('watch', () => {
 
 // Help dialog
 gulp.task('help', () => {
-
     let title_length = `${meta.name}v${meta.version}`;
 
     console.log(`\n${title_length}`);
@@ -520,5 +478,4 @@ gulp.task('help', () => {
     console.log('         lint - lint included CSS and JavaScript files');
     console.log('         make - build M8tro Bootstrap theme');
     console.log('        setup - customize & build M8tro Bootstrap theme');
-
 });
