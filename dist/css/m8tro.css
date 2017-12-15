@@ -8257,21 +8257,6 @@ a,
   transition: all ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
-.badge-pill {
-  color: #3c9cd6;
-}
-
-.panel-footer {
-  font-size: .8em;
-}
-
-.panel-success > .panel-heading,
-.panel-danger > .panel-heading,
-.panel-warning > .panel-heading,
-.panel-info > .panel-heading {
-  color: #fff;
-}
-
 .text-muted a,
 .text-primary a,
 .text-success a,
@@ -8358,14 +8343,14 @@ a,
   text-align: center;
 }
 
-.modal-center-vertical:before {
+.modal-center-vertical::before {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
 
 @media (min-width: 576px) {
-  .modal-center-vertical:before {
+  .modal-center-vertical::before {
     content: "";
   }
 }
@@ -8505,18 +8490,6 @@ a,
 .alert .alert-link:hover, .alert .alert-link:focus {
   color: #000;
   opacity: 1;
-}
-
-.alert .close {
-  color: #212121;
-  text-decoration: none;
-  opacity: 1;
-}
-
-.alert .close:hover, .alert .close:focus {
-  color: #fff;
-  opacity: 1;
-  outline: none;
 }
 
 .form-control-range {
