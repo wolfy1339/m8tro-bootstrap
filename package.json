@@ -58,7 +58,7 @@
     "gulp-jshint": "^2.0.4",
     "gulp-json-lint": "^0.1.0",
     "gulp-postcss": "^7.0.0",
-    "gulp-prompt": "^1.0.0",
+    "gulp-prompt": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",
