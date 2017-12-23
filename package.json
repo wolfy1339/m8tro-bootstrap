@@ -41,7 +41,7 @@
     "windows phone"
   ],
   "dependencies": {
-    "bootstrap": "wolfy1339/bootstrap#584b692e04932c2fc79421b90964569f1bc1dfb8",
+    "bootstrap": "^3.3.7",
     "font-awesome": "^4.6.3",
     "jquery": "^3.1.0"
   },
