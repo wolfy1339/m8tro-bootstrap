@@ -7,28 +7,27 @@
  * Licensed under the MIT license.
  */
 // Read package.json metadata
-import meta from './package.json';
-
+const meta = require('./package.json');
 
 // Gulp plugins
-import cache from 'gulp-cached';
-import cleancss from 'gulp-clean-css';
-import concat from 'gulp-concat';
-import console from 'better-console';
-import csscomb from 'gulp-csscomb';
-import debug from 'gulp-debug';
-import del from 'del';
-import gulp from 'gulp';
-import htmlval from 'gulp-html-validator';
-import jshint from 'gulp-jshint';
-import jsonlint from 'gulp-json-lint';
-import less from 'gulp-less';
-import path from 'path';
-import prompt from 'gulp-prompt';
-import sourcemaps from 'gulp-sourcemaps';
-import util from 'gulp-util';
-import watch from 'gulp-watch';
-let argv = require('yargs').argv;
+const cache = require('gulp-cached');
+const cleancss = require('gulp-clean-css');
+const concat = require('gulp-concat');
+const console = require('better-console');
+const csscomb = require('gulp-csscomb');
+const debug = require('gulp-debug');
+const del = require('del');
+const gulp = require('gulp');
+const htmlval = require('gulp-html-validator');
+const jshint = require('gulp-jshint');
+const jsonlint = require('gulp-json-lint');
+const less = require('gulp-less');
+const path = require('path');
+const prompt = require('gulp-prompt');
+const sourcemaps = require('gulp-sourcemaps');
+const util = require('gulp-util');
+const watch = require('gulp-watch');
+const argv = require('yargs').argv;
 
 // Autoprefixer supported browsers
 let autoprefixerBrowsers = [
@@ -43,7 +42,7 @@ let autoprefixerBrowsers = [
 ];
 
 // LESS plugins
-import autoprefixer from 'gulp-autoprefixer';
+const autoprefixer = require('gulp-autoprefixer');
 
 
 
