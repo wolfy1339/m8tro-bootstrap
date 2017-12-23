@@ -1,0 +1,17 @@
+fail_on_violations: true
+
+eslint:
+  config_file: .eslintrc.json
+  enabled: false
+  ignore_file: .houndignore
+
+stylelint:
+  config_file: .stylelintrc
+  enabled: true
+  ignore_file: .houndignore
+
+jshint:
+  enabled: false
+
+scss:
+  enabled: false
