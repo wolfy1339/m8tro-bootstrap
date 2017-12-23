@@ -9,7 +9,6 @@
 // Read package.json metadata
 const meta = require('./package.json');
 
-
 // Gulp plugins
 const autoprefixer = require('autoprefixer');
 const cache = require('gulp-cached');
