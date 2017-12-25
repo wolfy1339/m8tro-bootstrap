@@ -29,7 +29,7 @@ const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const stylelint = require('gulp-stylelint');
-const argv = require('argv');
+const argv = require('yargs').argv;
 
 // Autoprefixer supported browsers
 let autoprefixerBrowsers = require('./node_modules/bootstrap/package.json').browserslist;
