@@ -2,35 +2,40 @@
 // -----------------------------------------------------
 
 pre {
-    background-color: $pre-bg;
+  background-color: $pre-bg;
 }
-.breadcrumb {
-    border: 1px solid color("gray");
 
-    .fa {
-      color: $body-color;
-    }
+.breadcrumb {
+  border: 1px solid color("gray");
+
+  .fa {
+    color: $body-color;
+  }
 }
+
 .breadcrumb-inverse {
   background-color: $m8tro-theme;
   border-color: $m8tro-theme;
 
   .breadcrumb-item {
-      .active {
-        color: lighten($breadcrumb-active-color, 20%)
-      }
-      + .breadcrumb-item::before {
-          color: $gray-400;
-      }
+    .active {
+      color: lighten($breadcrumb-active-color, 20%);
+    }
+
+    + .breadcrumb-item::before {
+      color: $gray-400;
+    }
   }
 }
-.card, .card-link {
-    color: invert($body-color);
+
+.card,
+.card-link {
+  color: invert($body-color);
 }
 
 .page-header {
-    padding-bottom: 13px;
-    margin: 3.5rem 0 1.75rem;
+  padding-bottom: 13px;
+  margin: 3.5rem 0 1.75rem;
 }
 
 a {
@@ -41,49 +46,80 @@ a {
   }
 }
 
-a.list-group-item {
+.list-group-item {
+  color: $black;
   text-decoration: none;
-
-  &.active > .badge-pill {
-    color: $gray-dark;
-    background-color: transparent;
-  }
 }
-.list-group-item { color: $black; }
-.fa, .glyphicon { color: $m8tro-theme; }
-.fa-home, .glyphicon-home { color: $body-bg; }
+
+.fa,
+.glyphicon {
+  color: $m8tro-theme;
+}
+
+.fa-home,
+.glyphicon-home {
+  color: $body-bg;
+}
 
 .page-link {
-    text-decoration: none;
-    color: inherit;
+  color: inherit;
+  text-decoration: none;
 
-    &:hover { text-decoration: underline; }
+  &:hover {
+    text-decoration: underline;
+  }
 }
+
 .jumbotron {
-    color: $body-bg;
+  color: $body-bg;
 }
-.nav-link, .navbar-brand { text-decoration: none; }
+
+.nav-link,
+.navbar-brand {
+  text-decoration: none;
+}
 // M8tro v3 styles
-a,
+
 .btn,
-.close {
+.close,
+a {
   transition: all ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
+.text-danger,
+.text-info,
 .text-muted,
 .text-primary,
 .text-success,
-.text-info,
-.text-danger,
 .text-warning {
-  a { color: inherit; }
+  a {
+    color: inherit;
+  }
 }
-.text-muted a:hover { color: darken($text-muted, 10%); }
-.text-primary a:hover { color: darken($primary, 10%); }
-.text-success a:hover { color: darken($success, 10%); }
-.text-info a:hover { color: darken($success, 10%); }
-.text-warning a:hover { color: darken($warning, 10%); }
-.text-danger a:hover { color: darken($danger, 10%); }
+
+.text-muted a:hover {
+  color: darken($text-muted, 10%);
+}
+
+.text-primary a:hover {
+  color: darken($primary, 10%);
+}
+
+.text-success a:hover {
+  color: darken($success, 10%);
+}
+
+.text-info a:hover {
+  color: darken($success, 10%);
+}
+
+.text-warning a:hover {
+  color: darken($warning, 10%);
+}
+
+.text-danger a:hover {
+  color: darken($danger, 10%);
+}
 
 .dropdown-menu {
   margin: -1px 0;
@@ -99,16 +135,16 @@ a,
 }
 
 .dropdown-header {
-  font-weight: bold;
   font-size: percentage(2 / 3);
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 .modal-input-dialog {
   .modal-content {
-    border-color: transparent;
-    background-color: $modal-content-bg;
     margin: auto;
+    background-color: $modal-content-bg;
+    border-color: transparent;
 
     @media (min-width: map-get($grid-breakpoints, "sm")) {
       width: $modal-md;
@@ -118,7 +154,7 @@ a,
       width: $modal-lg;
     }
   }
-
+  //stylelint-disable declaration-no-important
   // Remove padding-right added to the modal by javascript
   &.fade.in {
     padding-right: 0 !important;
@@ -127,60 +163,54 @@ a,
   .modal-dialog {
     width: auto !important;
   }
-
-  &.modal-sm,
-  &.modal-lg {
+  //stylelint-enable declaration-no-important
+  &.modal-lg,
+  &.modal-sm {
     width: inherit;
   }
 }
 
 .modal-center-vertical {
-    text-align: center;
+  text-align: center;
 
-    &::before {
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-
-        // The modal is vertically centered on medium devices and up
-        @media (min-width: map-get($grid-breakpoints, "sm")) {
-            content: "";
-        }
+  &::before {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    // The modal is vertically centered on medium devices and up
+    @media (min-width: map-get($grid-breakpoints, "sm")) {
+      content: "";
     }
+  }
 
-    .modal-dialog {
-        display: inline-block;
-        vertical-align: middle;
-        text-align: left;
-    }
+  .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+  }
 }
-
 // Tables =====================================================================
-
-.table-hover > tbody > tr:hover {
-  > td,
-  > th {
-    background-color: $m8tro-theme;
+.table-hover tbody tr:hover {
+  .glyphicon,
+  .fa {
     color: $body-bg;
   }
 
-  > td > .fa,
-  > td > .glyphicon {
-    color: $body-bg;
-  }
+  color: $body-bg;
+  background-color: $m8tro-theme;
 }
 
 
 // Forms ======================================================================
 
 .has-warning {
-  .help-block,
-  .control-label,
-  .radio,
   .checkbox,
-  .radio-inline,
   .checkbox-inline,
-  .form-control-feedback {
+  .control-label,
+  .form-control-feedback,
+  .help-block,
+  .radio,
+  .radio-inline {
     color: $warning;
   }
 
@@ -189,7 +219,6 @@ a,
 
     &:focus {
       border: 1px solid $warning;
-
     }
   }
 
@@ -199,13 +228,13 @@ a,
 }
 
 .has-error {
-  .help-block,
-  .control-label,
-  .radio,
   .checkbox,
-  .radio-inline,
   .checkbox-inline,
-  .form-control-feedback {
+  .control-label,
+  .form-control-feedback,
+  .help-block,
+  .radio,
+  .radio-inline {
     color: $danger;
   }
 
@@ -214,7 +243,6 @@ a,
 
     &:focus {
       border: 1px solid $danger;
-
     }
   }
 
@@ -229,7 +257,6 @@ a,
 
     &:focus {
       border: 1px solid $success;
-
     }
   }
 
@@ -250,34 +277,32 @@ a,
 
 .nav {
   .open > a,
-  .open > a:hover,
-  .open > a:focus {
+  .open > a:focus,
+  .open > a:hover {
     border-color: transparent;
   }
 
   a {
     text-decoration: none;
 
-    &:hover,
-    &:focus {
+    &:focus,
+    &:hover {
       text-decoration: underline;
     }
   }
 }
 
 .nav-tabs {
-  > li.active > a {
+  .nav-item.active .nav-link {
     &,
     &:focus,
     &:hover {
-      border-bottom-color: $body-bg;
       color: $link-color;
+      border-bottom-color: $body-bg;
     }
   }
 
-  > li > a {
-    color: $link-color;
-
+  .nav-link {
     &:hover {
       border-bottom-color: $body-bg;
     }
@@ -285,24 +310,15 @@ a,
 }
 
 .nav-pills {
-  > li.active > a {
+  .nav-item.active .nav-link {
     color: $link-color;
     background: $m8tro-theme;
 
-    > .badge-pill {
-      color: $gray-dark;
-      background-color: transparent;
-    }
-
-    &:hover,
-    &:focus {
+    &:focus,
+    &:hover {
       color: $link-color;
       background: $m8tro-theme;
     }
-  }
-
-  > li > a {
-    color: $link-color;
   }
 }
 
@@ -313,8 +329,8 @@ a,
     color: $link-color;
     text-decoration: underline;
 
-    &:hover,
-    &:focus {
+    &:focus,
+    &:hover {
       color: $body-bg;
       opacity: 1;
     }

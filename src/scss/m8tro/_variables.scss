@@ -25,8 +25,10 @@ $body-color: $white;
 // Fonts
 $font-size-base: 1.25rem; // 20px assuming browser default is 16px
 
+// stylelint-disable value-keyword-case
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto Condensed", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $font-family-monospace: SFMono-Regular, "Fira Mono OT", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+// stylelint-enable value-keyword-case
 
 $font-weight-light: 200;
 $font-weight-normal: 300;
@@ -34,7 +36,7 @@ $font-weight-bold: 700;
 $headings-font-weight: 300;
 
 $table-border-width: 0;
-$table-hover-bg: $blue !important;
+$table-hover-bg: $blue;
 // Links
 $link-color: $white;
 $link-hover-color: darken($link-color, 15%);

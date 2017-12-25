@@ -28,14 +28,18 @@ const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 const sourcemaps = require('gulp-sourcemaps');
+const stylelint = require('gulp-stylelint');
 const argv = require('yargs').argv;
+
 // Autoprefixer supported browsers
 let autoprefixerBrowsers = require('./node_modules/bootstrap/package.json').browserslist;
 
+// PostCSS processors
 let processors = [
     mq4HoverShim.postprocessorFor({ hoverSelectorPrefix: '.bs-true-hover ' }),
     autoprefixer({ browsers: autoprefixerBrowsers, cascade: false })
 ];
+
 let sassOpts = {
     outputStyle: 'expanded',
     precision: 6,
@@ -64,7 +68,7 @@ gulp.task('dist', ['make']);
 gulp.task('default', ['help']);
 gulp.task('selftest', ['jshint', 'jsonlint']);
 
-gulp.task('lint', ['html', 'selftest']);
+gulp.task('lint', ['css-lint', 'html', 'selftest']);
 
 gulp.task('css', ['css-compile', 'css-min', 'css-extras', 'css-extras:min']);
 
@@ -98,6 +102,11 @@ gulp.task('jsonlint', () => {
 // Validate HTML
 gulp.task('htmlval', () => {
     return htmlval(['index.html']);
+});
+
+gulp.task('css-lint', () => {
+    gulp.src(['src/*.scss', 'src/scss/m8tro/**/*.scss'])
+        .pipe(stylelint({ reporters: [ {formatter: 'verbose', console: true} ] }));
 });
 
 // Build SASS
