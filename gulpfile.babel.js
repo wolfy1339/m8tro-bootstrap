@@ -104,8 +104,8 @@ gulp.task('htmlval', () => {
 });
 
 gulp.task('css-lint', () => {
-    gulp.src(['src/*.scss', 'src/m8tro/*.scss', 'src/m8tro/extras/*.scss'])
-        .pipe(stylelint());
+    gulp.src(['src/*.scss', 'src/scss/m8tro/**/*.scss'])
+        .pipe(stylelint({ reporters: [ {formatter: 'verbose', console: true} ] }));
 });
 
 // Build SASS
