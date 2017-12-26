@@ -65,7 +65,6 @@
     "gulp-sourcemaps": "^2.6.1",
     "gulp-stylelint": "^5.0.0",
     "jshint": "^2.9.4",
-    "mq4-hover-shim": "^0.3.0",
     "node-sass": "^4.7.2",
     "stylelint": "^8.4.0",
     "stylelint-config-recommended-scss": "^3.0.0",

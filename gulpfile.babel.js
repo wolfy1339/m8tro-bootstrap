@@ -20,7 +20,6 @@ const gulp = require('gulp');
 const htmlval = require('gulp-html-validator');
 const jshint = require('gulp-jshint');
 const jsonlint = require('gulp-json-lint');
-const mq4HoverShim = require('mq4-hover-shim');
 const path = require('path');
 const postcss = require('gulp-postcss');
 const prompt = require('gulp-prompt');
@@ -36,7 +35,6 @@ let autoprefixerBrowsers = require('./node_modules/bootstrap/package.json').brow
 
 // PostCSS processors
 let processors = [
-    mq4HoverShim.postprocessorFor({ hoverSelectorPrefix: '.bs-true-hover ' }),
     autoprefixer({ browsers: autoprefixerBrowsers, cascade: false })
 ];
 
