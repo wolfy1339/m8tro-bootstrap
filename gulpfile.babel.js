@@ -71,7 +71,7 @@ gulp.task('jsonlint', () => {
 });
 
 // Validate HTML
-gulp.task('htmlval', () => {
+gulp.task('htmlval', (done) => {
     const htmllint_config = {
       "attr-bans": ["align", "background", "bgcolor", "border", "frameborder", "longdesc", "marginwidth", "marginheight", "scrolling"],
       "attr-name-style": false,
@@ -117,8 +117,11 @@ gulp.task('htmlval', () => {
     };
     const exec = require('child_process').exec;
     exec('jekyll build');
-    return gulp.src('_site/index.html')
-        .pipe(htmlval({'rules': htmllint_config}));
+    setTimeout(() => {
+        return gulp.src('_site/index.html')
+            .pipe(htmlval({'rules': htmllint_config}));
+    }, 1000)
+    done();
 });
 
 gulp.task('css-lint', (done) => {
