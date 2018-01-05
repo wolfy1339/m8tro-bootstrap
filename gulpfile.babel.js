@@ -120,7 +120,7 @@ gulp.task('htmlval', gulp.series('jekyll', () => {
       "line-end-style": "lf",
       "spec-char-escape": false,
       "table-req-header": false,
-      "tag-bans": ["b", "i"],
+      "tag-bans": ["b"],
       "tag-close": true,
       "tagname-lowercase": true,
       "tag-name-match": true,
