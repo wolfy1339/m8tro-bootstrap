@@ -57,7 +57,7 @@ gulp.task('jshint', () => {
         .pipe(debug({
             title: 'jshint:'
         }))
-        .pipe(jshint({'esversion':6}))
+        .pipe(jshint({ 'esversion': 6, 'node': true }))
         .pipe(jshint.reporter());
 });
 
