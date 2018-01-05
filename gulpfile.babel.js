@@ -115,7 +115,9 @@ gulp.task('htmlval', () => {
       "title-max-len": 70,
       "title-no-dup": true
     };
-    return gulp.src(['index.html', '_includes/*.html'])
+    const exec = require('child_process').exec;
+    exec('jekyll build');
+    return gulp.src('_site/index.html')
         .pipe(htmlval({'rules': htmllint_config}));
 });
 
