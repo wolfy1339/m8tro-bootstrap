@@ -463,9 +463,9 @@ gulp.task('help', () => {
 /*
  * Task combos
  */
-gulp.task('css', gulp.parallel('css-main', 'css-extras'));
 gulp.task('css-main', gulp.series('css-compile', 'css-min'));
 gulp.task('css-extras', gulp.series('css-extras', 'css-extras:min'));
+gulp.task('css', gulp.parallel('css-main', 'css-extras'));
 
 gulp.task('make', gulp.parallel('FontAwesome', 'js_dependencies', 'css', () => {
     console.log('\nBuilding M8tro theme:');
