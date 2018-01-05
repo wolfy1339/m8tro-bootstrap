@@ -50,35 +50,6 @@ let cleancssOpts = {
     advanced: false
 };
 
-/*
- * Task combos
- */
-gulp.task('html', gulp.series('htmlval'));
-gulp.task('build', gulp.series('setup'));
-gulp.task('custom', gulp.series('setup'));
-gulp.task('prefs', gulp.series('setup'));
-gulp.task('clear', gulp.series('clean'));
-gulp.task('empty', gulp.series('clean'));
-gulp.task('flush', gulp.series('clean'));
-gulp.task('trash', gulp.series('clean'));
-gulp.task('dist', gulp.series('make'));
-
-gulp.task('default', gulp.series('help'));
-gulp.task('selftest', gulp.parallel('jshint', 'jsonlint'));
-
-gulp.task('lint', gulp.parallel('css-lint', 'html', 'selftest'));
-
-gulp.task('css', gulp.parallel('css-main', 'css-extras'));
-gulp.task('css-main', gulp.series('css-compile', 'css-min'));
-gulp.task('css-extras', gulp.series('css-extras', 'css-extras:min'));
-
-/*
- * Sub-tasks
- */
-gulp.task('make', gulp.parallel('FontAwesome', 'js_dependencies', 'css', () => {
-    console.log('\nBuilding M8tro theme:');
-}));
-
 // Lint JS files
 gulp.task('jshint', () => {
     gulp.src('gulpfile.js')
@@ -487,3 +458,32 @@ gulp.task('help', () => {
     console.log('         make - build M8tro Bootstrap theme');
     console.log('        setup - customize & build M8tro Bootstrap theme');
 });
+
+/*
+ * Task combos
+ */
+gulp.task('html', gulp.series('htmlval'));
+gulp.task('build', gulp.series('setup'));
+gulp.task('custom', gulp.series('setup'));
+gulp.task('prefs', gulp.series('setup'));
+gulp.task('clear', gulp.series('clean'));
+gulp.task('empty', gulp.series('clean'));
+gulp.task('flush', gulp.series('clean'));
+gulp.task('trash', gulp.series('clean'));
+gulp.task('dist', gulp.series('make'));
+
+gulp.task('default', gulp.series('help'));
+gulp.task('selftest', gulp.parallel('jshint', 'jsonlint'));
+
+gulp.task('lint', gulp.parallel('css-lint', 'html', 'selftest'));
+
+gulp.task('css', gulp.parallel('css-main', 'css-extras'));
+gulp.task('css-main', gulp.series('css-compile', 'css-min'));
+gulp.task('css-extras', gulp.series('css-extras', 'css-extras:min'));
+
+/*
+ * Sub-tasks
+ */
+gulp.task('make', gulp.parallel('FontAwesome', 'js_dependencies', 'css', () => {
+    console.log('\nBuilding M8tro theme:');
+}));
