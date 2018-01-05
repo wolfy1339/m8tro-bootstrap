@@ -50,41 +50,14 @@ let cleancssOpts = {
     advanced: false
 };
 
-/*
- * Task combos
- */
-gulp.task('html', ['htmlval']);
-gulp.task('build', ['setup']);
-gulp.task('custom', ['setup']);
-gulp.task('prefs', ['setup']);
-gulp.task('clear', ['clean']);
-gulp.task('empty', ['clean']);
-gulp.task('flush', ['clean']);
-gulp.task('trash', ['clean']);
-gulp.task('dist', ['make']);
-
-gulp.task('default', ['help']);
-gulp.task('selftest', ['jshint', 'jsonlint']);
-
-gulp.task('lint', ['css-lint', 'html', 'selftest']);
-
-gulp.task('css', ['css-compile', 'css-min', 'css-extras', 'css-extras:min']);
-
-/*
- * Sub-tasks
- */
-gulp.task('make', ['FontAwesome', 'js_dependencies', 'css'], () => {
-    console.log('\nBuilding M8tro theme:');
-});
-
 // Lint JS files
 gulp.task('jshint', () => {
-    gulp.src('gulpfile.js')
+    return gulp.src('gulpfile.babel.js')
         .pipe(cache('linting_js'))
         .pipe(debug({
             title: 'jshint:'
         }))
-        .pipe(jshint())
+        .pipe(jshint({ 'esversion': 6, 'node': true }))
         .pipe(jshint.reporter());
 });
 
@@ -98,19 +71,20 @@ gulp.task('jsonlint', () => {
 });
 
 // Validate HTML
-gulp.task('htmlval', () => {
-    return htmlval(['index.html']);
+gulp.task('htmlval', (done) => {
+    htmlval(['index.html']);
+    done();
 });
 
-gulp.task('css-lint', () => {
-    gulp.src(['src/*.scss', 'src/scss/m8tro/**/*.scss'])
+gulp.task('css-lint', (done) => {
+    return gulp.src(['src/*.scss', 'src/scss/m8tro/**/*.scss'])
         .pipe(stylelint({ reporters: [ {formatter: 'verbose', console: true} ] }));
 });
 
 // Build SASS
 gulp.task('css-compile', () => {
     console.log('\nCrunching...');
-    gulp.src('src/m8tro.scss')
+    return gulp.src('src/m8tro.scss')
         .pipe(debug({ title: 'sass:' }))
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
@@ -120,7 +94,7 @@ gulp.task('css-compile', () => {
         .pipe(gulp.dest('dist/css/'));
 });
 gulp.task('css-min', () => {
-   gulp.src('src/m8tro.scss')
+   return gulp.src('src/m8tro.scss')
         .pipe(debug({ title: 'sass:' }))
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
@@ -134,7 +108,7 @@ gulp.task('css-min', () => {
 });
 
 gulp.task('css-extras', () => {
-    gulp.src('src/m8tro-extras.scss')
+    return gulp.src('src/m8tro-extras.scss')
       .pipe(debug({title: 'sass:'}))
       .pipe(sourcemaps.init())
       .pipe(sass(sassOpts).on('error', sass.logError))
@@ -144,7 +118,7 @@ gulp.task('css-extras', () => {
       .pipe(gulp.dest('dist/css/'));
 });
 gulp.task('css-extras:min', () => {
-    gulp.src('src/m8tro-extras.scss')
+    return gulp.src('src/m8tro-extras.scss')
         .pipe(debug({ title: 'sass:' }))
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
@@ -463,12 +437,13 @@ gulp.task('clean', () => {
 
 // Watch task
 gulp.task('watch', () => {
-    gulp.watch([
+    return gulp.watch([
         'gulpfile.babel.js',
         'package.json',
-        '/scss/**/*.scss',
+        'src/scss/**/*.scss',
+        '_includes/*.html',
         'index.html'
-    ], ['lint']);
+    ], gulp.series('lint'));
 });
 
 
@@ -485,3 +460,41 @@ gulp.task('help', () => {
     console.log('         make - build M8tro Bootstrap theme');
     console.log('        setup - customize & build M8tro Bootstrap theme');
 });
+
+/*
+ * Task combos
+ */
+gulp.task('css-main', gulp.series('css-compile', 'css-min', (done) => {
+    done();
+}));
+gulp.task('css-extras', gulp.series('css-extras', 'css-extras:min', (done) => {
+    done();
+}));
+gulp.task('css', gulp.parallel('css-main', 'css-extras', (done) => {
+    done();
+}));
+
+gulp.task('make', gulp.parallel('FontAwesome', 'js_dependencies', 'css', () => {
+    console.log('\nBuilding M8tro theme:');
+}));
+
+gulp.task('html', gulp.series('htmlval', (done) => {
+    done();
+}));
+gulp.task('build', gulp.series('setup'));
+gulp.task('custom', gulp.series('setup'));
+gulp.task('prefs', gulp.series('setup'));
+gulp.task('clear', gulp.series('clean'));
+gulp.task('empty', gulp.series('clean'));
+gulp.task('flush', gulp.series('clean'));
+gulp.task('trash', gulp.series('clean'));
+gulp.task('dist', gulp.series('make'));
+
+gulp.task('default', gulp.series('help'));
+gulp.task('selftest', gulp.parallel('jshint', 'jsonlint', (done) => {
+    done();
+}));
+
+gulp.task('lint', gulp.parallel('css-lint', 'html', 'selftest', (done) => {
+    done();
+}));
