@@ -116,7 +116,7 @@ gulp.task('htmlval', () => {
       "title-no-dup": true
     };
     return gulp.src(['index.html', '_includes/*.html'])
-        .pipe(htmlval({'rules': htmllint_config});
+        .pipe(htmlval({'rules': htmllint_config}));
 });
 
 gulp.task('css-lint', (done) => {
