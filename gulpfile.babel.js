@@ -52,7 +52,7 @@ let cleancssOpts = {
 
 // Lint JS files
 gulp.task('jshint', () => {
-    gulp.src('gulpfile.babel.js')
+    return gulp.src('gulpfile.babel.js')
         .pipe(cache('linting_js'))
         .pipe(debug({
             title: 'jshint:'
@@ -71,8 +71,9 @@ gulp.task('jsonlint', () => {
 });
 
 // Validate HTML
-gulp.task('htmlval', () => {
-    return htmlval(['index.html']);
+gulp.task('htmlval', (done) => {
+    htmlval(['index.html']);
+    done();
 });
 
 gulp.task('css-lint', (done) => {
@@ -463,15 +464,23 @@ gulp.task('help', () => {
 /*
  * Task combos
  */
-gulp.task('css-main', gulp.series('css-compile', 'css-min'));
-gulp.task('css-extras', gulp.series('css-extras', 'css-extras:min'));
-gulp.task('css', gulp.parallel('css-main', 'css-extras'));
+gulp.task('css-main', gulp.series('css-compile', 'css-min', (done) => {
+    done();
+}));
+gulp.task('css-extras', gulp.series('css-extras', 'css-extras:min', (done) => {
+    done();
+}));
+gulp.task('css', gulp.parallel('css-main', 'css-extras', (done) => {
+    done();
+}));
 
 gulp.task('make', gulp.parallel('FontAwesome', 'js_dependencies', 'css', () => {
     console.log('\nBuilding M8tro theme:');
 }));
 
-gulp.task('html', gulp.series('htmlval'));
+gulp.task('html', gulp.series('htmlval', (done) => {
+    done();
+}));
 gulp.task('build', gulp.series('setup'));
 gulp.task('custom', gulp.series('setup'));
 gulp.task('prefs', gulp.series('setup'));
@@ -482,6 +491,10 @@ gulp.task('trash', gulp.series('clean'));
 gulp.task('dist', gulp.series('make'));
 
 gulp.task('default', gulp.series('help'));
-gulp.task('selftest', gulp.parallel('jshint', 'jsonlint'));
+gulp.task('selftest', gulp.parallel('jshint', 'jsonlint', (done) => {
+    done();
+}));
 
-gulp.task('lint', gulp.parallel('css-lint', 'html', 'selftest'));
+gulp.task('lint', gulp.parallel('css-lint', 'html', 'selftest', (done) => {
+    done();
+}));
