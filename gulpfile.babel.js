@@ -439,9 +439,10 @@ gulp.task('watch', () => {
     gulp.watch([
         'gulpfile.babel.js',
         'package.json',
-        '/scss/**/*.scss',
+        'src/scss/**/*.scss',
+        '_includes/*.html',
         'index.html'
-    ], ['lint']);
+    ], gulp.series('lint'));
 });
 
 
@@ -462,6 +463,14 @@ gulp.task('help', () => {
 /*
  * Task combos
  */
+gulp.task('css', gulp.parallel('css-main', 'css-extras'));
+gulp.task('css-main', gulp.series('css-compile', 'css-min'));
+gulp.task('css-extras', gulp.series('css-extras', 'css-extras:min'));
+
+gulp.task('make', gulp.parallel('FontAwesome', 'js_dependencies', 'css', () => {
+    console.log('\nBuilding M8tro theme:');
+}));
+
 gulp.task('html', gulp.series('htmlval'));
 gulp.task('build', gulp.series('setup'));
 gulp.task('custom', gulp.series('setup'));
@@ -476,14 +485,3 @@ gulp.task('default', gulp.series('help'));
 gulp.task('selftest', gulp.parallel('jshint', 'jsonlint'));
 
 gulp.task('lint', gulp.parallel('css-lint', 'html', 'selftest'));
-
-gulp.task('css', gulp.parallel('css-main', 'css-extras'));
-gulp.task('css-main', gulp.series('css-compile', 'css-min'));
-gulp.task('css-extras', gulp.series('css-extras', 'css-extras:min'));
-
-/*
- * Sub-tasks
- */
-gulp.task('make', gulp.parallel('FontAwesome', 'js_dependencies', 'css', () => {
-    console.log('\nBuilding M8tro theme:');
-}));
