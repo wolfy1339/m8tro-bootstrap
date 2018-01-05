@@ -20,6 +20,7 @@ const gulp = require('gulp');
 const htmlval = require('gulp-htmllint');
 const jshint = require('gulp-jshint');
 const jsonlint = require('gulp-json-lint');
+const log = require('fancy-log');
 const path = require('path');
 const postcss = require('gulp-postcss');
 const prompt = require('gulp-prompt');
@@ -71,7 +72,20 @@ gulp.task('jsonlint', () => {
 });
 
 // Validate HTML
-gulp.task('htmlval', (done) => {
+gulp.task('jekyll', (done) => {
+    const exec = require('child_process').spawn;
+    const jekyll = exec('jekyll build');
+    const jekyllLogger = (buffer) => {
+    buffer.toString()
+      .split(/\n/)
+      .forEach((message) => log('Jekyll: ' + message));
+    };
+    jekyll.stdout.on('data', jekyllLogger);
+    jekyll.stderr.on('data', jekyllLogger);
+    done();
+});
+
+gulp.task('htmlval', gulp.series('jekyll', () => {
     const htmllint_config = {
       "attr-bans": ["align", "background", "bgcolor", "border", "frameborder", "longdesc", "marginwidth", "marginheight", "scrolling"],
       "attr-name-style": false,
@@ -115,14 +129,9 @@ gulp.task('htmlval', (done) => {
       "title-max-len": 70,
       "title-no-dup": true
     };
-    const exec = require('child_process').exec;
-    exec('jekyll build');
-    setTimeout(() => {
-        return gulp.src('_site/index.html')
-            .pipe(htmlval({'rules': htmllint_config}));
-    }, 1000)
-    done();
-});
+    return gulp.src('_site/index.html')
+        .pipe(htmlval({'rules': htmllint_config}));
+}));
 
 gulp.task('css-lint', (done) => {
     return gulp.src(['src/*.scss', 'src/scss/m8tro/**/*.scss'])
