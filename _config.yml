@@ -5,4 +5,4 @@ jquery_version: 3.1.0
 popper_version: 1.12.3
 bootstrap_version: 4.0.0-beta.2
 
-exclude: [node_modules, bower_components, base16, package.json, bower.json, m8ke, LICENSE, README.md, sourcemaps.js, gulpfile.js]
+exclude: [node_modules, bower_components, base16, package.json, m8ke, LICENSE, README.md, sourcemaps.js, gulpfile.babel.js]
