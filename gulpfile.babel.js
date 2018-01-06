@@ -20,7 +20,6 @@ const gulp = require('gulp');
 const htmlval = require('gulp-htmllint');
 const jshint = require('gulp-jshint');
 const jsonlint = require('gulp-json-lint');
-const log = require('fancy-log');
 const path = require('path');
 const postcss = require('gulp-postcss');
 const prompt = require('gulp-prompt');
