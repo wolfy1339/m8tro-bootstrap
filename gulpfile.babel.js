@@ -73,16 +73,10 @@ gulp.task('jsonlint', () => {
 
 // Validate HTML
 gulp.task('jekyll', (done) => {
-    const exec = require('child_process').spawn;
-    const jekyll = exec('jekyll', ['build']);
-    const jekyllLogger = (buffer) => {
-    buffer.toString()
-      .split(/\n/)
-      .forEach((message) => log(`Jekyll: ${message}`));
-    };
-    jekyll.stdout.on('data', jekyllLogger);
-    jekyll.stderr.on('data', jekyllLogger);
-    done();
+    const exec = require('child_process').exec;
+    const jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll build'
+    return exec(`${jekyll} build -q`)
+        .on('close', done);
 });
 
 gulp.task('htmlval', gulp.series('jekyll', () => {
