@@ -37,7 +37,7 @@
     "windows phone"
   ],
   "dependencies": {
-    "bootstrap": "4.0.0-beta.2"
+    "bootstrap": "4.0.0-beta.3"
   },
   "peerDependencies": {
     "font-awesome": "^4.7.0",
