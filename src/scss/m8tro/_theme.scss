@@ -1,7 +1,11 @@
 // M8tro 3.3.7
 // -----------------------------------------------------
+body {
+  font-weight: 200;
+}
 
 pre {
+  padding: 1rem;
   background-color: $pre-bg;
 }
 
@@ -10,6 +14,13 @@ pre {
 
   .fa {
     color: $body-color;
+  }
+}
+.breadcrumb-item a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
   }
 }
 
@@ -28,9 +39,9 @@ pre {
   }
 }
 
-.card,
-.card-link {
-  color: invert($body-color);
+.card-link,
+.card .form-control-plaintext {
+  color: invert($card-bg);
 }
 
 .page-header {
@@ -78,6 +89,12 @@ a {
 .navbar-brand {
   text-decoration: none;
 }
+.col-form-label {
+  font-size: 66.66666667%;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 // M8tro v3 styles
 
 .btn,
@@ -202,68 +219,6 @@ a {
 
 
 // Forms ======================================================================
-
-.has-warning {
-  .checkbox,
-  .checkbox-inline,
-  .control-label,
-  .form-control-feedback,
-  .help-block,
-  .radio,
-  .radio-inline {
-    color: $warning;
-  }
-
-  .form-control {
-    border: 1px solid darken($warning, 15%);
-
-    &:focus {
-      border: 1px solid $warning;
-    }
-  }
-
-  .input-group-addon {
-    border-color: $warning;
-  }
-}
-
-.has-error {
-  .checkbox,
-  .checkbox-inline,
-  .control-label,
-  .form-control-feedback,
-  .help-block,
-  .radio,
-  .radio-inline {
-    color: $danger;
-  }
-
-  .form-control {
-    border: 1px solid darken($danger, 15%);
-
-    &:focus {
-      border: 1px solid $danger;
-    }
-  }
-
-  .input-group-addon {
-    border-color: $danger;
-  }
-}
-
-.has-success {
-  .form-control {
-    border: 1px solid darken($success, 15%);
-
-    &:focus {
-      border: 1px solid $success;
-    }
-  }
-
-  .input-group-addon {
-    border-color: $success;
-  }
-}
 
 .navbar-form .form-control {
   margin-top: 4px;

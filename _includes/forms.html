@@ -63,13 +63,13 @@
                   <div class="form-check">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                        Option one is this and that—be sure to include why it's great
+                        Option one is this
                       </label>
                   </div>
                   <div class="form-check">
                     <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                        Option two can be something else and selecting it will deselect option one
+                        Option two can be something else
                       </label>
                   </div>
                   <div class="form-check disabled">
@@ -171,15 +171,13 @@
           <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm" id="inputSmall">
         </div>
 
-        <div class="form-group">
-          <label class="control-label">Input addons</label>
-          <div class="form-group">
-            <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-            <div class="input-group">
-              <div class="input-group-addon">$</div>
-              <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
-              <div class="input-group-addon">.00</div>
-            </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+          <div class="input-group-append">
+            <span class="input-group-text">.00</span>
           </div>
         </div>
       </form>
@@ -188,33 +186,28 @@
         <fieldset>
           <legend>Custom forms</legend>
           <div class="form-group">
-            <label class="custom-control custom-radio">
-              <input id="radio1" name="radio" type="radio" class="custom-control-input" checked="">
-              <span class="custom-control-indicator"></span>
-              <span class="custom-control-description">Toggle this custom radio</span>
-            </label>
-            <label class="custom-control custom-radio">
-              <input id="radio2" name="radio" type="radio" class="custom-control-input">
-              <span class="custom-control-indicator"></span>
-              <span class="custom-control-description">Or toggle this other custom radio</span>
-            </label>
-            <label class="custom-control custom-radio">
-              <input id="radio3" name="radio" type="radio" class="custom-control-input" disabled="">
-              <span class="custom-control-indicator"></span>
-              <span class="custom-control-description">Disabled custom radio</span>
-            </label>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="customRadio1">
+              <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="custom2">
+              <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="customRadioDisabled" disabled>
+              <label class="custom-control-label" for="customRadioDisabled">Disabled custom radio</label>
+            </div>
           </div>
           <div class="form-group">
-            <label class="custom-control custom-checkbox">
+            <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" checked="">
-              <span class="custom-control-indicator"></span>
-              <span class="custom-control-description">Check this custom checkbox</span>
-            </label>
-            <label class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" disabled="">
-              <span class="custom-control-indicator"></span>
-              <span class="custom-control-description">Disabled custom checkbox</span>
-            </label>
+              <label class="custom-control-label">Check this custom checkbox</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheckDisabled" disabled>
+              <label class="custom-control-label" for="customCheckDisabled">Disabled custom radio</label>
+            </div>
           </div>
           <div class="form-group">
             <select class="custom-select">

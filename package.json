@@ -37,7 +37,7 @@
     "windows phone"
   ],
   "dependencies": {
-    "bootstrap": "4.0.0-beta.2"
+    "bootstrap": "4.0.0-beta.3"
   },
   "peerDependencies": {
     "font-awesome": "^4.7.0",
@@ -48,21 +48,21 @@
     "@babel/core": "7.0.0-beta.36",
     "@babel/preset-env": "7.0.0-beta.36",
     "@babel/register": "7.0.0-beta.36",
-    "autoprefixer": "^7.2.3",
+    "autoprefixer": "^7.2.4",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-cached": "^1.1.1",
-    "gulp-clean-css": "^3.9.0",
+    "gulp-clean-css": "^3.9.2",
     "gulp-concat": "^2.6.1",
-    "gulp-debug": "^3.1.0",
+    "gulp-debug": "^3.2.0",
     "gulp-html-validator": "^0.0.5",
     "gulp-jshint": "^2.1.0",
     "gulp-json-lint": "^0.1.0",
-    "gulp-postcss": "^7.0.0",
+    "gulp-postcss": "^7.0.1",
     "gulp-prompt": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.1",
+    "gulp-sourcemaps": "^2.6.3",
     "gulp-stylelint": "^6.0.0",
     "jshint": "^2.9.5",
     "node-sass": "^4.7.2",
