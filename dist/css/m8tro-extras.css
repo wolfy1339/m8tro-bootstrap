@@ -1,12 +1,14 @@
 /*!
  * M8tro Extras 4.0.0-beta.2
  * Homepage: http://github.com/idleberg/m8tro-bootstrap
- * Copyright 2014-2017 Jan T. Sott
+ * Copyright 2014-2018 Jan T. Sott
  * Licensed under MIT
 */
 .form-control-range {
   width: 100%;
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   margin-bottom: 11px;
   border: 0;
 }
@@ -18,10 +20,11 @@
 
 .form-control-range::-webkit-slider-thumb {
   -webkit-appearance: none;
-  border: 1px solid #fff;
-  height: 11px;
+  appearance: none;
   width: 13px;
+  height: 11px;
   background: #fff;
+  border: 1px solid #fff;
 }
 
 .form-control-range:focus {
@@ -41,10 +44,10 @@
 }
 
 .form-control-range::-moz-range-thumb {
-  border: none;
-  height: 11px;
   width: 13px;
+  height: 11px;
   background: #fff;
+  border: 1px solid #fff;
   border-radius: 0;
 }
 
@@ -54,10 +57,10 @@
 
 .form-control-range::-ms-track {
   height: 11px;
+  color: transparent;
   background: transparent;
   border-color: transparent;
   border-width: 6px 0;
-  color: transparent;
 }
 
 .form-control-range::-ms-fill-lower {
@@ -71,16 +74,16 @@
 }
 
 .form-control-range::-ms-thumb {
-  border: none;
-  height: 11px;
   width: 13px;
+  height: 11px;
   background: #fff;
+  border: 1px solid #fff;
   border-radius: 0;
 }
 
 ::-webkit-scrollbar {
-  height: 15px;
   width: 15px;
+  height: 15px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -167,43 +170,53 @@
   background: #000;
 }
 
-.text-primary::-moz-selection, .text-primary a::-moz-selection {
+.text-primary::-moz-selection,
+.text-primary a::-moz-selection {
   background: #007bff;
 }
 
-.text-primary::selection, .text-primary a::selection {
+.text-primary::selection,
+.text-primary a::selection {
   background: #007bff;
 }
 
-.text-success::-moz-selection, .text-success a::-moz-selection {
+.text-success::-moz-selection,
+.text-success a::-moz-selection {
   background: #28a745;
 }
 
-.text-success::selection, .text-success a::selection {
+.text-success::selection,
+.text-success a::selection {
   background: #28a745;
 }
 
-.text-info::-moz-selection, .text-info a::-moz-selection {
+.text-info::-moz-selection,
+.text-info a::-moz-selection {
   background: #17a2b8;
 }
 
-.text-info::selection, .text-info a::selection {
+.text-info::selection,
+.text-info a::selection {
   background: #17a2b8;
 }
 
-.text-warning::-moz-selection, .text-warning a::-moz-selection {
+.text-warning::-moz-selection,
+.text-warning a::-moz-selection {
   background: #ffc107;
 }
 
-.text-warning::selection, .text-warning a::selection {
+.text-warning::selection,
+.text-warning a::selection {
   background: #ffc107;
 }
 
-.text-danger::-moz-selection, .text-danger a::-moz-selection {
+.text-danger::-moz-selection,
+.text-danger a::-moz-selection {
   background: #dc3545;
 }
 
-.text-danger::selection, .text-danger a::selection {
+.text-danger::selection,
+.text-danger a::selection {
   background: #dc3545;
 }
 

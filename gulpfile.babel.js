@@ -183,13 +183,13 @@ gulp.task('css-extras:min', () => {
 
 // Copy tasks
 gulp.task('FontAwesome', () => {
-    return gulp.src(['node_modules/font-awesome/css/font-awesome.min.css', 'node_modules/font-awesome/fonts/*'], { base: 'node_modules/font-awesome/' })
+    return gulp.src(['node_modules/font-awesome/css/font-awesome.min.css', 'node_modules/font-awesome/fonts/*'], { base: 'node_modules/font-awesome/', allowEmpty: true })
         .pipe(debug({title: 'copy:'}))
         .pipe(gulp.dest(`${__dirname}/dist/`));
 });
 
 gulp.task('js_dependencies', () => {
-    return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js'])
+    return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/popper.js/dist/umd/popper.min.js'], { allowEmpty: true })
         .pipe(debug({ title: 'copy:' }))
         .pipe(gulp.dest('dist/js/'));
 });
