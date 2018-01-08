@@ -46,8 +46,8 @@
   },
   "devDependencies": {
     "@babel/core": "7.0.0-beta.37",
-    "@babel/preset-env": "7.0.0-beta.36",
-    "@babel/register": "7.0.0-beta.36",
+    "@babel/preset-env": "7.0.0-beta.37",
+    "@babel/register": "7.0.0-beta.37",
     "autoprefixer": "^7.2.4",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
