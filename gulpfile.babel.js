@@ -76,6 +76,7 @@ gulp.task('htmlval', (done) => {
     done();
 });
 
+// Lint SCSS
 gulp.task('css-lint', (done) => {
     return gulp.src(['src/*.scss', 'src/scss/m8tro/**/*.scss'])
         .pipe(stylelint({ reporters: [ {formatter: 'verbose', console: true} ] }));
@@ -161,8 +162,7 @@ gulp.task('setup', () => {
         { name: 'Grid system', checked: listr_state },
         { name: 'Tables', checked: listr_state },
         { name: 'Forms', checked: listr_state },
-        { name: 'Buttons', checked: listr_state },
-        { name: 'Responsive utilities\n', checked: listr_state },
+        { name: 'Buttons\n', checked: listr_state },
 
         { name: 'Button groups', checked: listr_state },
         { name: 'Input groups', checked: false },
@@ -170,18 +170,14 @@ gulp.task('setup', () => {
         { name: 'Navbar', checked: false },
         { name: 'Breadcrumbs', checked: listr_state },
         { name: 'Pagination', checked: false },
-        { name: 'Pager', checked: false },
-        { name: 'Labels', checked: false },
         { name: 'Badges', checked: false },
         { name: 'Jumbotron', checked: false },
-        { name: 'Thumbnails', checked: false },
+        { name: 'Cards', checked: false },
         { name: 'Alerts', checked: false },
         { name: 'Progress bars', checked: false },
         { name: 'Media items', checked: false },
         { name: 'List groups', checked: false },
-        { name: 'Panels', checked: false },
         { name: 'Responsive embed', checked: listr_state },
-        { name: 'Wells', checked: false },
         { name: 'Close icon\n', checked: listr_state },
 
         { name: 'Component animations (for JS)', checked: listr_state },
@@ -195,7 +191,7 @@ gulp.task('setup', () => {
     let _dir = 'node_modules/bootstrap/',
         _js = [],
         _scss = [
-            `${_dir}scss/_variables.scss`, `${_dir}scss/_mixins.scss`, `${_dir}scss/_reboot.scss`
+            `${_dir}scss/_variables.scss`, `${_dir}scss/_mixins.scss`, `${_dir}scss/_functions.scss`, `${_dir}scss/_reboot.scss`
         ];
 
     console.clear();
@@ -211,161 +207,138 @@ gulp.task('setup', () => {
 
             console.log('\nBuilding custom M8tro theme:');
 
-            console.log('+variables.scss');
+            console.log('+_variables.scss');
             console.log('+_mixins.scss');
+            console.log('+_functions.scss');
             console.log('+_reboot.scss');
 
             if (res.components.indexOf('Print media styles') > -1) {
-                console.log('+print.scss');
-                _scss.push(`${_dir}scss/print.scss`);
+                console.log('+_print.scss');
+                _scss.push(`${_dir}scss/_print.scss`);
             }
-            _scss.push(`${_dir}scss/scaffolding.scss`);
+            _scss.push(`${_dir}scss/_scaffolding.scss`);
             if (res.components.indexOf('Typography') > -1) {
-                console.log('+type.scss');
-                _scss.push(`${_dir}scss/type.scss`);
+                console.log('+_type.scss');
+                _scss.push(`${_dir}scss/_type.scss`);
             }
             if (res.components.indexOf('Code') > -1) {
-                console.log('+code.scss');
-                _scss.push(`${_dir}scss/code.scss`);
+                console.log('+_code.scss');
+                _scss.push(`${_dir}scss/_code.scss`);
             }
             if (res.components.indexOf('Grid system') > -1) {
-                console.log('+grid.scss');
-                _scss.push(`${_dir}scss/grid.scss`);
+                console.log('+_grid.scss');
+                _scss.push(`${_dir}scss/_grid.scss`);
             }
             if (res.components.indexOf('Tables') > -1) {
-                console.log('+tables.scss');
-                _scss.push(`${_dir}scss/tables.scss`);
+                console.log('+_tables.scss');
+                _scss.push(`${_dir}scss/_tables.scss`);
             }
             if (res.components.indexOf('Forms') > -1) {
-                console.log('+forms.scss');
-                _scss.push(`${_dir}scss/forms.scss`);
+                console.log('+_forms.scss');
+                _scss.push(`${_dir}scss/_forms.scss`);
             }
             if (res.components.indexOf('Buttons') > -1) {
-                console.log('+buttons.scss');
-                _scss.push(`${_dir}scss/buttons.scss`);
+                console.log('+_buttons.scss');
+                _scss.push(`${_dir}scss/_buttons.scss`);
             }
             if (res.components.indexOf('Component animations (for JS)\n') > -1) {
-                console.log('+component-animations.scss');
-                _scss.push(`${_dir}scss/component-animations.scss`);
+                console.log('+_component-animations.scss');
+                _scss.push(`${_dir}scss/_component-animations.scss`);
             }
             if (res.components.indexOf('Dropdowns') > -1) {
-                console.log('+dropdowns.scss');
-                _scss.push(`${_dir}scss/dropdowns.scss`);
+                console.log('+_dropdowns.scss');
+                _scss.push(`${_dir}scss/_dropdowns.scss`);
                 console.log('+dropdown.js');
                 _js.push(`${_dir}js/dropdown.js`);
             }
             if (res.components.indexOf('Button groups') > -1) {
-                console.log('+button-groups.scss');
-                _scss.push(`${_dir}scss/button-groups.scss`);
+                console.log('+_button-groups.scss');
+                _scss.push(`${_dir}scss/_button-groups.scss`);
                 console.log('+button.js');
                 _js.push(`${_dir}js/button.js`);
             }
             if (res.components.indexOf('Input groups') > -1) {
-                console.log('+input-groups.scss');
-                _scss.push(`${_dir}scss/input-groups.scss`);
+                console.log('+_input-groups.scss');
+                _scss.push(`${_dir}scss/_input-groups.scss`);
             }
             if (res.components.indexOf('Navs') > -1) {
-                console.log('+navs.scss');
-                _scss.push(`${_dir}scss/navs.scss`);
+                console.log('+_navs.scss');
+                _scss.push(`${_dir}scss/_navs.scss`);
                 console.log('+tab.js');
                 _js.push(`${_dir}js/tab.js`);
             }
             if (res.components.indexOf('Navbar') > -1) {
-                console.log('+navbar.scss');
-                _scss.push(`${_dir}scss/navbar.scss`);
+                console.log('+_navbar.scss');
+                _scss.push(`${_dir}scss/_navbar.scss`);
             }
             if (res.components.indexOf('Breadcrumbs') > -1) {
-                console.log('+breadcrumbs.scss');
-                _scss.push(`${_dir}scss/breadcrumbs.scss`);
+                console.log('+_breadcrumbs.scss');
+                _scss.push(`${_dir}scss/_breadcrumbs.scss`);
             }
             if (res.components.indexOf('Pagination') > -1) {
-                console.log('+pagination.scss');
-                _scss.push(`${_dir}scss/pagination.scss`);
-            }
-            if (res.components.indexOf('Pager') > -1) {
-                console.log('+pager.scss');
-                _scss.push(`${_dir}scss/pager.scss`);
-            }
-            if (res.components.indexOf('Labels') > -1) {
-                console.log('+labels.scss');
-                _scss.push(`${_dir}scss/labels.scss`);
+                console.log('+_pagination.scss');
+                _scss.push(`${_dir}scss/_pagination.scss`);
             }
             if (res.components.indexOf('Badges') > -1) {
-                console.log('+badges.scss');
-                _scss.push(`${_dir}scss/badges.scss`);
+                console.log('+_badges.scss');
+                _scss.push(`${_dir}scss/_badges.scss`);
             }
             if (res.components.indexOf('Jumbotron') > -1) {
-                console.log('+jumbotron.scss');
-                _scss.push(`${_dir}scss/jumbotron.scss`);
-            }
-            if (res.components.indexOf('Thumbnails') > -1) {
-                console.log('+thumbnails.scss');
-                _scss.push(`${_dir}scss/thumbnails.scss`);
+                console.log('+_jumbotron.scss');
+                _scss.push(`${_dir}scss/_jumbotron.scss`);
             }
             if (res.components.indexOf('Alerts') > -1) {
-                console.log('+alerts.scss');
-                _scss.push(`${_dir}scss/alerts.scss`);
+                console.log('+_alerts.scss');
+                _scss.push(`${_dir}scss/_alerts.scss`);
                 console.log('+alert.js');
                 _js.push(`${_dir}js/alert.js`);
             }
             if (res.components.indexOf('Progress bars') > -1) {
-                console.log('+progress-bars.scss');
-                _scss.push(`${_dir}scss/progress-bars.scss`);
+                console.log('+_progress-bars.scss');
+                _scss.push(`${_dir}scss/_progress-bars.scss`);
             }
             if (res.components.indexOf('Media bars') > -1) {
-                console.log('+media-items.scss');
-                _scss.push(`${_dir}scss/media-items.scss`);
+                console.log('+_media-items.scss');
+                _scss.push(`${_dir}scss/_media-items.scss`);
             }
             if (res.components.indexOf('List groups') > -1) {
-                console.log('+list-group.scss');
-                _scss.push(`${_dir}scss/list-group.scss`);
-            }
-            if (res.components.indexOf('Panels') > -1) {
-                console.log('+panels.scss');
-                _scss.push(`${_dir}scss/panels.scss`);
+                console.log('+_list-group.scss');
+                _scss.push(`${_dir}scss/_list-group.scss`);
             }
             if (res.components.indexOf('Responsive embed') > -1) {
-                console.log('+responsive-embed.scss');
-                _scss.push(`${_dir}scss/responsive-embed.scss`);
-            }
-            if (res.components.indexOf('Wells') > -1) {
-                console.log('+wells.scss');
-                _scss.push(`${_dir}scss/wells.scss`);
+                console.log('+_responsive-embed.scss');
+                _scss.push(`${_dir}scss/_responsive-embed.scss`);
             }
             if (res.components.indexOf('Close icon\n') > -1) {
-                console.log('+close.scss');
-                _scss.push(`${_dir}scss/close.scss`);
+                console.log('+_close.scss');
+                _scss.push(`${_dir}scss/_close.scss`);
             }
             if (res.components.indexOf('Modals') > -1) {
-                console.log('+modals.scss');
-                _scss.push(`${_dir}scss/modals.scss`);
+                console.log('+_modals.scss');
+                _scss.push(`${_dir}scss/_modals.scss`);
                 console.log('+modal.js');
                 _js.push(`${_dir}js/modal.js`);
             }
             if (res.components.indexOf('Tooltips') > -1) {
-                console.log('+tooltips.scss');
-                _scss.push(`${_dir}scss/tooltips.scss`);
+                console.log('+_tooltips.scss');
+                _scss.push(`${_dir}scss/_tooltips.scss`);
                 console.log('+tooltip.js');
                 _js.push(`${_dir}js/tooltip.js`);
             }
             if (res.components.indexOf('Popovers') > -1) {
-                console.log('+popovers.scss');
-                _scss.push(`${_dir}scss/popovers.scss`);
+                console.log('+_popovers.scss');
+                _scss.push(`${_dir}scss/_popovers.scss`);
                 console.log('+popover.js');
                 _js.push(`${_dir}js/popover.js`);
             }
             if (res.components.indexOf('Carousel\n') > -1) {
-                console.log('+carousel.scss');
-                _scss.push(`${_dir}scss/carousel.scss`);
+                console.log('+_carousel.scss');
+                _scss.push(`${_dir}scss/_carousel.scss`);
                 console.log('+carousel.js');
                 _js.push(`${_dir}js/carousel.js`);
             }
-            console.log('+utilities.scss');
-            _scss.push(`${_dir}scss/utilities.scss`);
-            if (res.components.indexOf('Responsive utilities') > -1) {
-                console.log('+responsive-utilities.scss');
-                _scss.push(`${_dir}scss/responsive-utilities.scss`);
-            }
+            console.log('+_utilities.scss');
+            _scss.push(`${_dir}scss/_utilities.scss`);
 
             _scss.push('src/scss/m8tro/_palette.scss');
             _scss.push('src/scss/m8tro/_variables.scss');
