@@ -1,9 +1,3 @@
-// Options
-$enable-rounded: false;
-$border-radius: 0;
-$border-radius-lg: 0;
-$border-radius-sm: 0;
-
 // Color system
 $blue:    $m8tro-blue;
 $indigo:  $wp-indigo;
@@ -16,30 +10,106 @@ $green:   $m8tro-green;
 $cyan:    $m8tro-aqua;
 $secondary: #fff;
 $m8tro-theme: $blue;
-$jumbotron-color: $black;
+
+// Options
+$enable-rounded: false;
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
 
 // Body
 $body-bg: $black;
 $body-color: $white;
 
+// Links
+$link-color: $white;
+$link-hover-color: darken($link-color, 15%);
+
 // Fonts
-$font-size-base: 1.25rem; // 20px assuming browser default is 16px
 
 // stylelint-disable value-keyword-case
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto Condensed", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $font-family-monospace: SFMono-Regular, "Fira Mono OT", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 // stylelint-enable value-keyword-case
 
+$font-size-base: 1.25rem; // 20px assuming browser default is 16px
+
 $font-weight-light: 200;
 $font-weight-normal: 300;
 $font-weight-bold: 700;
+
 $headings-font-weight: 300;
 
-$table-border-width: 0;
+// Tables
 $table-hover-bg: $blue;
-// Links
-$link-color: $white;
-$link-hover-color: darken($link-color, 15%);
+$table-active-bg: $table-hover-bg;
+
+$table-border-width: 0;
+
+// Forms
+$input-bg: $body-bg;
+
+$input-color: $white;
+
+$input-group-addon-bg: transparent;
+$input-group-addon-color: $white;
+$input-border-color: $white;
+
+// Dropdowns
+$dropdown-bg: $body-bg;
+$dropdown-border-color: $white;
+$dropdown-link-color: $white;
+
+// Navs
+$nav-tabs-link-active-color: $white;
+$nav-tabs-link-active-bg: transparent;
+
+// Pagination
+$pagination-bg: transparent;
+$pagination-hover-color: $black;
+$pagination-hover-bg: $white;
+$pagination-active-border-color: $white;
+
+// Jumbotron
+$jumbotron-bg: #fff;
+$jumbotron-color: $black;
+
+// Cards
+$card-bg: $gray-900;
+
+// Tooltip
+$tooltip-color: $black;
+$tooltip-bg: $white;
+$tooltip-arrow-color: transparent;
+
+// Popovers
+$popover-header-color: $black;
+$popover-border-width: 0;
+$popover-header-bg: $white;
+$popover-arrow-color: transparent;
+$popover-arrow-outer-color: transparent;
+
+// Badges
+$badge-font-weight: $font-weight-normal;
+
+// Modals
+$modal-content-bg: $black;
+$modal-content-border-color: $white;
+$modal-header-border-color: #fff;
+$modal-footer-border-color: #fff;
+
+// Alerts
+$alert-link-font-weight: $font-weight-normal;
+
+// Progress bars
+$progress-bg: #212121;
+
+// Breadcrumbs
+$breadcrumb-bg: transparent;
+
+// Close
+$close-color: inherit;
+$close-text-shadow: none;
 
 // Code
 $code-color: #bd4147;
@@ -50,39 +120,3 @@ $kbd-bg: $white;
 
 $pre-color: $gray-900;
 $pre-bg: $white;
-
-$badge-font-weight: $font-weight-normal;
-$alert-link-font-weight: $font-weight-normal;
-$pagination-bg: transparent;
-$pagination-hover-color: $black;
-$pagination-hover-bg: $white;
-$pagination-active-border-color: $white;
-$jumbotron-bg: #fff;
-$modal-header-border-color: #fff;
-$modal-footer-border-color: #fff;
-$progress-bg: #212121;
-$tooltip-color: $black;
-$tooltip-bg: $white;
-$tooltip-arrow-color: transparent;
-$popover-header-color: $black;
-$popover-border-width: 0;
-$popover-header-bg: $white;
-$popover-arrow-color: transparent;
-$popover-arrow-outer-color: transparent;
-$breadcrumb-bg: transparent;
-$dropdown-bg: $body-bg;
-$dropdown-border-color: $white;
-$dropdown-link-color: $white;
-$input-group-addon-bg: transparent;
-$input-group-addon-color: $white;
-$input-border-color: $white;
-$input-bg: $body-bg;
-$input-color: $white;
-$modal-content-bg: $black;
-$modal-content-border-color: $white;
-$close-color: inherit;
-$nav-tabs-link-active-bg: transparent;
-$nav-tabs-link-active-color: $white;
-$close-text-shadow: none;
-$link-color: $white;
-$card-bg: $gray-900;
