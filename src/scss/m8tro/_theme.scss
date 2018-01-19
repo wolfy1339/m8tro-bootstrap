@@ -95,6 +95,28 @@ a {
   text-transform: uppercase;
 }
 
+.table-numbered {
+  tr::before {
+    display: table-cell;
+    padding: .75rem;
+  }
+  thead tr::before {
+    font-weight: 700;
+    content: "#";
+  }
+  tbody {
+    counter-reset: listr-rows;
+    tr {
+      counter-increment: listr-rows;
+
+      &::before {
+        color: #818a91;
+        content: counter(listr-rows);
+      }
+    }
+  }
+}
+
 // M8tro v3 styles
 
 .btn,
