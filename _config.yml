@@ -1,8 +1,8 @@
-current_version: 4.0.0-beta.2
+current_version: 4.0.0
 
 fa_version: 4.7.0
 jquery_version: 3.1.0
 popper_version: 1.12.3
-bootstrap_version: 4.0.0-beta.2
+bootstrap_version: 4.0.0
 
 exclude: [node_modules, bower_components, base16, package.json, m8ke, LICENSE, README.md, sourcemaps.js, gulpfile.babel.js]
