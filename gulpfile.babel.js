@@ -113,16 +113,23 @@ gulp.task('css-extras:compile', () => css_compile('src/m8tro-extras.scss'));
 gulp.task('css-extras:min', () => css_min('dist/css/m8tro-extras.css'));
 
 // Copy tasks
-gulp.task('FontAwesome', () => {
-    return gulp.src(['node_modules/font-awesome/css/font-awesome.min.css', 'node_modules/font-awesome/fonts/*'], { base: 'node_modules/font-awesome/', allowEmpty: true })
-        .pipe(debug({title: 'copy:'}))
+gulp.task('FontAwesome', (done) => {
+    gulp.src(['node_modules/font-awesome/css/font-awesome.min.css',
+        'node_modules/font-awesome/fonts/*'],
+    { base: 'node_modules/font-awesome/', allowEmpty: true })
+        .pipe(debug({ title: 'copy:' }))
         .pipe(gulp.dest(`${__dirname}/dist/`));
+    done();
 });
 
-gulp.task('js_dependencies', () => {
-    return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/popper.js/dist/umd/popper.min.js'], { allowEmpty: true })
+gulp.task('js_dependencies', (done) => {
+    gulp.src(['node_modules/bootstrap/dist/js/src/bootstrap.min.js',
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/popper.js/src/dist/umd/popper.min.js'],
+    { allowEmpty: true })
         .pipe(debug({ title: 'copy:' }))
         .pipe(gulp.dest('dist/js/'));
+    done();
 });
 
 // Customize Bootstrap assets
@@ -400,7 +407,7 @@ gulp.task('watch', () => {
 
 
 // Help dialog
-gulp.task('help', () => {
+gulp.task('help', (done) => {
     let title_length = `${meta.name}v${meta.version}`;
 
     console.log(`\n${title_length}`);
@@ -411,6 +418,7 @@ gulp.task('help', () => {
     console.log('         lint - lint included CSS and JavaScript files');
     console.log('         make - build M8tro Bootstrap theme');
     console.log('        setup - customize & build M8tro Bootstrap theme');
+    done();
 });
 
 /*
@@ -426,23 +434,24 @@ gulp.task('css', gulp.parallel('css-main', 'css-extras', (done) => {
     done();
 }));
 
-gulp.task('make', gulp.parallel('FontAwesome', 'js_dependencies', 'css', () => {
+gulp.task('make', gulp.parallel('FontAwesome', 'js_dependencies', 'css', (done) => {
     console.log('\nBuilding M8tro theme:');
+    done();
 }));
 
 gulp.task('html', gulp.series('htmlval', (done) => {
     done();
 }));
-gulp.task('build', gulp.series('setup'));
-gulp.task('custom', gulp.series('setup'));
-gulp.task('prefs', gulp.series('setup'));
-gulp.task('clear', gulp.series('clean'));
-gulp.task('empty', gulp.series('clean'));
-gulp.task('flush', gulp.series('clean'));
-gulp.task('trash', gulp.series('clean'));
-gulp.task('dist', gulp.series('make'));
+gulp.task('build', gulp.series('setup', (done) => done()));
+gulp.task('custom', gulp.series('setup', (done) => done()));
+gulp.task('prefs', gulp.series('setup', (done) => done()));
+gulp.task('clear', gulp.series('clean', (done) => done()));
+gulp.task('empty', gulp.series('clean', (done) => done()));
+gulp.task('flush', gulp.series('clean', (done) => done()));
+gulp.task('trash', gulp.series('clean', (done) => done()));
+gulp.task('dist', gulp.series('make', (done) => done()));
 
-gulp.task('default', gulp.series('help'));
+gulp.task('default', gulp.series('help', (done) => done()));
 gulp.task('selftest', gulp.parallel('jshint', 'jsonlint', (done) => {
     done();
 }));
