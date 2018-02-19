@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /*
  * m8tro-bootstrap
  * https://github.com/idleberg/m8tro-bootstrap
@@ -20,7 +20,6 @@ const gulp = require('gulp');
 const htmlval = require('gulp-html-validator');
 const jshint = require('gulp-jshint');
 const jsonlint = require('gulp-json-lint');
-const path = require('path');
 const postcss = require('gulp-postcss');
 const prompt = require('gulp-prompt');
 const rename = require('gulp-rename');
@@ -79,7 +78,7 @@ gulp.task('htmlval', (done) => {
 // Lint SCSS
 gulp.task('css-lint', (done) => {
     return gulp.src(['src/*.scss', 'src/scss/m8tro/**/*.scss'])
-        .pipe(stylelint({ reporters: [ {formatter: 'verbose', console: true} ] }));
+        .pipe(stylelint({ reporters: [{ formatter: 'verbose', console: true }] }));
 });
 
 // Build SASS
@@ -203,8 +202,7 @@ gulp.task('setup', () => {
             name: 'components',
             message: 'Choose Bootstrap components for custom M8tro theme',
             choices: _components,
-        }, function (res) {
-
+        }, function(res) {
             console.log('\nBuilding custom M8tro theme:');
 
             console.log('+_variables.scss');
