@@ -405,6 +405,12 @@ gulp.task('watch', () => {
     ], gulp.series('lint'));
 });
 
+gulp.task('watch-css', () => {
+    return gulp.watch([
+        'src/scss/m8tro/*.scss',
+        'src/scss/m8tro/**/*.scss'
+    ], gulp.series('css'));
+});
 
 // Help dialog
 gulp.task('help', (done) => {
