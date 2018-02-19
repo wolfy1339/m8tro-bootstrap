@@ -11,9 +11,10 @@ const meta = require('./package.json');
 
 // Gulp plugins
 const autoprefixer = require('autoprefixer');
+const babel = require('gulp-babel');
+const buffer = require('vinyl-buffer');
 const cache = require('gulp-cached');
 const cleancss = require('gulp-clean-css');
-const concat = require('gulp-concat');
 const debug = require('gulp-debug');
 const del = require('del');
 const gulp = require('gulp');
@@ -23,8 +24,10 @@ const jsonlint = require('gulp-json-lint');
 const postcss = require('gulp-postcss');
 const prompt = require('gulp-prompt');
 const rename = require('gulp-rename');
+const rollup = require('rollup-stream');
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
+const source = require('vinyl-source-stream');
 const sourcemaps = require('gulp-sourcemaps');
 const stylelint = require('gulp-stylelint');
 const argv = require('yargs').argv;
@@ -178,7 +181,8 @@ gulp.task('setup', () => {
     let _dir = 'node_modules/bootstrap/',
         _js = [],
         _scss = [
-            `${_dir}scss/_variables.scss`, `${_dir}scss/_mixins.scss`, `${_dir}scss/_functions.scss`, `${_dir}scss/_reboot.scss`
+            `${_dir}scss/_functions.scss`, `${_dir}scss/_variables.scss`,
+            'src/scss/m8tro/_mixins.scss', `${_dir}scss/_reboot.scss`
         ];
 
     console.clear();
@@ -202,7 +206,6 @@ gulp.task('setup', () => {
                 console.log('+_print.scss');
                 _scss.push(`${_dir}scss/_print.scss`);
             }
-            _scss.push(`${_dir}scss/_scaffolding.scss`);
             if (res.components.indexOf('Typography') > -1) {
                 console.log('+_type.scss');
                 _scss.push(`${_dir}scss/_type.scss`);
@@ -232,34 +235,34 @@ gulp.task('setup', () => {
                 _scss.push(`${_dir}scss/_component-animations.scss`);
             }
             if (res.components.indexOf('Dropdowns') > -1) {
-                console.log('+_dropdowns.scss');
-                _scss.push(`${_dir}scss/_dropdowns.scss`);
+                console.log('+_dropdown.scss');
+                _scss.push(`${_dir}scss/_dropdown.scss`);
                 console.log('+dropdown.js');
-                _js.push(`${_dir}js/dropdown.js`);
+                _js.push(`${_dir}js/src/dropdown.js`);
             }
             if (res.components.indexOf('Button groups') > -1) {
-                console.log('+_button-groups.scss');
-                _scss.push(`${_dir}scss/_button-groups.scss`);
+                console.log('+_button-group.scss');
+                _scss.push(`${_dir}scss/_button-group.scss`);
                 console.log('+button.js');
-                _js.push(`${_dir}js/button.js`);
+                _js.push(`${_dir}js/src/button.js`);
             }
             if (res.components.indexOf('Input groups') > -1) {
-                console.log('+_input-groups.scss');
-                _scss.push(`${_dir}scss/_input-groups.scss`);
+                console.log('+_input-group.scss');
+                _scss.push(`${_dir}scss/_input-group.scss`);
             }
             if (res.components.indexOf('Navs') > -1) {
                 console.log('+_navs.scss');
                 _scss.push(`${_dir}scss/_navs.scss`);
                 console.log('+tab.js');
-                _js.push(`${_dir}js/tab.js`);
+                _js.push(`${_dir}js/src/tab.js`);
             }
             if (res.components.indexOf('Navbar') > -1) {
                 console.log('+_navbar.scss');
                 _scss.push(`${_dir}scss/_navbar.scss`);
             }
             if (res.components.indexOf('Breadcrumbs') > -1) {
-                console.log('+_breadcrumbs.scss');
-                _scss.push(`${_dir}scss/_breadcrumbs.scss`);
+                console.log('+_breadcrumb.scss');
+                _scss.push(`${_dir}scss/_breadcrumb.scss`);
             }
             if (res.components.indexOf('Pagination') > -1) {
                 console.log('+_pagination.scss');
@@ -277,7 +280,7 @@ gulp.task('setup', () => {
                 console.log('+_alerts.scss');
                 _scss.push(`${_dir}scss/_alerts.scss`);
                 console.log('+alert.js');
-                _js.push(`${_dir}js/alert.js`);
+                _js.push(`${_dir}js/src/alert.js`);
             }
             if (res.components.indexOf('Progress bars') > -1) {
                 console.log('+_progress-bars.scss');
@@ -291,100 +294,73 @@ gulp.task('setup', () => {
                 console.log('+_list-group.scss');
                 _scss.push(`${_dir}scss/_list-group.scss`);
             }
-            if (res.components.indexOf('Responsive embed') > -1) {
-                console.log('+_responsive-embed.scss');
-                _scss.push(`${_dir}scss/_responsive-embed.scss`);
+            if (res.components.indexOf('Embed') > -1) {
+                console.log('+_embed.scss');
+                _scss.push(`${_dir}scss/_embed.scss`);
             }
             if (res.components.indexOf('Close icon\n') > -1) {
                 console.log('+_close.scss');
                 _scss.push(`${_dir}scss/_close.scss`);
             }
             if (res.components.indexOf('Modals') > -1) {
-                console.log('+_modals.scss');
-                _scss.push(`${_dir}scss/_modals.scss`);
+                console.log('+_modal.scss');
+                _scss.push(`${_dir}scss/_modal.scss`);
                 console.log('+modal.js');
-                _js.push(`${_dir}js/modal.js`);
+                _js.push(`${_dir}js/src/modal.js`);
             }
             if (res.components.indexOf('Tooltips') > -1) {
-                console.log('+_tooltips.scss');
-                _scss.push(`${_dir}scss/_tooltips.scss`);
+                console.log('+_tooltip.scss');
+                _scss.push(`${_dir}scss/_tooltip.scss`);
                 console.log('+tooltip.js');
-                _js.push(`${_dir}js/tooltip.js`);
+                _js.push(`${_dir}js/src/tooltip.js`);
             }
             if (res.components.indexOf('Popovers') > -1) {
-                console.log('+_popovers.scss');
-                _scss.push(`${_dir}scss/_popovers.scss`);
+                console.log('+_popover.scss');
+                _scss.push(`${_dir}scss/_popover.scss`);
                 console.log('+popover.js');
-                _js.push(`${_dir}js/popover.js`);
+                _js.push(`${_dir}js/src/popover.js`);
             }
             if (res.components.indexOf('Carousel\n') > -1) {
                 console.log('+_carousel.scss');
                 _scss.push(`${_dir}scss/_carousel.scss`);
                 console.log('+carousel.js');
-                _js.push(`${_dir}js/carousel.js`);
+                _js.push(`${_dir}js/src/carousel.js`);
             }
             console.log('+_utilities.scss');
-            _scss.push(`${_dir}scss/_utilities.scss`);
-
-            _scss.push('src/scss/m8tro/_palette.scss');
-            _scss.push('src/scss/m8tro/_variables.scss');
-            _scss.push('src/scss/m8tro/_theme.scss');
+            _scss.push(...[`${_dir}scss/_utilities.scss`,
+                'src/scss/m8tro/_palette.scss',
+                'src/scss/m8tro/_variables.scss',
+                'src/scss/m8tro/_theme.scss']);
 
             console.log(`\n${_scss.length} styles, ${_js.length} scripts in total`);
             console.log('Crunching…');
 
 
             // Concatenate scss & compile CSS
-            gulp.src(_scss)
-                .pipe(concat('m8tro.scss'));
+            css_compile(_scss);
 
-            gulp.src('m8tro.scss')
-                .pipe(debug({
-                    title: 'sass:'
-                }))
-                .pipe(sourcemaps.init())
-                .pipe(sass(sassOpts).on('error', sass.logError))
-                .pipe(postcss(processors))
-                .pipe(debug({
-                    title: 'cleancss:'
-                }))
-                .pipe(cleancss())
-                .pipe(sourcemaps.write('./'))
-                .pipe(debug({
-                    title: 'copy:'
-                }))
-              .pipe(gulp.dest('dist/css/'));
-
-            gulp.src('m8tro.scss')
-                .pipe(debug({
-                    title: 'sass:'
-                }))
-                .pipe(sourcemaps.init())
-                .pipe(sass(sassOpts).on('error', sass.logError))
-                .pipe(postcss(processors))
-                .pipe(debug({
-                    title: 'cleancss:'
-                }))
+            css_compile(_scss)
+                .pipe(sourcemaps.init({ load: true }))
+                .pipe(rename({ extname: '.min.css' }))
                 .pipe(cleancss(cleancssOpts))
                 .pipe(sourcemaps.write('./'))
-                .pipe(debug({
-                    title: 'copy:'
-                }))
-              .pipe(gulp.dest('dist/css/'));
+                .pipe(debug({ title: 'copy:' }))
+                .pipe(gulp.dest('dist/css/'));
 
             // Compile JavaScript
             gulp.src(_js)
-                .pipe(concat('bootstrap.js'))
-                .pipe(debug({
-                    title: 'copy:'
-                }))
-                .pipe(gulp.dest('dist/js/'))
-                .pipe(concat('bootstrap.min.js'))
-                .pipe(uglify())
-                .pipe(debug({
-                    title: 'uglify:'
-                }))
-                .pipe(gulp.dest('dist/js/'));
+                .pipe(sourcemaps.init())
+                .pipe(babel())
+                .dest('dist/js')
+                .pipe(sourcemaps.write('./'));
+
+            rollup(require('./rollup.config.js'))
+                .pipe(source('index.js', './node_modules/bootstrap/js/src'))
+                .pipe(buffer())
+                .pipe(sourcemaps.init({ loadMaps: true }))
+                .pipe(rename('bootstrap.js'))
+                .pipe(sourcemaps.write('.'))
+                .pipe(gulp.dest('dist/js/src/'));
         }));
 });
 
