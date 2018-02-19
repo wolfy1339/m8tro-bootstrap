@@ -82,9 +82,8 @@ gulp.task('css-lint', (done) => {
 });
 
 // Build SASS
-gulp.task('css-compile', () => {
-    console.log('\nCrunching...');
-    return gulp.src('src/m8tro.scss')
+async function css_compile(file) {
+    gulp.src(file)
         .pipe(debug({ title: 'sass:' }))
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
@@ -92,44 +91,26 @@ gulp.task('css-compile', () => {
         .pipe(sourcemaps.write('./'))
         .pipe(debug({ title: 'copy:' }))
         .pipe(gulp.dest('dist/css/'));
-});
-gulp.task('css-min', () => {
-   return gulp.src('src/m8tro.scss')
-        .pipe(debug({ title: 'sass:' }))
-        .pipe(sourcemaps.init())
-        .pipe(sass(sassOpts).on('error', sass.logError))
-        .pipe(postcss(processors))
-        .pipe(debug({ title: 'cleancss:' }))
-        .pipe(cleancss(cleancssOpts))
-        .pipe(rename("m8tro.min.css"))
-        .pipe(sourcemaps.write('./'))
-        .pipe(debug({ title: 'copy:' }))
-        .pipe(gulp.dest('dist/css/'));
-});
+}
 
-gulp.task('css-extras', () => {
-    return gulp.src('src/m8tro-extras.scss')
-      .pipe(debug({title: 'sass:'}))
-      .pipe(sourcemaps.init())
-      .pipe(sass(sassOpts).on('error', sass.logError))
-      .pipe(postcss(processors))
-      .pipe(sourcemaps.write('./'))
-      .pipe(debug({title: 'copy:'}))
-      .pipe(gulp.dest('dist/css/'));
-});
-gulp.task('css-extras:min', () => {
-    return gulp.src('src/m8tro-extras.scss')
-        .pipe(debug({ title: 'sass:' }))
-        .pipe(sourcemaps.init())
-        .pipe(sass(sassOpts).on('error', sass.logError))
-        .pipe(postcss(processors))
-        .pipe(debug({ title: 'cleancss:' }))
+async function css_min(file) {
+    return gulp.src(file)
+        .pipe(sourcemaps.init({ load: true }))
+        .pipe(rename({ extname: '.min.css' }))
         .pipe(cleancss(cleancssOpts))
-        .pipe(rename("m8tro-extras.min.css"))
         .pipe(sourcemaps.write('./'))
         .pipe(debug({ title: 'copy:' }))
         .pipe(gulp.dest('dist/css/'));
+}
+gulp.task('css-compile', (done) => {
+    console.log('\nCrunching...');
+    return css_compile('src/m8tro.scss');
 });
+gulp.task('css-min', () => css_min('dist/css/m8tro.css'));
+
+gulp.task('css-extras:compile', () => css_compile('src/m8tro-extras.scss'));
+
+gulp.task('css-extras:min', () => css_min('dist/css/m8tro-extras.css'));
 
 // Copy tasks
 gulp.task('FontAwesome', () => {
@@ -438,7 +419,7 @@ gulp.task('help', () => {
 gulp.task('css-main', gulp.series('css-compile', 'css-min', (done) => {
     done();
 }));
-gulp.task('css-extras', gulp.series('css-extras', 'css-extras:min', (done) => {
+gulp.task('css-extras', gulp.series('css-extras:compile', 'css-extras:min', (done) => {
     done();
 }));
 gulp.task('css', gulp.parallel('css-main', 'css-extras', (done) => {
