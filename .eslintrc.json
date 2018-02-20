@@ -42,9 +42,6 @@
         "one-var": "off",
         "camelcase": "off",
         "require-jsdoc": "off",
-        "linebreak-style": [
-          "error",
-          "windows"
-        ]
+        "linebreak-style": "off"
     }
 }
