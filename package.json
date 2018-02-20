@@ -1,7 +1,7 @@
 {
   "name": "m8tro-bootstrap",
   "description": "Bootstrap theme inspired by Windows Modern UI (aka Metro)",
-  "version": "4.0.0-beta.2",
+  "version": "4.0.0",
   "author": "Jan T. Sott",
   "filename": "m8tro.min.css",
   "homepage": "http://idleberg.github.io/m8tro-bootstrap/",
@@ -37,7 +37,7 @@
     "windows phone"
   ],
   "dependencies": {
-    "bootstrap": "4.0.0-beta.3"
+    "bootstrap": "^4.0.0"
   },
   "peerDependencies": {
     "font-awesome": "^4.7.0"
