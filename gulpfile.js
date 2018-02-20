@@ -54,7 +54,7 @@ let cleancssOpts = {
 
 // Lint JS files
 gulp.task('jshint', () => {
-    return gulp.src('gulpfile.babel.js')
+    return gulp.src('gulpfile.js')
         .pipe(cache('linting_js'))
         .pipe(debug({
             title: 'jshint:'
