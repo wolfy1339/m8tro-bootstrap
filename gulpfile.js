@@ -60,7 +60,8 @@ gulp.task('eslint', () => {
             title: 'jshint:'
         }))
         .pipe(eslint())
-        .pipe(eslint.format());
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 });
 
 // Lint JSON
