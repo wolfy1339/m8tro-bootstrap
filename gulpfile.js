@@ -18,8 +18,8 @@ const cleancss = require('gulp-clean-css');
 const debug = require('gulp-debug');
 const del = require('del');
 const gulp = require('gulp');
+const eslint = require('eslint');
 const htmlval = require('gulp-html-validator');
-const jshint = require('gulp-jshint');
 const jsonlint = require('gulp-json-lint');
 const postcss = require('gulp-postcss');
 const prompt = require('gulp-prompt');
@@ -53,14 +53,14 @@ let cleancssOpts = {
 };
 
 // Lint JS files
-gulp.task('jshint', () => {
+gulp.task('eslint', () => {
     return gulp.src('gulpfile.js')
         .pipe(cache('linting_js'))
         .pipe(debug({
             title: 'jshint:'
         }))
-        .pipe(jshint({ 'esversion': 6, 'node': true }))
-        .pipe(jshint.reporter());
+        .pipe(eslint())
+        .pipe(eslint.format());
 });
 
 // Lint JSON
@@ -434,7 +434,7 @@ gulp.task('trash', gulp.series('clean', (done) => done()));
 gulp.task('dist', gulp.series('make', (done) => done()));
 
 gulp.task('default', gulp.series('help', (done) => done()));
-gulp.task('selftest', gulp.parallel('jshint', 'jsonlint', (done) => {
+gulp.task('selftest', gulp.parallel('eslint', 'jsonlint', (done) => {
     done();
 }));
 
