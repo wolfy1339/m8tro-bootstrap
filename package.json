@@ -46,7 +46,7 @@
     "@babel/core": "7.0.0-beta.40",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.40",
     "@babel/preset-env": "7.0.0-beta.40",
-    "@babel/register": "7.0.0-beta.40",
+    "@babel/register": "7.0.0-beta.41",
     "autoprefixer": "^8.0.0",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
     "del": "^3.0.0",
