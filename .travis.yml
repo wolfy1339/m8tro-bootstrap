@@ -2,11 +2,17 @@ sudo: false
 language: node_js
 node_js:
   - "stable"
+before_install:
+  - npm install -g greenkeeper-lockfile
 install:
   - npm install
+before_script:
+  - greenkeeper-lockfile-update
 script:
   - gulp lint
   - gulp css
+after_script:
+  - greenkeeper-lockfile-upload
 cache:
   directories:
     - node_modules
