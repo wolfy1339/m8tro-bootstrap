@@ -1,0 +1,44 @@
+::selection {
+  color: $body-bg;
+  background: $body-color;
+}
+
+.jumbotron ::selection {
+  color: $body-color;
+  background: $jumbotron-color;
+}
+
+.text-primary,
+.text-primary a {
+  &::selection {
+    background: $primary;
+  }
+}
+
+.text-success,
+.text-success a {
+  &::selection {
+    background: $success;
+  }
+}
+
+.text-info,
+.text-info a{
+  &::selection {
+    background: $info;
+  }
+}
+
+.text-warning,
+.text-warning a {
+  &::selection {
+    background: $warning;
+  }
+}
+
+.text-danger,
+.text-danger a {
+  &::selection {
+    background: $danger;
+  }
+}

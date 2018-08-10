@@ -1,0 +1,87 @@
+$slider-height: 11px;
+$slider-width: ($slider-height + 2px);
+
+.form-control-range {
+  width: 100%;
+  appearance: none;
+  margin-bottom: $slider-height;
+
+  // fix for FF unable to apply focus style bug
+  border: 0;
+
+  // Webkit
+  &::-webkit-slider-runnable-track {
+    height: $slider-height;
+    background: $gray;
+  }
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: $slider-width;
+    height: $slider-height;
+    background: $body-color;
+    border: 1px solid $body-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  // Firefox
+  &::-moz-range-track {
+    height: $slider-height;
+    background: $gray;
+    border: none;
+    border-radius: 0;
+  }
+
+  &::-moz-range-progress {
+    height: $slider-height;
+    background: $m8tro-theme;
+  }
+
+  &::-moz-range-thumb {
+    width: $slider-width;
+    height: $slider-height;
+    background: $body-color;
+    border: 1px solid $body-color;
+    border-radius: 0;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  // IE 10-11 and Edge 12+
+  &::-ms-track {
+    height: $slider-height;
+
+    // remove default tick marks
+    color: transparent;
+
+    // remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead
+    background: transparent;
+
+    // leave room for the larger thumb to overflow with a transparent border
+    border-color: transparent;
+    border-width: 6px 0;
+  }
+
+  &::-ms-fill-lower {
+    background: $m8tro-theme;
+    border-radius: 0;
+  }
+
+  &::-ms-fill-upper {
+    background: $gray;
+    border-radius: 0;
+  }
+
+  &::-ms-thumb {
+    width: $slider-width;
+    height: $slider-height;
+    background: $body-color;
+    border: 1px solid $body-color;
+    border-radius: 0;
+  }
+}

@@ -2,16 +2,21 @@ sudo: false
 language: node_js
 node_js:
   - "stable"
+before_install:
+  - npm install -g greenkeeper-lockfile@2
 install:
   - npm install
-  - bower install
+before_script:
+  - greenkeeper-lockfile-update
 script:
   - gulp lint
-  - gulp less
+  - gulp css
+after_script:
+  - greenkeeper-lockfile-upload
 cache:
   directories:
     - node_modules
-    - bower_components
 env:
   global:
     - NPM_CONFIG_PROGRESS="false"
+    - GK_LOCK_DEFAULT_BRANCH="v4"
