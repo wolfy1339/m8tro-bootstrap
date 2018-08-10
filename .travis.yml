@@ -3,7 +3,7 @@ language: node_js
 node_js:
   - "stable"
 before_install:
-  - npm install -g greenkeeper-lockfile
+  - npm install -g greenkeeper-lockfile@2
 install:
   - npm install
 before_script:
@@ -19,3 +19,4 @@ cache:
 env:
   global:
     - NPM_CONFIG_PROGRESS="false"
+    - GK_LOCK_DEFAULT_BRANCH="v4"
