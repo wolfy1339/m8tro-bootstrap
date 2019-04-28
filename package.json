@@ -49,7 +49,7 @@
     "@babel/register": "7.0.0",
     "autoprefixer": "^9.1.0",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
-    "del": "^3.0.0",
+    "del": "^4.1.1",
     "eslint-config-google": "^0.9.1",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0-beta.1",
