@@ -57,7 +57,7 @@
     "gulp-clean-css": "^3.10.0",
     "gulp-concat": "^2.6.1",
     "gulp-debug": "^4.0.0",
-    "gulp-eslint": "^5.0.0",
+    "gulp-eslint": "^6.0.0",
     "gulp-html-validator": "^0.0.5",
     "gulp-json-lint": "^0.1.0",
     "gulp-postcss": "^8.0.0",
