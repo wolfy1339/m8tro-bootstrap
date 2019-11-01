@@ -47,7 +47,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "7.1.0",
     "@babel/register": "7.0.0",
-    "autoprefixer": "^9.1.0",
+    "autoprefixer": "^9.7.1",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
     "del": "^3.0.0",
     "eslint-config-google": "^0.9.1",
