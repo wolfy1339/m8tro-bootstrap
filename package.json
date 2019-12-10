@@ -65,7 +65,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.3",
-    "gulp-stylelint": "^7.0.0",
+    "gulp-stylelint": "^11.0.0",
     "jshint": "^2.9.5",
     "node-sass": "^4.9.3",
     "rollup-plugin-babel": "^4.0.0-beta.8",
